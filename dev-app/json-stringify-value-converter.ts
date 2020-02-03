@@ -1,5 +1,8 @@
 export class JsonStringifyValueConverter {
-  toView(value) {
+  toView(value: any) {
     return JSON.stringify(value);
+  }
+  fromView(value) {
+    return JSON.parse(value);
   }
 }

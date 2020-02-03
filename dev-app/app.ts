@@ -1,26 +1,102 @@
-import { bindable } from 'aurelia-framework';
+import { PLATFORM } from 'aurelia-pal';
+import { bindable, autoinject } from 'aurelia-framework';
+import { Router, RouterConfiguration, RouteConfig } from 'aurelia-router';
+import { Sidebar } from '@syncfusion/ej2-navigations';
+import { enableRipple } from '@syncfusion/ej2-base';
+import { TreeView, TreeViewModel, NodeSelectEventArgs } from '@syncfusion/ej2-navigations';
+enableRipple(true);
+
 import * as data from './dataSource.json';
 
+
+type RouteDescriptor = { [key: string]: Object };
+
+function hasChildren(node) {
+  return (typeof node === 'object')
+      && (typeof node.children !== 'undefined')
+      && (node.children.length > 0);
+}
+
+function flatten (routes: RouteDescriptor[], output: RouteDescriptor[]) {
+
+  routes.forEach(route => {
+    output.push(route);
+    if (hasChildren(route)){
+      return flatten(<Array<RouteDescriptor>>route.children, output);
+    }
+  });
+  return [...output];
+}
+
+@autoinject
 export class App {
-  public message: string = 'from Aurelia!';
+  
+  private routes: RouteDescriptor[] = [
+    {
+      route: 'getting-started', name: 'getting-started', title: 'Getting Started', moduleId: PLATFORM.moduleName('./getting-started'), iconCss: 'icon-microchip icon', nav: true
+    },
+    {
+      route: 'components', name: 'components', title: 'Components', moduleId: PLATFORM.moduleName('./components'), iconCss: 'icon-microchip icon', nav: false,
+      children: [
+          {
+             route: 'editors', name: 'components-editors', title: 'Editors', moduleId: PLATFORM.moduleName('./components/editors'), iconCss: 'icon-microchip icon', nav: false,
+             children: [
+               { route: 'buttons', name: 'components-editors-buttons', title: 'Buttons', moduleId: PLATFORM.moduleName('./components/editors/buttons/default'), iconCss: 'icon-microchip icon', nav: true}
+             ]
+          },
+          { 
+            route: 'dropdowns', name: 'components-dropdowns', title: 'DropDowns', moduleId: PLATFORM.moduleName('./components/dropdowns'), iconCss: 'icon-microchip icon', nav: false,
+            children: [
+              { route: 'auto-complete', name: 'components-dropdowns-auto-complete', title: 'AutoComplete', moduleId: PLATFORM.moduleName('./components/dropdowns/auto-complete/default'), iconCss: 'icon-microchip icon', nav: true}
+            ]
+         }          
+        ]
+    }
+  ];
 
-  products: string[] = ['Motherboard', 'CPU', 'Memory'];
-  selectedProduct = null;
+  constructor(private router: Router) {}
 
-  @bindable public isPrimary = false;
-  @bindable public isDisabled = false;
-  @bindable public isRTL = false;
-  @bindable public radioValue;
-  @bindable public acData = (data as any).empList;
-  @bindable public textFromAutoComplete;
-  @bindable public valueFromAutoComplete = JSON.parse('{ "Name": "Laura Callahan", "Eimg": "2", "Designation": "Product Manager", "Country": "USA" }');
+  
+  configureRouter(config: RouterConfiguration, router: Router): void {
+    
+    this.router = router;
+    config.title = 'Aurelia Syncfusion Bridge';
+    let tmp: RouteDescriptor[] = [];
+    
+    config.map([ { route: '', redirect: 'getting-started' },
+                  ...<RouteConfig[]>flatten(this.routes, [])] );
 
-  // isPrimaryChanged (newValue, oldValue) {
-  //   alert(newValue)
-  // }
+    //config.mapUnknownRoutes('getting-started');
+  }
 
-  clicked() {
-    // eslint-disable-next-line no-alert
-    // alert('A primary button click or a touch');
+  attached() {
+    let sidebarMenu: Sidebar = new Sidebar({
+      width: '290px',
+      target: '.main-content',
+      mediaQuery: '(min-width: 600px)',
+    });
+    sidebarMenu.appendTo('#sidebar-treeview');
+
+    // Toggle the Sidebar
+    document.getElementById('hamburger').onclick = (): void => {
+        sidebarMenu.toggle();
+    };
+  
+    // TreeView  initialization
+
+    let mainTreeView: TreeView = new TreeView({
+        fields: { dataSource: this.routes, id: 'route', text: 'title', child: 'children' },
+        expandOn: 'Click',
+        nodeSelected: (eargs: NodeSelectEventArgs) => {
+          
+          if (this.router.routes.find(route => route.route === eargs.nodeData.id).nav) {
+            this.router.navigate(eargs.nodeData.id.toString()); 
+          }
+          
+        }
+    });
+    
+    mainTreeView.appendTo('#main-treeview');
   }
 }
+
