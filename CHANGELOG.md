@@ -1,3 +1,7 @@
+## [17.4.4-6.1](https://github.com/glyad/aurelia-ej2-plugin/compare/v17.5.0...v17.4.4-6.1) (2020-02-04)
+
+
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
