@@ -1,5 +1,5 @@
 {
-  "name": "au-ej-2-plugin",
+  "name": "au-ej2-plugin",
   "type": "project:plugin",
   "paths": {
     "root": "dev-app",
