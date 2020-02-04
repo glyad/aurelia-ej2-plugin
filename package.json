@@ -1,12 +1,12 @@
 {
-  "name": "au-ej-2-plugin",
+  "name": "au-ej2-plugin",
   "description": "An Aurelia plugin wrapping Syncfusion EJ2 components.",
   "version": "17.4.46",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/glyad/aurelia-ej2-plugin.git"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "devDependencies": {
     "@types/jasmine": "^2.8.9",
     "@types/node": "^13.7.0",
