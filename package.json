@@ -1,7 +1,7 @@
 {
   "name": "au-ej-2-plugin",
   "description": "An Aurelia plugin project.",
-  "version": "17.5.0",
+  "version": "17.4.46",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/glyad/aurelia-ej2-plugin.git"
