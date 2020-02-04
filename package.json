@@ -1,41 +1,34 @@
 {
   "name": "au-ej-2-plugin",
   "description": "An Aurelia plugin project.",
-  "version": "0.1.0",
+  "version": "17.4.46",
   "repository": {
-    "type": "???",
-    "url": "???"
+    "type": "git",
+    "url": "git+https://github.com/glyad/aurelia-ej2-plugin.git"
   },
   "license": "UNLICENSED",
   "devDependencies": {
-    "aurelia-bootstrapper": "^2.3.3",
+    "@types/jasmine": "^2.8.9",
+    "@types/node": "^13.7.0",
     "aurelia-animator-css": "^1.0.4",
+    "aurelia-bootstrapper": "^2.3.3",
     "aurelia-cli": "^1.2.3",
     "aurelia-testing": "^1.0.0",
     "aurelia-tools": "^2.0.0",
-    "gulp": "^4.0.2",
-    "minimatch": "^3.0.4",
-    "through2": "^3.0.1",
-    "vinyl-fs": "^3.0.3",
-    "promise-polyfill": "^8.1.3",
-    "del": "^3.0.0",
-    "gulp-sourcemaps": "^2.6.5",
-    "requirejs": "^2.3.6",
-    "text": "requirejs/text#latest",
-    "gulp-typescript": "^5.0.0",
-    "gulp-tslint": "^8.1.4",
-    "tslint": "^6.0.0",
-    "typescript": "^3.7.5",
-    "@types/node": "^13.5.0",
-    "gulp-postcss": "^8.0.0",
-    "autoprefixer": "^9.4.8",
-    "gulp-sass": "^4.0.2",
+    "autoprefixer": "^9.7.4",
     "browser-sync": "^2.26.7",
     "connect-history-api-fallback": "^1.6.0",
     "debounce": "^1.2.0",
-    "gulp-plumber": "^1.2.1",
-    "gulp-rename": "^1.4.0",
+    "del": "^3.0.0",
+    "gulp": "^4.0.2",
     "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-tslint": "^8.1.4",
+    "gulp-typescript": "^5.0.0",
     "gulp-watch": "^5.0.1",
     "jasmine-core": "^3.5.0",
     "karma": "^4.1.0",
@@ -43,7 +36,16 @@
     "karma-jasmine": "^2.0.1",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-typescript-preprocessor": "^0.4.0",
-    "@types/jasmine": "^2.8.9"
+    "minimatch": "^3.0.4",
+    "promise-polyfill": "^8.1.3",
+    "requirejs": "^2.3.6",
+    "standard-changelog": "^2.0.21",
+    "standard-version": "^7.1.0",
+    "text": "requirejs/text#latest",
+    "through2": "^3.0.1",
+    "tslint": "^6.0.0",
+    "typescript": "^3.7.5",
+    "vinyl-fs": "^3.0.3"
   },
   "browserslist": [
     "defaults"
@@ -55,19 +57,22 @@
     "prepare": "npm run build",
     "pretest": "au lint",
     "preversion": "au test",
-    "test": "au test"
+    "test": "au test",
+    "version": "standard-changelog && git add CHANGELOG.md",
+    "postversion": "git push && git push --tags && npm publish",
+    "release": "standard-version"
   },
   "engines": {
     "node": ">=8.9.0"
   },
   "main": "dist/commonjs/index.js",
   "module": "dist/native-modules/index.js",
-  "private": true,
+  "private": false,
   "files": [
     "dist",
     "src"
   ],
   "dependencies": {
-    "@syncfusion/ej2": "^17.4.44"
+    "@syncfusion/ej2": "^17.4.46"
   }
 }
