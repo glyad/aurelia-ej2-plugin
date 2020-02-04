@@ -2,11 +2,25 @@
   "name": "au-ej2-plugin",
   "description": "An Aurelia plugin wrapping Syncfusion EJ2 components.",
   "version": "17.4.46",
+  "author": {
+    "name": "David Kossoglyad",
+    "email": "david@logoui.co.il"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/glyad/aurelia-ej2-plugin.git"
   },
+  "bugs": {
+    "url": "https://github.com/syncfusion/ej2-javascript-ui-controls/issues"
+  },
+  "homepage": "https://glyad.github.io/aurelia-ej2-plugin/",
   "license": "MIT",
+  "keywords": [
+    "aurelia",
+    "syncfusion",
+    "ej2", "ejs", "ej 2", "ej-2", 
+    "logofx"
+  ],
   "devDependencies": {
     "@types/jasmine": "^2.8.9",
     "@types/node": "^13.7.0",
@@ -70,7 +84,8 @@
   "private": false,
   "files": [
     "dist",
-    "src"
+    "src",
+    "LICENSE"
   ],
   "dependencies": {
     "@syncfusion/ej2-base": "^17.4.46",
