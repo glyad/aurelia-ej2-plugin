@@ -11,8 +11,6 @@ export * from './list-box/index';
 
 export function configure(config: FrameworkConfiguration) {
   config.globalResources([
-    PLATFORM.moduleName('./auto-complete/ej-auto-complete'),
-    PLATFORM.moduleName('./drop-down-base/ej-drop-down-base'),    
-    PLATFORM.moduleName('./drop-down-list/ej-drop-down-list')
+    
   ]);
 }
