@@ -1,7 +1,7 @@
 {
   "name": "au-ej2-plugin",
   "description": "An Aurelia plugin wrapping Syncfusion EJ2 components.",
-  "version": "17.4.47",
+  "version": "17.4.48",
   "author": {
     "name": "David Kossoglyad",
     "email": "david@logoui.co.il"
@@ -96,7 +96,7 @@
     "precommit": "npm run prettier",
     "prepush": "npm-run-all lint test",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "publish": "npm run build && npm publish ./dist"
+    "publish": "npm run build && npm publish"
   },
   "config": {
     "commitizen": {
