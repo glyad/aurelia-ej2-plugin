@@ -9,7 +9,9 @@ __export(require("./dropdowns/index"));
 __export(require("./inputs/index"));
 function configure(config) {
     config.globalResources([
-        aurelia_pal_1.PLATFORM.moduleName('./elements/ej-radio-button'),
+        aurelia_pal_1.PLATFORM.moduleName('./elements/ej-button'),
+        aurelia_pal_1.PLATFORM.moduleName('./elements/ej-checkbox'),
+        aurelia_pal_1.PLATFORM.moduleName('./elements/ej-radio-button')
     ]);
 }
 exports.configure = configure;

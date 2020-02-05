@@ -104286,9 +104286,6 @@ define('text!elements/ej-button.html',['text!__dot_dot__/src/elements/ej-button.
 define('elements/ej-checkbox',['__dot_dot__/src/elements/ej-checkbox'],function(m){return m;});
 define('text!elements/ej-checkbox.html',['text!__dot_dot__/src/elements/ej-checkbox.html'],function(m){return m;});
 define('elements/ej-radio-button',['__dot_dot__/src/elements/ej-radio-button'],function(m){return m;});
-define('elements/hello-world',['__dot_dot__/src/elements/hello-world'],function(m){return m;});
-define('text!elements/hello-world.css',['text!__dot_dot__/src/elements/hello-world.css'],function(m){return m;});
-define('text!elements/hello-world.html',['text!__dot_dot__/src/elements/hello-world.html'],function(m){return m;});
 define('elements/index',['__dot_dot__/src/elements/index'],function(m){return m;});
 define('elements/inputs/index',['__dot_dot__/src/elements/inputs/index'],function(m){return m;});
 define('elements/inputs/input/index',['__dot_dot__/src/elements/inputs/input/index'],function(m){return m;});
@@ -104317,9 +104314,6 @@ define('text!resources/elements/ej-button.html',['text!__dot_dot__/src/elements/
 define('resources/elements/ej-checkbox',['__dot_dot__/src/elements/ej-checkbox'],function(m){return m;});
 define('text!resources/elements/ej-checkbox.html',['text!__dot_dot__/src/elements/ej-checkbox.html'],function(m){return m;});
 define('resources/elements/ej-radio-button',['__dot_dot__/src/elements/ej-radio-button'],function(m){return m;});
-define('resources/elements/hello-world',['__dot_dot__/src/elements/hello-world'],function(m){return m;});
-define('text!resources/elements/hello-world.css',['text!__dot_dot__/src/elements/hello-world.css'],function(m){return m;});
-define('text!resources/elements/hello-world.html',['text!__dot_dot__/src/elements/hello-world.html'],function(m){return m;});
 define('resources/elements/index',['__dot_dot__/src/elements/index'],function(m){return m;});
 define('resources/elements/inputs/index',['__dot_dot__/src/elements/inputs/index'],function(m){return m;});
 define('resources/elements/inputs/input/index',['__dot_dot__/src/elements/inputs/input/index'],function(m){return m;});
@@ -104365,9 +104359,6 @@ function _aureliaConfigureModuleLoader(){requirejs.config({
       "__dot_dot__/src/elements/ej-checkbox",
       "text!__dot_dot__/src/elements/ej-checkbox.html",
       "__dot_dot__/src/elements/ej-radio-button",
-      "__dot_dot__/src/elements/hello-world",
-      "text!__dot_dot__/src/elements/hello-world.css",
-      "text!__dot_dot__/src/elements/hello-world.html",
       "__dot_dot__/src/elements/index",
       "__dot_dot__/src/elements/inputs/index",
       "__dot_dot__/src/elements/inputs/input/index",

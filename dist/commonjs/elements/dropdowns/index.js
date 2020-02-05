@@ -13,7 +13,6 @@ __export(require("./list-box/index"));
 function configure(config) {
     config.globalResources([
         aurelia_pal_1.PLATFORM.moduleName('./auto-complete/ej-auto-complete'),
-        aurelia_pal_1.PLATFORM.moduleName('./drop-down-base/ej-drop-down-base'),
         aurelia_pal_1.PLATFORM.moduleName('./drop-down-list/ej-drop-down-list')
     ]);
 }
