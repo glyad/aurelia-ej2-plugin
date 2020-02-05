@@ -1,12 +1,11 @@
 import { bindable, bindingMode } from 'aurelia-framework';
 import { FloatLabelType } from '@syncfusion/ej2-inputs';
-import { Query } from '@syncfusion/ej2-data';
 import { EmitType } from '@syncfusion/ej2-base';
 import { DropDownListModel, ChangeEventArgs, FilteringEventArgs, PopupEventArgs } from '@syncfusion/ej2-dropdowns';
 import { EjDropDownBaseModel } from '../drop-down-base/ej-drop-down-base-model';
 
 export class EjDropDownListModel extends EjDropDownBaseModel implements DropDownListModel {
-  
+
   /**
    * Sets CSS classes to the root element of the component that allows customization of appearance.
    * @default null
@@ -15,7 +14,7 @@ export class EjDropDownListModel extends EjDropDownBaseModel implements DropDown
   cssClass?: string;
 
   /**
-   * Specifies the width of the component. By default, the component width sets based on the width of 
+   * Specifies the width of the component. By default, the component width sets based on the width of
    * its parent container. You can also set the width in pixel values.
    * @default '100%'
    * @aspType string
@@ -25,8 +24,8 @@ export class EjDropDownListModel extends EjDropDownBaseModel implements DropDown
   width?: string | number;
 
   /**
-   * Specifies the height of the popup list.  
-   * > For more details about the popup configuration refer to 
+   * Specifies the height of the popup list.
+   * > For more details about the popup configuration refer to
    * [`Popup Configuration`](../../drop-down-list/getting-started#configure-the-popup-list) documentation.
    * @default '300px'
    * @aspType string
@@ -36,9 +35,9 @@ export class EjDropDownListModel extends EjDropDownBaseModel implements DropDown
   popupHeight?: string | number;
 
   /**
-   * Specifies the width of the popup list. By default, the popup width sets based on the width of 
+   * Specifies the width of the popup list. By default, the popup width sets based on the width of
    * the component.
-   * > For more details about the popup configuration refer to 
+   * > For more details about the popup configuration refer to
    * [`Popup Configuration`](../../drop-down-list/getting-started#configure-the-popup-list) documentation.
    * @default '100%'
    * @aspType string
@@ -55,7 +54,7 @@ export class EjDropDownListModel extends EjDropDownBaseModel implements DropDown
   placeholder?: string;
 
   /**
-   * Accepts the value to be displayed as a watermark text on the filter bar. 
+   * Accepts the value to be displayed as a watermark text on the filter bar.
    * @default null
    */
   @bindable({ defaultBindingMode: bindingMode.twoWay })
@@ -64,9 +63,9 @@ export class EjDropDownListModel extends EjDropDownBaseModel implements DropDown
   /**
    * Allows additional HTML attributes such as title, name, etc., and
    * accepts n number of attributes in a key-value pair format.
-   * 
+   *
    * {% codeBlock src="dropdownlist/html-attributes-api/index.ts" %}{% endcodeBlock %}
-   * 
+   *
    * {% codeBlock src="dropdownlist/html-attributes-api/index.html" %}{% endcodeBlock %}
    *
    * @default {}
@@ -76,9 +75,9 @@ export class EjDropDownListModel extends EjDropDownBaseModel implements DropDown
 
   /**
    * Accepts the template design and assigns it to the selected list item in the input element of the component.
-   * For more details about the available template options refer to 
+   * For more details about the available template options refer to
    * [`Template`](../../drop-down-list/templates) documentation.
-   * 
+   *
    * We have built-in `template engine`
    * which provides options to compile template string into a executable function.
    * For EX: We have expression evolution as like ES6 expression string literals.
@@ -107,12 +106,12 @@ export class EjDropDownListModel extends EjDropDownBaseModel implements DropDown
    * When allowFiltering is set to true, show the filter bar (search box) of the component.
    * The filter action retrieves matched items through the `filtering` event based on
    * the characters typed in the search TextBox.
-   * 
+   *
    * If no match is found, the value of the `noRecordsTemplate` property will be displayed.
    * > For more details about the filtering refer to [`Filtering`](../../drop-down-list/filtering) documentation.
-   * 
+   *
    * {% codeBlock src="dropdownlist/allow-filtering-api/index.ts" %}{% endcodeBlock %}
-   * 
+   *
    * {% codeBlock src="dropdownlist/allow-filtering-api/index.html" %}{% endcodeBlock %}
    * @default false
    */
@@ -143,15 +142,15 @@ export class EjDropDownListModel extends EjDropDownBaseModel implements DropDown
 
   /**
    * Gets or sets the index of the selected item in the component.
-   * 
+   *
    * {% codeBlock src="dropdownlist/index-api/index.ts" %}{% endcodeBlock %}
-   * 
+   *
    * {% codeBlock src="dropdownlist/index-api/index.html" %}{% endcodeBlock %}
-   * 
+   *
    * @default null
    * @blazorType int
    * @isBlazorNullableType true
-   * @blazorDefaultValue 
+   * @blazorDefaultValue
    */
   @bindable({ defaultBindingMode: bindingMode.twoWay })
   index?: number;
@@ -162,11 +161,11 @@ export class EjDropDownListModel extends EjDropDownBaseModel implements DropDown
    * * Never: The label will never float in the input when the placeholder is available.
    * * Always: The floating label will always float above the input.
    * * Auto: The floating label will float above the input after focusing or entering a value in the input.
-   * 
+   *
    * {% codeBlock src="dropdownlist/float-label-type-api/index.ts" %}{% endcodeBlock %}
-   * 
+   *
    * {% codeBlock src="dropdownlist/float-label-type-api/index.html" %}{% endcodeBlock %}
-   * 
+   *
    * @default Syncfusion.EJ2.Inputs.FloatLabelType.Never
    * @aspType Syncfusion.EJ2.Inputs.FloatLabelType
    * @isEnumeration true
@@ -176,7 +175,7 @@ export class EjDropDownListModel extends EjDropDownBaseModel implements DropDown
   floatLabelType?: FloatLabelType;
 
   /**
-   * Specifies whether to show or hide the clear button. 
+   * Specifies whether to show or hide the clear button.
    * When the clear button is clicked, `value`, `text`, and `index` properties are reset to null.
    * @default false
    */
@@ -184,11 +183,11 @@ export class EjDropDownListModel extends EjDropDownBaseModel implements DropDown
   showClearButton?: boolean;
 
   /**
-   * Triggers on typing a character in the filter bar when the 
-   * [`allowFiltering`](./#allowfiltering) 
+   * Triggers on typing a character in the filter bar when the
+   * [`allowFiltering`](./#allowfiltering)
    * is enabled.
    * > For more details about the filtering refer to [`Filtering`](../../drop-down-list/filtering) documentation.
-   * 
+   *
    * @event
    * @blazorProperty 'Filtering'
    */
@@ -197,7 +196,7 @@ export class EjDropDownListModel extends EjDropDownBaseModel implements DropDown
 
   /**
    * Triggers when an item in a popup is selected or when the model value is changed by user.
-   * Use change event to 
+   * Use change event to
    * [`Configure the Cascading DropDownList`](../../drop-down-list/how-to/cascading)
    * @event
    * @blazorProperty 'ValueChange'
@@ -243,5 +242,5 @@ export class EjDropDownListModel extends EjDropDownBaseModel implements DropDown
    */
   @bindable({ defaultBindingMode: bindingMode.twoWay })
   focus?: EmitType<Object>;
-  
+
 }

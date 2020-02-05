@@ -9,8 +9,3 @@ export * from './auto-complete/index';
 export * from './multi-select/index';
 export * from './list-box/index';
 
-export function configure(config: FrameworkConfiguration) {
-  config.globalResources([
-    
-  ]);
-}

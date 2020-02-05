@@ -5,13 +5,13 @@ export * from './base/index';
 export * from './dropdowns/index';
 export * from './inputs/index';
 
-export function configure(config: FrameworkConfiguration) {
-  config.globalResources([
-    PLATFORM.moduleName('./elements/ej-button'),
-    PLATFORM.moduleName('./elements/ej-checkbox'),
-    PLATFORM.moduleName('./elements/ej-radio-button'),
-    PLATFORM.moduleName('./elements/dropdowns/auto-complete/ej-auto-complete'),
-    PLATFORM.moduleName('./elements/dropdowns/drop-down-list/ej-drop-down-list')
-  ]);
+// export function configure(config: FrameworkConfiguration) {
+//   config.globalResources([
+//     PLATFORM.moduleName('./ej-button'),
+//     PLATFORM.moduleName('./ej-checkbox'),
+//     PLATFORM.moduleName('./ej-radio-button'),
+//     PLATFORM.moduleName('./dropdowns/auto-complete/ej-auto-complete'),
+//     PLATFORM.moduleName('./dropdowns/drop-down-list/ej-drop-down-list')
+//   ]);
 
-}
+// }

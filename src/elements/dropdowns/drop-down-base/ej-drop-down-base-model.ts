@@ -1,13 +1,12 @@
-import { IInput } from '@syncfusion/ej2-inputs';
 import { bindable, bindingMode } from 'aurelia-framework';
 import { EmitType } from '@syncfusion/ej2-base';
 import { DataManager, Query } from '@syncfusion/ej2-data';
 import { SortOrder } from '@syncfusion/ej2-lists';
 import { DropDownBaseModel, FieldSettingsModel, FilterType, SelectEventArgs } from '@syncfusion/ej2-dropdowns';
-import { EjComponentModel } from 'elements/base';
+import { EjComponentModel } from '../../base/ej-component-model';
 
 export class EjDropDownBaseModel extends EjComponentModel implements DropDownBaseModel {
-  
+
   /**
    * The `fields` property maps the columns of the data table and binds the data to the component.
    * * text - Maps the text column from data table for each list item.
@@ -17,7 +16,7 @@ export class EjDropDownBaseModel extends EjComponentModel implements DropDownBas
    * ```html
    * <input type="text" tabindex="1" id="list"> </input>
    * ```
-   * ```typescript  
+   * ```typescript
    *   let customers: DropDownList = new DropDownList({
    *      dataSource:new DataManager({ url:'http://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/' }),
    *      query: new Query().from('Customers').select(['ContactName', 'CustomerID']).take(5),
@@ -35,9 +34,9 @@ export class EjDropDownBaseModel extends EjComponentModel implements DropDownBas
   /**
    * Accepts the template design and assigns it to each list item present in the popup.
    * We have built-in `template engine`
-   * 
-   * which provides options to compile template string into a executable function. 
-   * For EX: We have expression evolution as like ES6 expression string literals. 
+   *
+   * which provides options to compile template string into a executable function.
+   * For EX: We have expression evolution as like ES6 expression string literals.
    * @default null
    * @deprecated
    */
@@ -109,32 +108,32 @@ export class EjDropDownBaseModel extends EjComponentModel implements DropDownBas
   query?: Query;
 
   /**
-   * Determines on which filter type, the component needs to be considered on search action. 
-   * The `FilterType` and its supported data types are 
-   * 
-   * <table> 
-   * <tr> 
-   * <td colSpan=1 rowSpan=1> 
-   * FilterType<br/></td><td colSpan=1 rowSpan=1> 
-   * Description<br/></td><td colSpan=1 rowSpan=1> 
-   * Supported Types<br/></td></tr> 
-   * <tr> 
-   * <td colSpan=1 rowSpan=1> 
-   * StartsWith<br/></td><td colSpan=1 rowSpan=1> 
-   * Checks whether a value begins with the specified value.<br/></td><td colSpan=1 rowSpan=1> 
-   * String<br/></td></tr> 
-   * <tr> 
-   * <td colSpan=1 rowSpan=1> 
-   * EndsWith<br/></td><td colSpan=1 rowSpan=1> 
-   * Checks whether a value ends with specified value.<br/><br/></td><td colSpan=1 rowSpan=1> 
-   * <br/>String<br/></td></tr> 
-   * <tr> 
-   * <td colSpan=1 rowSpan=1> 
-   * Contains<br/></td><td colSpan=1 rowSpan=1> 
-   * Checks whether a value contains with specified value.<br/><br/></td><td colSpan=1 rowSpan=1> 
-   * <br/>String<br/></td></tr> 
+   * Determines on which filter type, the component needs to be considered on search action.
+   * The `FilterType` and its supported data types are
+   *
+   * <table>
+   * <tr>
+   * <td colSpan=1 rowSpan=1>
+   * FilterType<br/></td><td colSpan=1 rowSpan=1>
+   * Description<br/></td><td colSpan=1 rowSpan=1>
+   * Supported Types<br/></td></tr>
+   * <tr>
+   * <td colSpan=1 rowSpan=1>
+   * StartsWith<br/></td><td colSpan=1 rowSpan=1>
+   * Checks whether a value begins with the specified value.<br/></td><td colSpan=1 rowSpan=1>
+   * String<br/></td></tr>
+   * <tr>
+   * <td colSpan=1 rowSpan=1>
+   * EndsWith<br/></td><td colSpan=1 rowSpan=1>
+   * Checks whether a value ends with specified value.<br/><br/></td><td colSpan=1 rowSpan=1>
+   * <br/>String<br/></td></tr>
+   * <tr>
+   * <td colSpan=1 rowSpan=1>
+   * Contains<br/></td><td colSpan=1 rowSpan=1>
+   * Checks whether a value contains with specified value.<br/><br/></td><td colSpan=1 rowSpan=1>
+   * <br/>String<br/></td></tr>
    * </table>
-   * 
+   *
    * The default value set to `StartsWith`, all the suggestion items which contain typed characters to listed in the suggestion popup.
    * @default 'StartsWith'
    * @deprecated
