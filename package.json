@@ -95,8 +95,7 @@
     "commit": "git-cz",
     "precommit": "npm run prettier",
     "prepush": "npm-run-all lint test",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "publish": "npm run build && npm publish"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "config": {
     "commitizen": {
