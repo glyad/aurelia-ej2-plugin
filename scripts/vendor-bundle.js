@@ -104262,7 +104262,6 @@ define('aurelia-testing/compile-spy',['aurelia-testing/dist/commonjs/compile-spy
 define('aurelia-testing/component-tester',['aurelia-testing/dist/commonjs/component-tester'],function(m){return m;});
 define('aurelia-testing/view-spy',['aurelia-testing/dist/commonjs/view-spy'],function(m){return m;});
 define('aurelia-testing/wait',['aurelia-testing/dist/commonjs/wait'],function(m){return m;});
-define('elements/base',['elements/base/index'],function(m){return m;});
 define('elements/base/ej-component-model',['__dot_dot__/src/elements/base/ej-component-model'],function(m){return m;});
 define('elements/base/index',['__dot_dot__/src/elements/base/index'],function(m){return m;});
 define('elements/dropdowns/auto-complete/ej-auto-complete',['__dot_dot__/src/elements/dropdowns/auto-complete/ej-auto-complete'],function(m){return m;});

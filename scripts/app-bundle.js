@@ -322,7 +322,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define('__dot_dot__/src/elements/dropdowns/drop-down-base/ej-drop-down-base-model',["require", "exports", "aurelia-framework", "@syncfusion/ej2-data", "elements/base"], function (require, exports, aurelia_framework_1, ej2_data_1, base_1) {
+define('__dot_dot__/src/elements/dropdowns/drop-down-base/ej-drop-down-base-model',["require", "exports", "aurelia-framework", "@syncfusion/ej2-data", "../../base/ej-component-model"], function (require, exports, aurelia_framework_1, ej2_data_1, ej_component_model_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var EjDropDownBaseModel = (function (_super) {
@@ -407,7 +407,7 @@ define('__dot_dot__/src/elements/dropdowns/drop-down-base/ej-drop-down-base-mode
             __metadata("design:type", Object)
         ], EjDropDownBaseModel.prototype, "destroyed", void 0);
         return EjDropDownBaseModel;
-    }(base_1.EjComponentModel));
+    }(ej_component_model_1.EjComponentModel));
     exports.EjDropDownBaseModel = EjDropDownBaseModel;
 });
 ;
@@ -641,10 +641,6 @@ define('__dot_dot__/src/elements/dropdowns/index',["require", "exports", "./drop
     __export(index_4);
     __export(index_5);
     __export(index_6);
-    function configure(config) {
-        config.globalResources([]);
-    }
-    exports.configure = configure;
 });
 ;
 var __extends = (this && this.__extends) || (function () {
@@ -1210,7 +1206,7 @@ define('__dot_dot__/src/elements/ej-radio-button',["require", "exports", "aureli
     exports.EjRadioButton = EjRadioButton;
 });
 ;
-define('__dot_dot__/src/elements/index',["require", "exports", "aurelia-pal", "./base/index", "./dropdowns/index", "./inputs/index"], function (require, exports, aurelia_pal_1, index_1, index_2, index_3) {
+define('__dot_dot__/src/elements/index',["require", "exports", "./base/index", "./dropdowns/index", "./inputs/index"], function (require, exports, index_1, index_2, index_3) {
     "use strict";
     function __export(m) {
         for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -1219,16 +1215,6 @@ define('__dot_dot__/src/elements/index',["require", "exports", "aurelia-pal", ".
     __export(index_1);
     __export(index_2);
     __export(index_3);
-    function configure(config) {
-        config.globalResources([
-            aurelia_pal_1.PLATFORM.moduleName('./elements/ej-button'),
-            aurelia_pal_1.PLATFORM.moduleName('./elements/ej-checkbox'),
-            aurelia_pal_1.PLATFORM.moduleName('./elements/ej-radio-button'),
-            aurelia_pal_1.PLATFORM.moduleName('./elements/dropdowns/auto-complete/ej-auto-complete'),
-            aurelia_pal_1.PLATFORM.moduleName('./elements/dropdowns/drop-down-list/ej-drop-down-list')
-        ]);
-    }
-    exports.configure = configure;
 });
 ;
 define('__dot_dot__/src/elements/inputs/index',["require", "exports", "./input/index"], function (require, exports, index_1) {
@@ -1297,13 +1283,23 @@ define('__dot_dot__/src/elements/inputs/input/input-base',["require", "exports",
     exports.EjInputBase = EjInputBase;
 });
 ;
-define('__dot_dot__/src/index',["require", "exports", "./elements/index"], function (require, exports, index_1) {
+define('__dot_dot__/src/index',["require", "exports", "aurelia-pal", "./elements/index"], function (require, exports, aurelia_pal_1, index_1) {
     "use strict";
     function __export(m) {
         for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
     }
     Object.defineProperty(exports, "__esModule", { value: true });
     __export(index_1);
+    function configure(config) {
+        config.globalResources([
+            aurelia_pal_1.PLATFORM.moduleName('./elements/ej-button'),
+            aurelia_pal_1.PLATFORM.moduleName('./elements/ej-checkbox'),
+            aurelia_pal_1.PLATFORM.moduleName('./elements/ej-radio-button'),
+            aurelia_pal_1.PLATFORM.moduleName('./elements/dropdowns/auto-complete/ej-auto-complete'),
+            aurelia_pal_1.PLATFORM.moduleName('./elements/dropdowns/drop-down-list/ej-drop-down-list')
+        ]);
+    }
+    exports.configure = configure;
 });
 ;
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
