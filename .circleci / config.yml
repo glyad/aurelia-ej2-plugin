@@ -16,6 +16,12 @@ jobs:
 
     working_directory: ~/repo
 
+    branches:
+      only:
+        - master
+
+    resource_class: small
+
     steps:
       - checkout
 
