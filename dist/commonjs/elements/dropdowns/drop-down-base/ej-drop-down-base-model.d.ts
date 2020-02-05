@@ -2,7 +2,7 @@ import { EmitType } from '@syncfusion/ej2-base';
 import { DataManager, Query } from '@syncfusion/ej2-data';
 import { SortOrder } from '@syncfusion/ej2-lists';
 import { DropDownBaseModel, FieldSettingsModel, FilterType, SelectEventArgs } from '@syncfusion/ej2-dropdowns';
-import { EjComponentModel } from 'elements/base';
+import { EjComponentModel } from '../../base/ej-component-model';
 export declare class EjDropDownBaseModel extends EjComponentModel implements DropDownBaseModel {
     fields?: FieldSettingsModel | any;
     itemTemplate?: string;

@@ -9,9 +9,5 @@ __export(require("./combo-box/index"));
 __export(require("./auto-complete/index"));
 __export(require("./multi-select/index"));
 __export(require("./list-box/index"));
-function configure(config) {
-    config.globalResources([]);
-}
-exports.configure = configure;
 
 //# sourceMappingURL=index.js.map

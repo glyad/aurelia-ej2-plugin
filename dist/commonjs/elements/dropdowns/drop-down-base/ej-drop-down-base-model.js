@@ -24,7 +24,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var aurelia_framework_1 = require("aurelia-framework");
 var ej2_data_1 = require("@syncfusion/ej2-data");
-var base_1 = require("elements/base");
+var ej_component_model_1 = require("../../base/ej-component-model");
 var EjDropDownBaseModel = (function (_super) {
     __extends(EjDropDownBaseModel, _super);
     function EjDropDownBaseModel() {
@@ -107,7 +107,7 @@ var EjDropDownBaseModel = (function (_super) {
         __metadata("design:type", Object)
     ], EjDropDownBaseModel.prototype, "destroyed", void 0);
     return EjDropDownBaseModel;
-}(base_1.EjComponentModel));
+}(ej_component_model_1.EjComponentModel));
 exports.EjDropDownBaseModel = EjDropDownBaseModel;
 
 //# sourceMappingURL=ej-drop-down-base-model.js.map

@@ -22,7 +22,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { bindable, bindingMode } from 'aurelia-framework';
 import { Query } from '@syncfusion/ej2-data';
-import { EjComponentModel } from 'elements/base';
+import { EjComponentModel } from '../../base/ej-component-model';
 var EjDropDownBaseModel = (function (_super) {
     __extends(EjDropDownBaseModel, _super);
     function EjDropDownBaseModel() {
