@@ -8,7 +8,7 @@ export function configure(aurelia: Aurelia) {
     // load the plugin ../src
     // The "resources" is mapped to "../src" in aurelia.json "paths"
     .feature('resources')
-    //.plugin(PLATFORM.moduleName('elements'))
+    .globalResources(PLATFORM.moduleName('/dev-app/app.css')) //.plugin(PLATFORM.moduleName('elements'))
     ;
 
   aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
