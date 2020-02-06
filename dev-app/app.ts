@@ -38,7 +38,8 @@ export class App {
     {
       route: 'components', name: 'components', title: 'Components', moduleId: PLATFORM.moduleName('./components'), iconCss: 'icon-microchip icon', nav: false,
       children: [
-        { route: 'button-getting-started', name: 'button-getting-started', title: 'Buttons', moduleId: PLATFORM.moduleName('./components/button/button-getting-started'), iconCss: 'icon-microchip icon', nav: true}
+          { route: 'button-getting-started', name: 'button-getting-started', title: 'Buttons', moduleId: PLATFORM.moduleName('./components/button/button-getting-started'), iconCss: 'icon-microchip icon', nav: true}
+        , { route: 'button-types-and-styles', name: 'button-types-and-styles', title: 'Buttons Types and Styles', moduleId: PLATFORM.moduleName('./components/button/button-types-and-styles'), iconCss: 'icon-microchip icon', nav: true}
         //   {
         //      route: 'editors', name: 'components-editors', title: 'Editors', moduleId: PLATFORM.moduleName('./components/editors'), iconCss: 'icon-microchip icon', nav: false,
         //      children: [
