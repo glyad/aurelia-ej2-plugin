@@ -104397,6 +104397,8 @@ function _aureliaConfigureModuleLoader(){requirejs.config({
       "text!app.html",
       "components/button/button-getting-started",
       "text!components/button/button-getting-started.html",
+      "components/button/button-types-and-styles",
+      "text!components/button/button-types-and-styles.html",
       "components/dropdowns/auto-complete/default",
       "text!components/dropdowns/auto-complete/default.html",
       "components/dropdowns/combobox/default",
