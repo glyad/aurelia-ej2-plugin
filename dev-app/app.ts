@@ -30,7 +30,7 @@ function flatten (routes: RouteDescriptor[], output: RouteDescriptor[]) {
 
 @autoinject
 export class App {
-  
+
   private routes: RouteDescriptor[] = [
     {
       route: 'getting-started', name: 'getting-started', title: 'Getting Started', moduleId: PLATFORM.moduleName('./getting-started'), iconCss: 'icon-microchip icon', nav: true
@@ -38,31 +38,32 @@ export class App {
     {
       route: 'components', name: 'components', title: 'Components', moduleId: PLATFORM.moduleName('./components'), iconCss: 'icon-microchip icon', nav: false,
       children: [
-          {
-             route: 'editors', name: 'components-editors', title: 'Editors', moduleId: PLATFORM.moduleName('./components/editors'), iconCss: 'icon-microchip icon', nav: false,
-             children: [
-               { route: 'buttons', name: 'components-editors-buttons', title: 'Buttons', moduleId: PLATFORM.moduleName('./components/editors/buttons/default'), iconCss: 'icon-microchip icon', nav: true}
-             ]
-          },
-          { 
-            route: 'dropdowns', name: 'components-dropdowns', title: 'DropDowns', moduleId: PLATFORM.moduleName('./components/dropdowns'), iconCss: 'icon-microchip icon', nav: false,
-            children: [
-              { route: 'auto-complete', name: 'components-dropdowns-auto-complete', title: 'AutoComplete', moduleId: PLATFORM.moduleName('./components/dropdowns/auto-complete/default'), iconCss: 'icon-microchip icon', nav: true}
-            ]
-         }          
+        { route: 'button-getting-started', name: 'button-getting-started', title: 'Buttons', moduleId: PLATFORM.moduleName('./components/button/button-getting-started'), iconCss: 'icon-microchip icon', nav: true}
+        //   {
+        //      route: 'editors', name: 'components-editors', title: 'Editors', moduleId: PLATFORM.moduleName('./components/editors'), iconCss: 'icon-microchip icon', nav: false,
+        //      children: [
+        //        { route: 'buttons', name: 'components-editors-buttons', title: 'Buttons', moduleId: PLATFORM.moduleName('./components/editors/buttons/default'), iconCss: 'icon-microchip icon', nav: true}
+        //      ]
+        //   },
+        //   {
+        //     route: 'dropdowns', name: 'components-dropdowns', title: 'DropDowns', moduleId: PLATFORM.moduleName('./components/dropdowns'), iconCss: 'icon-microchip icon', nav: false,
+        //     children: [
+        //       { route: 'auto-complete', name: 'components-dropdowns-auto-complete', title: 'AutoComplete', moduleId: PLATFORM.moduleName('./components/dropdowns/auto-complete/default'), iconCss: 'icon-microchip icon', nav: true}
+        //     ]
+        //  }
         ]
     }
   ];
 
   constructor(private router: Router) {}
 
-  
+
   configureRouter(config: RouterConfiguration, router: Router): void {
-    
+
     this.router = router;
     config.title = 'Aurelia Syncfusion Bridge';
     let tmp: RouteDescriptor[] = [];
-    
+
     config.map([ { route: '', redirect: 'getting-started' },
                   ...<RouteConfig[]>flatten(this.routes, [])] );
 
@@ -81,21 +82,21 @@ export class App {
     document.getElementById('hamburger').onclick = (): void => {
         sidebarMenu.toggle();
     };
-  
+
     // TreeView  initialization
 
     let mainTreeView: TreeView = new TreeView({
         fields: { dataSource: this.routes, id: 'route', text: 'title', child: 'children' },
         expandOn: 'Click',
         nodeSelected: (eargs: NodeSelectEventArgs) => {
-          
+
           if (this.router.routes.find(route => route.route === eargs.nodeData.id).nav) {
-            this.router.navigate(eargs.nodeData.id.toString()); 
+            this.router.navigate(eargs.nodeData.id.toString());
           }
-          
+
         }
     });
-    
+
     mainTreeView.appendTo('#main-treeview');
   }
 }
