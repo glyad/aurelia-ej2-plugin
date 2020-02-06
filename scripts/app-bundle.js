@@ -54,6 +54,759 @@ define('__dot_dot__/src/elements/base/index',["require", "exports", "./ej-compon
     __export(ej_component_model_1);
 });
 ;
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+define('__dot_dot__/src/elements/buttons/button/ej-button',["require", "exports", "aurelia-framework", "@syncfusion/ej2-buttons", "@syncfusion/ej2-base"], function (require, exports, aurelia_framework_1, ej2_buttons_1, ej2_base_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var EjButton = (function () {
+        function EjButton(element, taskQueue) {
+            this.element = element;
+            this.taskQueue = taskQueue;
+            this.guard = false;
+            this.primary = false;
+        }
+        EjButton.prototype.valueChanged = function (newValue, oldValue) {
+        };
+        EjButton.prototype.primaryChanged = function (newValue, oldValue) {
+            if (!this._button || this.guard || newValue === oldValue) {
+                return;
+            }
+            if (this._button) {
+                this._button.isPrimary = newValue;
+            }
+        };
+        EjButton.prototype.attached = function () {
+            ej2_base_1.enableRipple(true);
+            this._button = new ej2_buttons_1.Button();
+            var e = this.element.querySelector('button');
+            this._button.appendTo(e);
+            this._button.isPrimary = this.primary === true || this.primary === 'true';
+            this._button.content = this.value;
+        };
+        EjButton.prototype.detached = function () {
+            this._button.destroy();
+        };
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", Object)
+        ], EjButton.prototype, "value", void 0);
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", Object)
+        ], EjButton.prototype, "primary", void 0);
+        EjButton = __decorate([
+            aurelia_framework_1.autoinject,
+            aurelia_framework_1.inlineView('<template><button></button></template>'),
+            __metadata("design:paramtypes", [Element, aurelia_framework_1.TaskQueue])
+        ], EjButton);
+        return EjButton;
+    }());
+    exports.EjButton = EjButton;
+});
+;
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+define('__dot_dot__/src/elements/buttons/button/ej-button-model',["require", "exports", "aurelia-framework", "../../base/ej-component-model"], function (require, exports, aurelia_framework_1, ej_component_model_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var EjButtonModel = (function (_super) {
+        __extends(EjButtonModel, _super);
+        function EjButtonModel() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjButtonModel.prototype, "iconPosition", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjButtonModel.prototype, "iconCss", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjButtonModel.prototype, "disabled", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjButtonModel.prototype, "isPrimary", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjButtonModel.prototype, "cssClass", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjButtonModel.prototype, "content", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjButtonModel.prototype, "isToggle", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjButtonModel.prototype, "enableHtmlSanitizer", void 0);
+        return EjButtonModel;
+    }(ej_component_model_1.EjComponentModel));
+    exports.EjButtonModel = EjButtonModel;
+});
+;
+define('__dot_dot__/src/elements/buttons/button/index',["require", "exports", "./ej-button-model", "./ej-button"], function (require, exports, ej_button_model_1, ej_button_1) {
+    "use strict";
+    function __export(m) {
+        for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+    }
+    Object.defineProperty(exports, "__esModule", { value: true });
+    __export(ej_button_model_1);
+    __export(ej_button_1);
+});
+;
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+define('__dot_dot__/src/elements/buttons/check-box/ej-check-box-model',["require", "exports", "aurelia-framework", "../../base/ej-component-model"], function (require, exports, aurelia_framework_1, ej_component_model_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var EjCheckBoxModel = (function (_super) {
+        __extends(EjCheckBoxModel, _super);
+        function EjCheckBoxModel() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjCheckBoxModel.prototype, "change", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjCheckBoxModel.prototype, "checked", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjCheckBoxModel.prototype, "cssClass", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjCheckBoxModel.prototype, "disabled", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjCheckBoxModel.prototype, "indeterminate", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjCheckBoxModel.prototype, "label", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjCheckBoxModel.prototype, "labelPosition", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjCheckBoxModel.prototype, "name", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjCheckBoxModel.prototype, "value", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjCheckBoxModel.prototype, "enableHtmlSanitizer", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjCheckBoxModel.prototype, "htmlAttributes", void 0);
+        return EjCheckBoxModel;
+    }(ej_component_model_1.EjComponentModel));
+    exports.EjCheckBoxModel = EjCheckBoxModel;
+});
+;
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+define('__dot_dot__/src/elements/buttons/check-box/ej-checkbox',["require", "exports", "aurelia-framework", "@syncfusion/ej2-buttons"], function (require, exports, aurelia_framework_1, ej2_buttons_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var EjCheckbox = (function () {
+        function EjCheckbox(element, taskQueue) {
+            this.element = element;
+            this.taskQueue = taskQueue;
+            this._guard = false;
+            this.label = '';
+            this.checked = true;
+        }
+        Object.defineProperty(EjCheckbox.prototype, "disabled", {
+            get: function () {
+                return this._checkbox.disabled;
+            },
+            set: function (value) {
+                this._checkbox.disabled = value === true || value === 'true';
+            },
+            enumerable: true,
+            configurable: true
+        });
+        EjCheckbox.prototype.disabledChanged = function (newValue, oldValue) {
+            if (this._checkbox) {
+                this._checkbox.disabled = newValue;
+            }
+        };
+        EjCheckbox.prototype.attached = function () {
+            this._checkbox = new ej2_buttons_1.CheckBox();
+            var e = this.element.querySelector('input');
+            this._checkbox.appendTo(e);
+            this._checkbox.label = this.label;
+            this._checkbox.checked = this.checked;
+        };
+        EjCheckbox.prototype.detached = function () {
+            this._checkbox.destroy();
+        };
+        EjCheckbox.prototype.checkedChanged = function (newValue, oldValue) {
+            if (!this._checkbox || this._guard || newValue === oldValue) {
+                return;
+            }
+            if (this._checkbox) {
+                this._checkbox.checked = newValue;
+            }
+        };
+        EjCheckbox.prototype.onChange = function (instance) {
+            this._guard = true;
+            this.checked = this._checkbox.checked;
+            this.taskQueue.queueMicroTask(function () {
+                instance._guard = false;
+            });
+        };
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", String)
+        ], EjCheckbox.prototype, "label", void 0);
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", Boolean)
+        ], EjCheckbox.prototype, "checked", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object),
+            __metadata("design:paramtypes", [Object])
+        ], EjCheckbox.prototype, "disabled", null);
+        EjCheckbox = __decorate([
+            aurelia_framework_1.autoinject,
+            aurelia_framework_1.customElement('ej-checkbox'),
+            aurelia_framework_1.inlineView('<template><input type="checkbox" change.delegate="onChange($this)"/></template>'),
+            __metadata("design:paramtypes", [Element, aurelia_framework_1.TaskQueue])
+        ], EjCheckbox);
+        return EjCheckbox;
+    }());
+    exports.EjCheckbox = EjCheckbox;
+});
+;
+define('__dot_dot__/src/elements/buttons/check-box/index',["require", "exports", "./ej-check-box-model", "./ej-checkbox"], function (require, exports, ej_check_box_model_1, ej_checkbox_1) {
+    "use strict";
+    function __export(m) {
+        for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+    }
+    Object.defineProperty(exports, "__esModule", { value: true });
+    __export(ej_check_box_model_1);
+    __export(ej_checkbox_1);
+});
+;
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+define('__dot_dot__/src/elements/buttons/chips/ej-chip-list-model',["require", "exports", "aurelia-framework", "../../base/ej-component-model"], function (require, exports, aurelia_framework_1, ej_component_model_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var ChipListModel = (function (_super) {
+        __extends(ChipListModel, _super);
+        function ChipListModel() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Array)
+        ], ChipListModel.prototype, "chips", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], ChipListModel.prototype, "text", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], ChipListModel.prototype, "avatarText", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], ChipListModel.prototype, "avatarIconCss", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], ChipListModel.prototype, "leadingIconCss", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], ChipListModel.prototype, "trailingIconCss", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], ChipListModel.prototype, "cssClass", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], ChipListModel.prototype, "enabled", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], ChipListModel.prototype, "selectedChips", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], ChipListModel.prototype, "selection", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], ChipListModel.prototype, "enableDelete", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], ChipListModel.prototype, "created", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], ChipListModel.prototype, "click", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], ChipListModel.prototype, "delete", void 0);
+        return ChipListModel;
+    }(ej_component_model_1.EjComponentModel));
+    exports.ChipListModel = ChipListModel;
+});
+;
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+define('__dot_dot__/src/elements/buttons/chips/ej-chip-model',["require", "exports", "aurelia-framework", "../../base/ej-component-model"], function (require, exports, aurelia_framework_1, ej_component_model_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var EjChipModel = (function (_super) {
+        __extends(EjChipModel, _super);
+        function EjChipModel() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjChipModel.prototype, "text", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjChipModel.prototype, "avatarText", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjChipModel.prototype, "avatarIconCss", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjChipModel.prototype, "leadingIconCss", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjChipModel.prototype, "trailingIconCss", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjChipModel.prototype, "cssClass", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjChipModel.prototype, "enabled", void 0);
+        return EjChipModel;
+    }(ej_component_model_1.EjComponentModel));
+    exports.EjChipModel = EjChipModel;
+});
+;
+define('__dot_dot__/src/elements/buttons/chips/index',["require", "exports", "./ej-chip-model", "./ej-chip-list-model"], function (require, exports, ej_chip_model_1, ej_chip_list_model_1) {
+    "use strict";
+    function __export(m) {
+        for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+    }
+    Object.defineProperty(exports, "__esModule", { value: true });
+    __export(ej_chip_model_1);
+    __export(ej_chip_list_model_1);
+});
+;
+define('__dot_dot__/src/elements/buttons/index',["require", "exports", "./button/index", "./check-box/index", "./chips/index", "./radio-button/index"], function (require, exports, index_1, index_2, index_3, index_4) {
+    "use strict";
+    function __export(m) {
+        for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+    }
+    Object.defineProperty(exports, "__esModule", { value: true });
+    __export(index_1);
+    __export(index_2);
+    __export(index_3);
+    __export(index_4);
+});
+;
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+define('__dot_dot__/src/elements/buttons/radio-button/ej-radio-button',["require", "exports", "aurelia-framework", "../../base/ej-component-model", "@syncfusion/ej2-buttons", "@syncfusion/ej2-base"], function (require, exports, aurelia_framework_1, ej_component_model_1, ej2_buttons_1, ej2_base_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    ej2_base_1.enableRipple(true);
+    var EjRadioButton = (function (_super) {
+        __extends(EjRadioButton, _super);
+        function EjRadioButton(element, taskQueue) {
+            var _this = _super.call(this) || this;
+            _this.element = element;
+            _this.taskQueue = taskQueue;
+            return _this;
+        }
+        EjRadioButton.prototype.attached = function () {
+            this._wrapped = new ej2_buttons_1.RadioButton({
+                checked: this.checked,
+                cssClass: this.cssClass,
+                disabled: this.disabled,
+                name: this.name,
+                label: this.label,
+                labelPosition: (this.position === 'Before' ? 'Before' : 'After'),
+                value: this.value,
+                enableRtl: this.enableRtl,
+                enableHtmlSanitizer: this.enableHtmlSanitizer,
+                enablePersistence: this.enablePersistence,
+                locale: this.locale,
+            }, this.element.querySelector('input'));
+        };
+        EjRadioButton.prototype.cssClassChanged = function (newValue) {
+            if (this._wrapped) {
+                this._wrapped.cssClass = newValue;
+            }
+        };
+        EjRadioButton.prototype.labelChanged = function (newValue, oldValue) {
+            if (this._wrapped) {
+                this._wrapped.label = newValue;
+            }
+        };
+        EjRadioButton.prototype.positionChanged = function (newValue, oldValue) {
+            if (this._wrapped) {
+                this._wrapped.labelPosition = newValue === 'Before' ? 'Before' : 'After';
+            }
+        };
+        EjRadioButton.prototype.enableHtmlSanitizerChanged = function (newValue, oldValue) {
+            if (this._wrapped) {
+                this._wrapped.enableHtmlSanitizer = newValue;
+            }
+        };
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjRadioButton.prototype, "checked", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjRadioButton.prototype, "cssClass", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjRadioButton.prototype, "disabled", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjRadioButton.prototype, "label", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjRadioButton.prototype, "position", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjRadioButton.prototype, "name", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjRadioButton.prototype, "value", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjRadioButton.prototype, "enableHtmlSanitizer", void 0);
+        EjRadioButton = __decorate([
+            aurelia_framework_1.autoinject,
+            aurelia_framework_1.customElement('ej-radio-button'),
+            aurelia_framework_1.inlineView('<template><input type="radio" name.bind="name" checked.bind="checked" value.bind="value" disabled.bind="disabled"></template>'),
+            __metadata("design:paramtypes", [Element, aurelia_framework_1.TaskQueue])
+        ], EjRadioButton);
+        return EjRadioButton;
+    }(ej_component_model_1.EjComponentModel));
+    exports.EjRadioButton = EjRadioButton;
+});
+;
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+define('__dot_dot__/src/elements/buttons/radio-button/ej-radio-button-model',["require", "exports", "aurelia-framework", "../../base/ej-component-model"], function (require, exports, aurelia_framework_1, ej_component_model_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var EjRadioButtonModel = (function (_super) {
+        __extends(EjRadioButtonModel, _super);
+        function EjRadioButtonModel() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjRadioButtonModel.prototype, "change", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjRadioButtonModel.prototype, "checked", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjRadioButtonModel.prototype, "cssClass", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjRadioButtonModel.prototype, "disabled", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjRadioButtonModel.prototype, "label", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjRadioButtonModel.prototype, "labelPosition", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjRadioButtonModel.prototype, "name", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjRadioButtonModel.prototype, "value", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjRadioButtonModel.prototype, "enableHtmlSanitizer", void 0);
+        return EjRadioButtonModel;
+    }(ej_component_model_1.EjComponentModel));
+    exports.EjRadioButtonModel = EjRadioButtonModel;
+});
+;
+define('__dot_dot__/src/elements/buttons/radio-button/index',["require", "exports", "./ej-radio-button-model", "./ej-radio-button"], function (require, exports, ej_radio_button_model_1, ej_radio_button_1) {
+    "use strict";
+    function __export(m) {
+        for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+    }
+    Object.defineProperty(exports, "__esModule", { value: true });
+    __export(ej_radio_button_model_1);
+    __export(ej_radio_button_1);
+});
+;
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+define('__dot_dot__/src/elements/buttons/switch/ej-switch-model',["require", "exports", "aurelia-framework", "../../base/ej-component-model"], function (require, exports, aurelia_framework_1, ej_component_model_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var EjSwitchModel = (function (_super) {
+        __extends(EjSwitchModel, _super);
+        function EjSwitchModel() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjSwitchModel.prototype, "change", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjSwitchModel.prototype, "checked", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjSwitchModel.prototype, "cssClass", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjSwitchModel.prototype, "disabled", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjSwitchModel.prototype, "name", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjSwitchModel.prototype, "onLabel", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjSwitchModel.prototype, "offLabel", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjSwitchModel.prototype, "value", void 0);
+        return EjSwitchModel;
+    }(ej_component_model_1.EjComponentModel));
+    exports.EjSwitchModel = EjSwitchModel;
+});
+;
+define('__dot_dot__/src/elements/buttons/switch/index',["require", "exports", "./ej-switch-model"], function (require, exports, ej_switch_model_1) {
+    "use strict";
+    function __export(m) {
+        for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+    }
+    Object.defineProperty(exports, "__esModule", { value: true });
+    __export(ej_switch_model_1);
+});
+;
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -961,64 +1714,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define('__dot_dot__/src/elements/ej-button',["require", "exports", "aurelia-framework", "@syncfusion/ej2-buttons", "@syncfusion/ej2-base"], function (require, exports, aurelia_framework_1, ej2_buttons_1, ej2_base_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var EjButton = (function () {
-        function EjButton(element, taskQueue) {
-            this.element = element;
-            this.taskQueue = taskQueue;
-            this.guard = false;
-            this.primary = false;
-        }
-        EjButton.prototype.valueChanged = function (newValue, oldValue) {
-        };
-        EjButton.prototype.primaryChanged = function (newValue, oldValue) {
-            if (!this._button || this.guard || newValue === oldValue) {
-                return;
-            }
-            if (this._button) {
-                this._button.isPrimary = newValue;
-            }
-        };
-        EjButton.prototype.attached = function () {
-            ej2_base_1.enableRipple(true);
-            this._button = new ej2_buttons_1.Button();
-            var e = this.element.querySelector("button");
-            this._button.appendTo(e);
-            this._button.isPrimary = (this.primary === true || this.primary === "true");
-            this._button.content = this.value;
-        };
-        EjButton.prototype.detached = function () {
-            this._button.destroy();
-        };
-        __decorate([
-            aurelia_framework_1.bindable,
-            __metadata("design:type", Object)
-        ], EjButton.prototype, "value", void 0);
-        __decorate([
-            aurelia_framework_1.bindable,
-            __metadata("design:type", Object)
-        ], EjButton.prototype, "primary", void 0);
-        EjButton = __decorate([
-            aurelia_framework_1.autoinject,
-            __metadata("design:paramtypes", [Element, aurelia_framework_1.TaskQueue])
-        ], EjButton);
-        return EjButton;
-    }());
-    exports.EjButton = EjButton;
-});
-;
-define('text!__dot_dot__/src/elements/ej-button.html',[],function(){return "<template>\n  <button></button>\n</template>\n";});;
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 define('__dot_dot__/src/elements/ej-checkbox',["require", "exports", "aurelia-framework", "@syncfusion/ej2-buttons"], function (require, exports, aurelia_framework_1, ej2_buttons_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -1035,7 +1730,7 @@ define('__dot_dot__/src/elements/ej-checkbox',["require", "exports", "aurelia-fr
                 return this._checkbox.disabled;
             },
             set: function (value) {
-                this._checkbox.disabled = (value === true || value === "true");
+                this._checkbox.disabled = value === true || value === 'true';
             },
             enumerable: true,
             configurable: true
@@ -1047,7 +1742,7 @@ define('__dot_dot__/src/elements/ej-checkbox',["require", "exports", "aurelia-fr
         };
         EjCheckbox.prototype.attached = function () {
             this._checkbox = new ej2_buttons_1.CheckBox();
-            var e = this.element.querySelector("input");
+            var e = this.element.querySelector('input');
             this._checkbox.appendTo(e);
             this._checkbox.label = this.label;
             this._checkbox.checked = this.checked;
@@ -1085,7 +1780,8 @@ define('__dot_dot__/src/elements/ej-checkbox',["require", "exports", "aurelia-fr
         ], EjCheckbox.prototype, "disabled", null);
         EjCheckbox = __decorate([
             aurelia_framework_1.autoinject,
-            aurelia_framework_1.customElement("ej-checkbox"),
+            aurelia_framework_1.customElement('ej-checkbox'),
+            aurelia_framework_1.inlineView('<template><input type="checkbox" change.delegate="onChange($this)"/></template>'),
             __metadata("design:paramtypes", [Element, aurelia_framework_1.TaskQueue])
         ], EjCheckbox);
         return EjCheckbox;
@@ -1093,7 +1789,6 @@ define('__dot_dot__/src/elements/ej-checkbox',["require", "exports", "aurelia-fr
     exports.EjCheckbox = EjCheckbox;
 });
 ;
-define('text!__dot_dot__/src/elements/ej-checkbox.html',[],function(){return "<template>\n  <input type=\"checkbox\" change.delegate=\"onChange($this)\"/>\n</template>\n";});;
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -1140,8 +1835,8 @@ define('__dot_dot__/src/elements/ej-radio-button',["require", "exports", "aureli
                 enableRtl: this.enableRtl,
                 enableHtmlSanitizer: this.enableHtmlSanitizer,
                 enablePersistence: this.enablePersistence,
-                locale: this.locale
-            }, this.element.querySelector("input"));
+                locale: this.locale,
+            }, this.element.querySelector('input'));
         };
         EjRadioButton.prototype.cssClassChanged = function (newValue) {
             if (this._wrapped) {
@@ -1155,7 +1850,7 @@ define('__dot_dot__/src/elements/ej-radio-button',["require", "exports", "aureli
         };
         EjRadioButton.prototype.positionChanged = function (newValue, oldValue) {
             if (this._wrapped) {
-                this._wrapped.labelPosition = (newValue === 'Before') ? 'Before' : 'After';
+                this._wrapped.labelPosition = newValue === 'Before' ? 'Before' : 'After';
             }
         };
         EjRadioButton.prototype.enableHtmlSanitizerChanged = function (newValue, oldValue) {
@@ -1197,7 +1892,7 @@ define('__dot_dot__/src/elements/ej-radio-button',["require", "exports", "aureli
         ], EjRadioButton.prototype, "enableHtmlSanitizer", void 0);
         EjRadioButton = __decorate([
             aurelia_framework_1.autoinject,
-            aurelia_framework_1.customElement("ej-radio-button"),
+            aurelia_framework_1.customElement('ej-radio-button'),
             aurelia_framework_1.inlineView('<template><input type="radio" name.bind="name" checked.bind="checked" value.bind="value" disabled.bind="disabled"></template>'),
             __metadata("design:paramtypes", [Element, aurelia_framework_1.TaskQueue])
         ], EjRadioButton);
@@ -1206,7 +1901,7 @@ define('__dot_dot__/src/elements/ej-radio-button',["require", "exports", "aureli
     exports.EjRadioButton = EjRadioButton;
 });
 ;
-define('__dot_dot__/src/elements/index',["require", "exports", "./base/index", "./dropdowns/index", "./inputs/index"], function (require, exports, index_1, index_2, index_3) {
+define('__dot_dot__/src/elements/index',["require", "exports", "./base/index", "./buttons/index", "./dropdowns/index", "./inputs/index"], function (require, exports, index_1, index_2, index_3, index_4) {
     "use strict";
     function __export(m) {
         for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -1215,6 +1910,7 @@ define('__dot_dot__/src/elements/index',["require", "exports", "./base/index", "
     __export(index_1);
     __export(index_2);
     __export(index_3);
+    __export(index_4);
 });
 ;
 define('__dot_dot__/src/elements/inputs/index',["require", "exports", "./input/index"], function (require, exports, index_1) {
@@ -1292,7 +1988,7 @@ define('__dot_dot__/src/index',["require", "exports", "aurelia-pal", "./elements
     __export(index_1);
     function configure(config) {
         config.globalResources([
-            aurelia_pal_1.PLATFORM.moduleName('./elements/ej-button'),
+            aurelia_pal_1.PLATFORM.moduleName('./elements/buttons/button/ej-button'),
             aurelia_pal_1.PLATFORM.moduleName('./elements/ej-checkbox'),
             aurelia_pal_1.PLATFORM.moduleName('./elements/ej-radio-button'),
             aurelia_pal_1.PLATFORM.moduleName('./elements/dropdowns/auto-complete/ej-auto-complete'),

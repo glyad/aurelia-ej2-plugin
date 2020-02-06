@@ -10,7 +10,7 @@ import { CheckBox, CheckBoxModel } from '@syncfusion/ej2-buttons';
 
 @autoinject
 @customElement('ej-checkbox')
-//@inlineView('<input type="checkbox"/>')
+@inlineView('<template><input type="checkbox" change.delegate="onChange($this)"/></template>')
 export class EjCheckbox implements CheckBoxModel {
   private _checkbox: CheckBox;
   private _guard: boolean = false;

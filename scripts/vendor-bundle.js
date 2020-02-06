@@ -104264,6 +104264,17 @@ define('aurelia-testing/view-spy',['aurelia-testing/dist/commonjs/view-spy'],fun
 define('aurelia-testing/wait',['aurelia-testing/dist/commonjs/wait'],function(m){return m;});
 define('elements/base/ej-component-model',['__dot_dot__/src/elements/base/ej-component-model'],function(m){return m;});
 define('elements/base/index',['__dot_dot__/src/elements/base/index'],function(m){return m;});
+define('elements/buttons/button/ej-button',['__dot_dot__/src/elements/buttons/button/ej-button'],function(m){return m;});
+define('elements/buttons/button/ej-button-model',['__dot_dot__/src/elements/buttons/button/ej-button-model'],function(m){return m;});
+define('elements/buttons/button/index',['__dot_dot__/src/elements/buttons/button/index'],function(m){return m;});
+define('elements/buttons/check-box/ej-check-box-model',['__dot_dot__/src/elements/buttons/check-box/ej-check-box-model'],function(m){return m;});
+define('elements/buttons/check-box/index',['__dot_dot__/src/elements/buttons/check-box/index'],function(m){return m;});
+define('elements/buttons/chips/ej-chip-list-model',['__dot_dot__/src/elements/buttons/chips/ej-chip-list-model'],function(m){return m;});
+define('elements/buttons/chips/ej-chip-model',['__dot_dot__/src/elements/buttons/chips/ej-chip-model'],function(m){return m;});
+define('elements/buttons/chips/index',['__dot_dot__/src/elements/buttons/chips/index'],function(m){return m;});
+define('elements/buttons/index',['__dot_dot__/src/elements/buttons/index'],function(m){return m;});
+define('elements/buttons/radio-button/ej-radio-button-model',['__dot_dot__/src/elements/buttons/radio-button/ej-radio-button-model'],function(m){return m;});
+define('elements/buttons/radio-button/index',['__dot_dot__/src/elements/buttons/radio-button/index'],function(m){return m;});
 define('elements/dropdowns/auto-complete/ej-auto-complete',['__dot_dot__/src/elements/dropdowns/auto-complete/ej-auto-complete'],function(m){return m;});
 define('elements/dropdowns/auto-complete/ej-auto-complete-model',['__dot_dot__/src/elements/dropdowns/auto-complete/ej-auto-complete-model'],function(m){return m;});
 define('elements/dropdowns/auto-complete/index',['__dot_dot__/src/elements/dropdowns/auto-complete/index'],function(m){return m;});
@@ -104280,10 +104291,7 @@ define('elements/dropdowns/list-box/ej-list-box-model',['__dot_dot__/src/element
 define('elements/dropdowns/list-box/index',['__dot_dot__/src/elements/dropdowns/list-box/index'],function(m){return m;});
 define('elements/dropdowns/multi-select/ej-multi-select-model',['__dot_dot__/src/elements/dropdowns/multi-select/ej-multi-select-model'],function(m){return m;});
 define('elements/dropdowns/multi-select/index',['__dot_dot__/src/elements/dropdowns/multi-select/index'],function(m){return m;});
-define('elements/ej-button',['__dot_dot__/src/elements/ej-button'],function(m){return m;});
-define('text!elements/ej-button.html',['text!__dot_dot__/src/elements/ej-button.html'],function(m){return m;});
 define('elements/ej-checkbox',['__dot_dot__/src/elements/ej-checkbox'],function(m){return m;});
-define('text!elements/ej-checkbox.html',['text!__dot_dot__/src/elements/ej-checkbox.html'],function(m){return m;});
 define('elements/ej-radio-button',['__dot_dot__/src/elements/ej-radio-button'],function(m){return m;});
 define('elements/index',['__dot_dot__/src/elements/index'],function(m){return m;});
 define('elements/inputs/index',['__dot_dot__/src/elements/inputs/index'],function(m){return m;});
@@ -104292,6 +104300,17 @@ define('elements/inputs/input/input-base',['__dot_dot__/src/elements/inputs/inpu
 define('resources',['resources/index'],function(m){return m;});
 define('resources/elements/base/ej-component-model',['__dot_dot__/src/elements/base/ej-component-model'],function(m){return m;});
 define('resources/elements/base/index',['__dot_dot__/src/elements/base/index'],function(m){return m;});
+define('resources/elements/buttons/button/ej-button',['__dot_dot__/src/elements/buttons/button/ej-button'],function(m){return m;});
+define('resources/elements/buttons/button/ej-button-model',['__dot_dot__/src/elements/buttons/button/ej-button-model'],function(m){return m;});
+define('resources/elements/buttons/button/index',['__dot_dot__/src/elements/buttons/button/index'],function(m){return m;});
+define('resources/elements/buttons/check-box/ej-check-box-model',['__dot_dot__/src/elements/buttons/check-box/ej-check-box-model'],function(m){return m;});
+define('resources/elements/buttons/check-box/index',['__dot_dot__/src/elements/buttons/check-box/index'],function(m){return m;});
+define('resources/elements/buttons/chips/ej-chip-list-model',['__dot_dot__/src/elements/buttons/chips/ej-chip-list-model'],function(m){return m;});
+define('resources/elements/buttons/chips/ej-chip-model',['__dot_dot__/src/elements/buttons/chips/ej-chip-model'],function(m){return m;});
+define('resources/elements/buttons/chips/index',['__dot_dot__/src/elements/buttons/chips/index'],function(m){return m;});
+define('resources/elements/buttons/index',['__dot_dot__/src/elements/buttons/index'],function(m){return m;});
+define('resources/elements/buttons/radio-button/ej-radio-button-model',['__dot_dot__/src/elements/buttons/radio-button/ej-radio-button-model'],function(m){return m;});
+define('resources/elements/buttons/radio-button/index',['__dot_dot__/src/elements/buttons/radio-button/index'],function(m){return m;});
 define('resources/elements/dropdowns/auto-complete/ej-auto-complete',['__dot_dot__/src/elements/dropdowns/auto-complete/ej-auto-complete'],function(m){return m;});
 define('resources/elements/dropdowns/auto-complete/ej-auto-complete-model',['__dot_dot__/src/elements/dropdowns/auto-complete/ej-auto-complete-model'],function(m){return m;});
 define('resources/elements/dropdowns/auto-complete/index',['__dot_dot__/src/elements/dropdowns/auto-complete/index'],function(m){return m;});
@@ -104308,10 +104327,7 @@ define('resources/elements/dropdowns/list-box/ej-list-box-model',['__dot_dot__/s
 define('resources/elements/dropdowns/list-box/index',['__dot_dot__/src/elements/dropdowns/list-box/index'],function(m){return m;});
 define('resources/elements/dropdowns/multi-select/ej-multi-select-model',['__dot_dot__/src/elements/dropdowns/multi-select/ej-multi-select-model'],function(m){return m;});
 define('resources/elements/dropdowns/multi-select/index',['__dot_dot__/src/elements/dropdowns/multi-select/index'],function(m){return m;});
-define('resources/elements/ej-button',['__dot_dot__/src/elements/ej-button'],function(m){return m;});
-define('text!resources/elements/ej-button.html',['text!__dot_dot__/src/elements/ej-button.html'],function(m){return m;});
 define('resources/elements/ej-checkbox',['__dot_dot__/src/elements/ej-checkbox'],function(m){return m;});
-define('text!resources/elements/ej-checkbox.html',['text!__dot_dot__/src/elements/ej-checkbox.html'],function(m){return m;});
 define('resources/elements/ej-radio-button',['__dot_dot__/src/elements/ej-radio-button'],function(m){return m;});
 define('resources/elements/index',['__dot_dot__/src/elements/index'],function(m){return m;});
 define('resources/elements/inputs/index',['__dot_dot__/src/elements/inputs/index'],function(m){return m;});
@@ -104337,6 +104353,17 @@ function _aureliaConfigureModuleLoader(){requirejs.config({
     "app-bundle": [
       "__dot_dot__/src/elements/base/ej-component-model",
       "__dot_dot__/src/elements/base/index",
+      "__dot_dot__/src/elements/buttons/button/ej-button",
+      "__dot_dot__/src/elements/buttons/button/ej-button-model",
+      "__dot_dot__/src/elements/buttons/button/index",
+      "__dot_dot__/src/elements/buttons/check-box/ej-check-box-model",
+      "__dot_dot__/src/elements/buttons/check-box/index",
+      "__dot_dot__/src/elements/buttons/chips/ej-chip-list-model",
+      "__dot_dot__/src/elements/buttons/chips/ej-chip-model",
+      "__dot_dot__/src/elements/buttons/chips/index",
+      "__dot_dot__/src/elements/buttons/index",
+      "__dot_dot__/src/elements/buttons/radio-button/ej-radio-button-model",
+      "__dot_dot__/src/elements/buttons/radio-button/index",
       "__dot_dot__/src/elements/dropdowns/auto-complete/ej-auto-complete",
       "__dot_dot__/src/elements/dropdowns/auto-complete/ej-auto-complete-model",
       "__dot_dot__/src/elements/dropdowns/auto-complete/index",
@@ -104353,10 +104380,7 @@ function _aureliaConfigureModuleLoader(){requirejs.config({
       "__dot_dot__/src/elements/dropdowns/list-box/index",
       "__dot_dot__/src/elements/dropdowns/multi-select/ej-multi-select-model",
       "__dot_dot__/src/elements/dropdowns/multi-select/index",
-      "__dot_dot__/src/elements/ej-button",
-      "text!__dot_dot__/src/elements/ej-button.html",
       "__dot_dot__/src/elements/ej-checkbox",
-      "text!__dot_dot__/src/elements/ej-checkbox.html",
       "__dot_dot__/src/elements/ej-radio-button",
       "__dot_dot__/src/elements/index",
       "__dot_dot__/src/elements/inputs/index",

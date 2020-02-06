@@ -1,8 +1,9 @@
-import { bindable, TaskQueue, autoinject } from 'aurelia-framework';
+import { bindable, TaskQueue, autoinject, inlineView } from 'aurelia-framework';
 import { Button } from '@syncfusion/ej2-buttons';
 import { enableRipple } from '@syncfusion/ej2-base';
 
 @autoinject
+@inlineView('<template><button></button></template>')
 export class EjButton {
   private _button: Button;
   private guard: boolean = false;

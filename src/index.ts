@@ -5,7 +5,7 @@ export * from './elements/index';
 
 export function configure(config: FrameworkConfiguration) {
   config.globalResources([
-    PLATFORM.moduleName('./elements/ej-button'),
+    PLATFORM.moduleName('./elements/buttons/button/ej-button'),
     PLATFORM.moduleName('./elements/ej-checkbox'),
     PLATFORM.moduleName('./elements/ej-radio-button'),
     PLATFORM.moduleName('./elements/dropdowns/auto-complete/ej-auto-complete'),

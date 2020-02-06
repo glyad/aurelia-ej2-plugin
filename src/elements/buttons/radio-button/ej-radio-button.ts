@@ -6,7 +6,7 @@ import {
   TaskQueue,
   bindingMode,
 } from 'aurelia-framework';
-import { EjComponentModel } from './base/ej-component-model';
+import { EjComponentModel } from '../../base/ej-component-model';
 import { RadioButton, RadioButtonModel, RadioLabelPosition } from '@syncfusion/ej2-buttons';
 import { enableRipple } from '@syncfusion/ej2-base';
 
