@@ -1,3 +1,15 @@
+blockquote {
+  width: 100%;
+  background: #e0f6ff;
+  padding: 11px;
+  vertical-align: middle;
+  border: 1px solid #bcddee;
+  border-radius: 3px;
+  margin-top: 14px;
+  display: block;
+  }
+
+
 code[class*='language-'],
 pre[class*='language-'] {
   color: #000;

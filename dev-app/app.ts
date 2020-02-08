@@ -1,3 +1,4 @@
+import { Introduction } from './introduction';
 import { PLATFORM } from 'aurelia-pal';
 import { bindable, autoinject } from 'aurelia-framework';
 import { Router, RouterConfiguration, RouteConfig } from 'aurelia-router';
@@ -33,6 +34,9 @@ export class App {
 
   private routes: RouteDescriptor[] = [
     {
+      route: 'introduction', name: 'introduction', title: 'Introduction', moduleId: PLATFORM.moduleName('./introduction'), iconCss: 'icon-microchip icon', nav: true
+    },
+    {
       route: 'getting-started', name: 'getting-started', title: 'Getting Started', moduleId: PLATFORM.moduleName('./getting-started'), iconCss: 'icon-microchip icon', nav: true
     },
     {
@@ -65,7 +69,7 @@ export class App {
     config.title = 'Aurelia Syncfusion Bridge';
     let tmp: RouteDescriptor[] = [];
 
-    config.map([ { route: '', redirect: 'getting-started' },
+    config.map([ { route: '', redirect: 'introduction' },
                   ...<RouteConfig[]>flatten(this.routes, [])] );
 
     //config.mapUnknownRoutes('getting-started');
@@ -73,7 +77,7 @@ export class App {
 
   attached() {
     let sidebarMenu: Sidebar = new Sidebar({
-      width: '290px',
+      width: '260px',
       target: '.main-content',
       mediaQuery: '(min-width: 600px)',
     });

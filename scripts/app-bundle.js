@@ -1827,6 +1827,55 @@ define('__dot_dot__/src/elements/inputs/input/input-base',["require", "exports",
     exports.EjInputBase = EjInputBase;
 });
 ;
+define('__dot_dot__/src/elements/navigations/index',["require", "exports", "./tab/index"], function (require, exports, index_1) {
+    "use strict";
+    function __export(m) {
+        for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+    }
+    Object.defineProperty(exports, "__esModule", { value: true });
+    __export(index_1);
+});
+;
+define('__dot_dot__/src/elements/navigations/tab/ej-tab',["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+});
+;
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+define('__dot_dot__/src/elements/navigations/tab/ej-tab-model',["require", "exports", "../../base/ej-component-model"], function (require, exports, ej_component_model_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var EjTabModel = (function (_super) {
+        __extends(EjTabModel, _super);
+        function EjTabModel() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EjTabModel;
+    }(ej_component_model_1.EjComponentModel));
+    exports.EjTabModel = EjTabModel;
+});
+;
+define('__dot_dot__/src/elements/navigations/tab/index',["require", "exports", "./ej-tab-model"], function (require, exports, ej_tab_model_1) {
+    "use strict";
+    function __export(m) {
+        for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+    }
+    Object.defineProperty(exports, "__esModule", { value: true });
+    __export(ej_tab_model_1);
+});
+;
 define('__dot_dot__/src/index',["require", "exports", "aurelia-pal", "./elements/index"], function (require, exports, aurelia_pal_1, index_1) {
     "use strict";
     function __export(m) {
@@ -1885,6 +1934,9 @@ define('app',["require", "exports", "aurelia-pal", "aurelia-framework", "aurelia
             this.router = router;
             this.routes = [
                 {
+                    route: 'introduction', name: 'introduction', title: 'Introduction', moduleId: aurelia_pal_1.PLATFORM.moduleName('./introduction'), iconCss: 'icon-microchip icon', nav: true
+                },
+                {
                     route: 'getting-started', name: 'getting-started', title: 'Getting Started', moduleId: aurelia_pal_1.PLATFORM.moduleName('./getting-started'), iconCss: 'icon-microchip icon', nav: true
                 },
                 {
@@ -1900,12 +1952,12 @@ define('app',["require", "exports", "aurelia-pal", "aurelia-framework", "aurelia
             this.router = router;
             config.title = 'Aurelia Syncfusion Bridge';
             var tmp = [];
-            config.map(__spreadArrays([{ route: '', redirect: 'getting-started' }], flatten(this.routes, [])));
+            config.map(__spreadArrays([{ route: '', redirect: 'introduction' }], flatten(this.routes, [])));
         };
         App.prototype.attached = function () {
             var _this = this;
             var sidebarMenu = new ej2_navigations_1.Sidebar({
-                width: '290px',
+                width: '260px',
                 target: '.main-content',
                 mediaQuery: '(min-width: 600px)',
             });
@@ -1933,7 +1985,7 @@ define('app',["require", "exports", "aurelia-pal", "aurelia-framework", "aurelia
     exports.App = App;
 });
 ;
-define('text!app.html',[],function(){return "<template>\n\n  <!-- <require from=\"../dev-app/app.css\"></require> -->\n\n  <div id=\"wrapper\">\n    <!--header-section  declaration -->\n    <div class=\"main-header\" id=\"header-section\">\n      <ul class=\"header-list\">\n        <li class=\"float-left header-style icon-menu\" id=\"hamburger\"></li>\n        <li class=\"float-left header-style nav-pane\">\n          <a class=\"doc-logo-link\"\n            href=\"https://help.syncfusion.com/?_ga=2.135614964.457206101.1580981579-1840676678.1579783186\">\n            <div class=\"doc-logo doc-icons icon-syncfusion\" style=\"margin: 0px; color: white;\"></div>\n          </a>\n        </li>\n        <li class=\"float-left header-style nav-pane\">\n          <a class=\"doc-logo-link\" href=\"https://aurelia.io\">\n            <img src=\"./aurelia.png\" width=\"150px\" class=\"float-left\" style=\"margin-top: -10px;\">\n          </a>\n        </li>\n        <li class=\"header-style float-right support border-left\"><b>Support</b></li>\n      </ul>\n    </div>\n    <!-- end of header-section -->\n\n    <!-- sidebar element declaration -->\n    <aside id=\"sidebar-treeview\">\n      <div class=\"main-menu\">\n        <div class=\"table-content\">\n          <input type=\"text\" placeholder=\"Search...\" class=\"search-icon\">\n          <p class=\"main-menu-header\">TABLE OF CONTENTS</p>\n        </div>\n        <div>\n          <!-- <ul id=\"main-treeview\"></ul> -->\n          <div id=\"main-treeview\"></div>\n        </div>\n      </div>\n    </aside>\n    <!-- end of sidebar element -->\n\n\n    <!-- main-content declaration -->\n    <div class=\"main-content\" id=\"main-text\">\n\n      <div class=\"sidebar-content\">\n\n        <router-view></router-view>\n\n      </div>\n    </div>\n    <!-- end of main-content -->\n  </div>\n\n\n\n\n\n\n\n</template>\n";});;
+define('text!app.html',[],function(){return "<template>\n\n  <!-- <require from=\"../dev-app/app.css\"></require> -->\n\n  <div id=\"wrapper\">\n    <!--header-section  declaration -->\n    <div class=\"main-header\" id=\"header-section\" style=\"position: fixed; z-index: 999; width: 100%;\">\n      <ul class=\"header-list\">\n        <li class=\"float-left header-style icon-menu\" id=\"hamburger\"></li>\n        <li class=\"float-left header-style nav-pane\">\n          <a class=\"doc-logo-link\"\n            href=\"https://help.syncfusion.com/?_ga=2.135614964.457206101.1580981579-1840676678.1579783186\">\n            <div class=\"doc-logo doc-icons icon-syncfusion\" style=\"margin: 0px; color: white;\"></div>\n          </a>\n        </li>\n        <li class=\"float-left header-style nav-pane\">\n          <a class=\"doc-logo-link\" href=\"https://aurelia.io\">\n            <img src=\"./aurelia.png\" width=\"150px\" class=\"float-left\" style=\"margin-top: -10px;\">\n          </a>\n        </li>\n        <li class=\"header-style float-right support border-left\"><b>Support</b></li>\n      </ul>\n    </div>\n    <!-- end of header-section -->\n\n    <!-- sidebar element declaration -->\n    <aside id=\"sidebar-treeview\"  style=\"position: fixed; margin-top: 64px; z-index: 998;\">\n        <div class=\"main-menu\">\n          <!-- <div class=\"e-view layout__LeftPane-sc-1t3oqgw-5 cQQcHR\" id=\"doc-left-pane\">\n            <div id=\"left-pane-search\" class=\"e-view\">\n              <span class=\"e-input-group e-control-wrapper e-ddl\" aria-owns=\"auto-complete_options\" aria-autocomplete=\"both\" aria-labelledby=\"auto-complete_hidden\" aria-haspopup=\"true\" aria-expanded=\"false\" aria-readonly=\"false\" style=\"width: 100%;\">\n                <select aria-hidden=\"true\" tabindex=\"-1\" class=\"e-ddl-hidden\" name=\"auto-complete\" id=\"auto-complete_hidden\"></select>\n                <input id=\"auto-complete\" class=\"e-control e-autocomplete e-lib e-input e-keyboard\" role=\"combobox\" type=\"text\" placeholder=\"Filter by title\" aria-placeholder=\"Filter by title\" tabindex=\"0\" aria-owns=\"auto-complete_options\" aria-autocomplete=\"both\" aria-labelledby=\"auto-complete_hidden\" aria-haspopup=\"true\" aria-expanded=\"false\" aria-readonly=\"false\" autocomplete=\"off\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\">\n                <span class=\"e-clear-icon e-clear-icon-hide\" aria-label=\"close\" role=\"button\"></span>\n              </span>\n              <div class=\"doc-toc-search-icon\"></div>\n            </div>\n            <div id=\"doc-left-toc\" class=\"e-view\">\n              <div id=\"toc\" class=\"e-control e-accordion e-lib e-acrdn-root e-keyboard\" aria-disabled=\"false\" role=\"presentation\" aria-multiselectable=\"false\" style=\"width: 100%; height: auto;\">\n                <div class=\"e-acrdn-item\" id=\"acrdn_item_0\" aria-expanded=\"false\">\n                  <div class=\"e-acrdn-header\" id=\"acrdn_header_1\" tabindex=\"0\" role=\"heading\" aria-selected=\"false\" aria-disabled=\"false\" aria-level=\"84\">\n                    <div class=\"e-acrdn-header-content\">\n                      <div id=\"acc-path\" data=\"/introduction/\">Introduction</div>\n                    </div>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div> -->\n          <div class=\"table-content\">\n            <input type=\"text\" placeholder=\"Search...\" class=\"search-icon\">\n            <p class=\"main-menu-header\">TABLE OF CONTENTS</p>\n          </div>\n          <div>\n            <!-- <ul id=\"main-treeview\"></ul> -->\n            <div id=\"main-treeview\"></div>\n          </div>\n        </div>\n      </div>\n    </aside>\n    <!-- end of sidebar element -->\n\n\n    <!-- main-content declaration -->\n    <div class=\"main-content\" id=\"main-text\">\n\n      <div class=\"sidebar-content\">\n\n        <router-view></router-view>\n\n      </div>\n    </div>\n    <!-- end of main-content -->\n  </div>\n\n\n\n\n\n\n\n</template>\n";});;
 define('components/button/button-getting-started',["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -2065,7 +2117,19 @@ define('getting-started',["require", "exports", "aurelia-framework", "./dataSour
     exports.GettingStarted = GettingStarted;
 });
 ;
-define('text!getting-started.html',[],function(){return "<template>\n  <require from=\"./json-stringify-value-converter\"></require>\n\n  <h2 class=\"sidebar-heading\"> Responsive Sidebar With Treeview</h2>\n    <p class=\"paragraph-content\">This is a graphical aid for visualising and categorising the site, in the\n        style of an expandable and collapsable treeview component. It auto-expands to display the node(s),\n        if any, corresponding to the currently viewed title, highlighting that node(s) and its ancestors.\n        Load-on-demand when expanding nodes is available where supported (most graphical browsers), falling\n        back to a full-page reload. MediaWiki-supported caching, aside from squid, has been considered so\n        that unnecessary re-downloads of content are avoided where possible. The complete\n        expanded/collapsed state of the treeview persists across page views in most situations.</p>\n    <div class=\"line\"></div>\n\n\n    <h1>Hello, this is the dev app for plugin au-ej2-plugin</h1>\n    <p>This dev app is bundled to scripts/ folder (ignored in .gitignore). If you commit the bundle files to github, this app can serve as a <a href=\"https://pages.github.com\" target=\"_blank\">github page</a>!</p>\n\n    <p>Please read the <a href=\"README.md\">README</a> file in your project for more information.</p>\n\n    <hr>\n\n    <div>\n\n      <div>\n        <ej-drop-down-list index=\"1\">\n          <option value=\"0\">Huy</option>\n          <option value=\"1\">Fuck</option>\n          <option value=\"2\">Pizda</option>\n        </ej-drop-down-list>\n      </div>\n    </div>\n\n    <div style=\"width: 300px;\">\n      <hr>\n        <h2>Custom element \"ej-autocomplete\"</h2>\n        <div>\n          <ej-autocomplete  data-source.bind=\"acData\"\n                            text.bind=\"textFromAutoComplete\"\n                            value.bind=\"valueFromAutoComplete\"\n                            placeholder=\"e.g., Anne Dodsworth\"\n                            fields='{ \"value\": \"Name\" }'>\n            <ej-header-template>\n              <div class=\"header\"> <span>Photo</span> <span class=\"info\">Employee Info</span></div>\n            </ej-header-template>\n            <ej-item-template>\n              <div><img class=\"empImage\" src=\"//ej2.syncfusion.com/demos/src/auto-complete/Employees/${Eimg}.png\" alt=\"employee\"/>\n                <div class=\"ename\"> ${Name} </div><div class=\"job\"> ${Designation} </div> <div class=\"job\"> — <span>${Designation}</span></div></div>\n            </ej-item-template>\n          </ej-autocomplete>\n        </div>\n        <div>\n          <p>Text: ${textFromAutoComplete}</p>\n          <p>Value ${valueFromAutoComplete | jsonStringify}</p>\n        </div>\n    </div>\n    <hr>\n\n\n    <h2>Custom element \"ej-button\"</h2>\n    <ej-button primary=\"true\" content.bind=\"message\"></ej-button>\n    <ej-button primary.bind=\"isPrimary\" content=\"message\"></ej-button>\n\n    <h2>Custom element \"ej-checkbox\"</h2>\n    <ej-checkbox checked.two-way=\"isPrimary\" label=\"${isPrimary}\" disabled.two-way=\"isDisabled\"></ej-checkbox>\n    <ej-checkbox checked.two-way=\"isDisabled\" label=\"Disable checkbox\"></ej-checkbox>\n    <h2>Custom element \"ej-radio-button\"</h2>\n    <div><ej-radio-button name=\"group1\" position=\"After\" label=\"Vasya\" checked=\"true\"></ej-radio-button></div>\n    <div><ej-radio-button name=\"group1\" position=\"Before\" css-class=\"e-info\" label=\"Petya\" disabled.bind=\"isDisabled\"></ej-radio-button></div>\n\n    <div>\n      <form>\n        <h4>Products</h4>\n        <div repeat.for=\"product of products\">\n          <ej-radio-button type=\"radio\" enable-rtl.to-view=\"isRTL\" name=\"group4\" label=\"${product}\" disabled.bind=\"isDisabled\"\n                  value.bind=\"product\" checked.bind=\"selectedProduct\"></ej-radio-button>\n\n        </div>\n        <br>\n        Selected product: ${selectedProduct}\n        <br>\n        <ej-checkbox checked.two-way=\"isRTL\" label=\"Enable RTL\"></ej-checkbox>\n      </form>\n    </div>\n</template>\n";});;
+define('text!getting-started.html',[],function(){return "<template>\n  <require from=\"./json-stringify-value-converter\"></require>\n\n  <h1 class=\"sidebar-heading\"> Getting Started with au-ej2-plugin</h1>\n    <p>Aurelia-Syncfusion-Bridge includes wrappers for Syncfusion-JavaScript widget’s, which act as the interface for both Aurelia frameworks and Syncfusion JavaScript widgets. This bridge is a structured, configurable collection of JavaScript classes which wrap Syncfusion JavaScript controls, presenting them in the form of Aurelia components.</p>\n\n    <p>\n      The Syncfusion Aurelia components are named with prefix ej to avoid conflicting with other library component and offers the following features.\n\n      <ul>\n        <li>Properties</li>\n        <li>Two-way binding</li>\n        <li>Event binding</li>\n        <li>Templates</li>\n      </ul>\n\n    </p>\n    <div class=\"line\"></div>\n\n\n    <h1>Hello, this is the dev app for plugin au-ej2-plugin</h1>\n    <p>This dev app is bundled to scripts/ folder (ignored in .gitignore). If you commit the bundle files to github, this app can serve as a <a href=\"https://pages.github.com\" target=\"_blank\">github page</a>!</p>\n\n    <p>Please read the <a href=\"README.md\">README</a> file in your project for more information.</p>\n\n    <hr>\n\n    <div>\n\n      <div>\n        <ej-drop-down-list index=\"1\">\n          <option value=\"0\">Huy</option>\n          <option value=\"1\">Fuck</option>\n          <option value=\"2\">Pizda</option>\n        </ej-drop-down-list>\n      </div>\n    </div>\n\n    <div style=\"width: 300px;\">\n      <hr>\n        <h2>Custom element \"ej-autocomplete\"</h2>\n        <div>\n          <ej-autocomplete  data-source.bind=\"acData\"\n                            text.bind=\"textFromAutoComplete\"\n                            value.bind=\"valueFromAutoComplete\"\n                            placeholder=\"e.g., Anne Dodsworth\"\n                            fields='{ \"value\": \"Name\" }'>\n            <ej-header-template>\n              <div class=\"header\"> <span>Photo</span> <span class=\"info\">Employee Info</span></div>\n            </ej-header-template>\n            <ej-item-template>\n              <div><img class=\"empImage\" src=\"//ej2.syncfusion.com/demos/src/auto-complete/Employees/${Eimg}.png\" alt=\"employee\"/>\n                <div class=\"ename\"> ${Name} </div><div class=\"job\"> ${Designation} </div> <div class=\"job\"> — <span>${Designation}</span></div></div>\n            </ej-item-template>\n          </ej-autocomplete>\n        </div>\n        <div>\n          <p>Text: ${textFromAutoComplete}</p>\n          <p>Value ${valueFromAutoComplete | jsonStringify}</p>\n        </div>\n    </div>\n    <hr>\n\n\n    <h2>Custom element \"ej-button\"</h2>\n    <ej-button primary=\"true\" content.bind=\"message\"></ej-button>\n    <ej-button primary.bind=\"isPrimary\" content=\"message\"></ej-button>\n\n    <h2>Custom element \"ej-checkbox\"</h2>\n    <ej-checkbox checked.two-way=\"isPrimary\" label=\"${isPrimary}\" disabled.two-way=\"isDisabled\"></ej-checkbox>\n    <ej-checkbox checked.two-way=\"isDisabled\" label=\"Disable checkbox\"></ej-checkbox>\n    <h2>Custom element \"ej-radio-button\"</h2>\n    <div><ej-radio-button name=\"group1\" position=\"After\" label=\"Vasya\" checked=\"true\"></ej-radio-button></div>\n    <div><ej-radio-button name=\"group1\" position=\"Before\" css-class=\"e-info\" label=\"Petya\" disabled.bind=\"isDisabled\"></ej-radio-button></div>\n\n    <div>\n      <form>\n        <h4>Products</h4>\n        <div repeat.for=\"product of products\">\n          <ej-radio-button type=\"radio\" enable-rtl.to-view=\"isRTL\" name=\"group4\" label=\"${product}\" disabled.bind=\"isDisabled\"\n                  value.bind=\"product\" checked.bind=\"selectedProduct\"></ej-radio-button>\n\n        </div>\n        <br>\n        Selected product: ${selectedProduct}\n        <br>\n        <ej-checkbox checked.two-way=\"isRTL\" label=\"Enable RTL\"></ej-checkbox>\n      </form>\n    </div>\n</template>\n";});;
+define('introduction',["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var Introduction = (function () {
+        function Introduction() {
+        }
+        return Introduction;
+    }());
+    exports.Introduction = Introduction;
+});
+;
+define('text!introduction.html',[],function(){return "<template>\n  <h1 class=\"sidebar-heading\">Introduction</h1>\n  <p>Aurelia-Syncfusion-Bridge includes wrappers for Syncfusion-JavaScript widget’s, which act as the interface for both Aurelia frameworks and Syncfusion JavaScript widgets. This bridge is a structured, configurable collection of JavaScript classes which wrap Syncfusion JavaScript controls, presenting them in the form of Aurelia components.</p>\n\n  <p>\n    The Syncfusion Aurelia components are named with prefix ej to avoid conflicting with other library component and offers the following features.\n\n    <ul>\n      <li>Properties</li>\n      <li>Two-way binding</li>\n      <li>Event binding</li>\n      <li>Templates</li>\n    </ul>\n\n  </p>\n\n  <blockquote>\n    <p>\n      Those who are wish to directly getting started with Syncfusion Aurelia components navigate to\n      <a route-href=\"route: getting-started\">here</a>.\n    </p>\n  </blockquote>\n\n  <div class=\"line\"></div>\n\n  <h2 class=\"sidebar-heading\">Properties</h2>\n\n  <p>\n    All the properties of Syncfusion JavaScript widget are defined as attributes for particular Aurelia component,\n    so you can easily set value to same widget properties directly in your HTML markup, as it documented in\n    API section of each of the controls.\n  </p>\n  <p>\n    For example: the <code>allowPaging</code>  property of <code>ej-grid</code> widget can be defined as like the\n    below code example.\n  </p>\n\n  <div class=\"gatsby-highlight\" data-language=\"html\">\n    <pre class=\"language-html\">\n      <code class=\"language-html\">&lt;ej-grid data-source.two-way=\"gridData\" allow-paging=\"true\"&gt;&lt;/ej-grid&gt;</code>\n    </pre>\n  </div>\n\n<div class=\"line\"></div>\n\n<h2 class=\"sidebar-heading\">Two-way binding</h2>\n\n<p>\n  Two-way binding observes the property in model and updates the UI automatically.\n  The Syncfusion Aurelia component supports two-way binding for all the interactive properties.\n  For ex., <code>value</code> property in input components, <code>dataSource</code> in Grids etc.\n</p>\n<p>\n  The <code>dataSource</code> property of <code>ej-grid</code> widget can be defined as\n  two-way bindable property like the below code example.\n</p>\n\n<div class=\"gatsby-highlight\" data-language=\"html\">\n  <pre class=\"language-html\">\n    <code class=\"language-html\">&lt;ej-grid data-source.two-way=\"gridData\" allow-paging=\"true\"&gt;&lt;/ej-grid&gt;</code>\n  </pre>\n</div>\n\n<blockquote>\n  The <code>gridData</code> will be loaded from Aurelia view-model.\n</blockquote>\n\n<div class=\"line\"></div>\n\n<h2 class=\"sidebar-heading\">Event binding</h2>\n\n\n<div class=\"line\"></div>\n\n<h2 class=\"sidebar-heading\">Templating</h2>\n</template>\n";});;
 define('json-stringify-value-converter',["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });

@@ -19,6 +19,7 @@
       border-collapse: collapse;
     }
   </style>
+
   <div class="doc-body-content">
     <div class="e-view" id="md-content">
       <div id="md-cnt">
@@ -32,7 +33,7 @@
 
             </svg></a>Button styles</h2>
         <p>The Essential JS 2 Button has the following predefined styles that can be defined using
-          the <a href="/documentation/api/button/#cssclass"><code class="language-text">cssClass</code></a> property.
+          the <a href="/documentation/api/button/#css-class"><code class="language-text">css-class</code></a> property.
         </p>
         <table>
           <thead>
@@ -68,9 +69,23 @@
             </tr>
           </tbody>
         </table>
+
+        <div>
+          <ej-button css-class="e-primary"  content="primary"></ej-button>
+          <ej-button css-class="e-success" content="success"></ej-button>
+          <ej-button css-class="e-info" content="info"></ej-button>
+          <ej-button css-class="e-warning" content="warning"></ej-button>
+          <ej-button css-class="e-danger" content="danger"></ej-button>
+          <ej-button css-class="e-link" content="link"></ej-button>
+        </div>
+
+        <br>
+        <div>
+          <ej-button primary="true" toggle="true" content="primary" enabled="true" click.delegate="clicked()"></ej-button>
+        </div>
+
         <div class="doc-tab e-control e-tab e-lib e-safari e-template e-keyboard e-nested" role="tablist" aria-activedescendant="e-item-1e7wb_1" aria-disabled="false" aria-orientation="horizontal" style="width: 100%; height: auto;">
           <div class="e-tab-header e-control e-toolbar e-lib e-keyboard" role="toolbar" aria-disabled="false" aria-haspopup="false" aria-label="tab-header" aria-orientation="horizontal" tabindex="0" style="height: auto; width: 100%;">
-
 
             <div class="e-items e-toolbar-items">
               <div class="e-indicator e-ignore" style="left: 71px; right: 2px;"></div>
@@ -121,22 +136,22 @@
     <span class="token function">enableRipple</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token comment">//Primary Button - Used to represent a primary action.</span>
-    <span class="token keyword">let</span> button<span class="token operator">:</span> Button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> cssClass<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-primary</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#primarybtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> button<span class="token operator">:</span> Button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> css-class<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-primary</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#primarybtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token comment">//Success Button - Used to represent a positive action.</span>
-    button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> cssClass<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-success</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#successbtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> css-class<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-success</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#successbtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token comment">//Info Button - Used to represent an informative action.</span>
-    button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> cssClass<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-info</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#infobtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> css-class<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-info</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#infobtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token comment">//Warning Button - Used to represent an action with caution.</span>
-    button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> cssClass<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-warning</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#warningbtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> css-class<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-warning</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#warningbtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token comment">//Danger Button - Used to represent a negative action.</span>
-    button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> cssClass<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-danger</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#dangerbtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> css-class<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-danger</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#dangerbtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token comment">//Link Button - Changes the appearance of the Button like a hyperlink.</span>
-    button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> cssClass<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-link</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#linkbtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+    button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> css-class<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-link</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#linkbtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
                     </div>
                   </div>
                   <div class="e-item" id="e-content-1mntx_1" role="tabpanel" aria-labelledby="e-item-1mntx_1">
@@ -393,14 +408,14 @@
 
             </svg></a>Flat Button</h3>
         <p>The Flat Button is styled with no background color. To create a flat Button,
-          set the <a href="/documentation/api/button/#cssclass"><code class="language-text">cssClass</code></a> property
+          set the <a href="/documentation/api/button/#css-class"><code class="language-text">css-class</code></a> property
           to <code class="language-text">e-flat</code>.</p>
         <h3 id="outline-button"><a class="anchor" href="#outline-button" aria-hidden><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16">
               <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
 
             </svg></a>Outline Button</h3>
         <p>An outline Button has a border with transparent background. To create an outline Button,
-          set the <a href="/documentation/api/button/#cssclass"><code class="language-text">cssClass</code></a> property
+          set the <a href="/documentation/api/button/#css-class"><code class="language-text">css-class</code></a> property
           to <code class="language-text">e-outline</code>.</p>
         <h3 id="round-button"><a class="anchor" href="#round-button" aria-hidden><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16">
               <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
@@ -408,7 +423,7 @@
             </svg></a>Round Button</h3>
         <p>A round Button is shaped like a circle. Usually, it contains an icon representing its
           action. To create a round Button,
-          set the <a href="/documentation/api/button/#cssclass"><code class="language-text">cssClass</code></a> property
+          set the <a href="/documentation/api/button/#css-class"><code class="language-text">css-class</code></a> property
           to <code class="language-text">e-round</code>.</p>
         <div class="doc-tab e-control e-tab e-lib e-safari e-template e-keyboard e-nested" role="tablist" aria-activedescendant="e-item-2ug4q_0" aria-disabled="false" aria-orientation="horizontal" style="width: 100%; height: auto;">
           <div class="e-tab-header e-control e-toolbar e-lib e-keyboard" role="toolbar" aria-disabled="false" aria-haspopup="false" aria-label="tab-header" aria-orientation="horizontal" tabindex="0" style="height: auto; width: 100%;">
@@ -462,15 +477,15 @@
     <span class="token function">enableRipple</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token comment">//Flat Button.</span>
-    <span class="token keyword">let</span> button<span class="token operator">:</span> Button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> cssClass<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-flat</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#flatbtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> button<span class="token operator">:</span> Button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> css-class<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-flat</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#flatbtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token comment">//Outline Button.</span>
-    button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> cssClass<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-outline</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#outlinebtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> css-class<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-outline</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#outlinebtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token comment">//Round Button - Icon can be loaded by setting "e-icons e-plus-icon" in "iconCss" property.</span>
     <span class="token comment">//Use "e-icons" class name to load Essential JS 2 built-in icons.</span>
     <span class="token comment">//Use "e-plus-icon" class name to load plus icon that you can refer in "styles.css".</span>
-    button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> cssClass<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-round</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> iconCss<span class="token operator">:</span> <span class="token string">'e-icons e-plus-icon'</span><span class="token punctuation">,</span> isPrimary<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#roundbtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+    button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> css-class<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-round</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> iconCss<span class="token operator">:</span> <span class="token string">'e-icons e-plus-icon'</span><span class="token punctuation">,</span> isPrimary<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#roundbtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
                     </div>
                   </div>
                   <div class="e-item" id="e-content-0f4o2_1" role="tabpanel" aria-labelledby="e-item-0f4o2_1">
@@ -601,7 +616,7 @@
 
     <span class="token function">enableRipple</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="token keyword">let</span> togglebtn<span class="token operator">:</span> Button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span>cssClass<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-flat</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> iconCss<span class="token operator">:</span> <span class="token string">'e-btn-sb-icon e-play-icon'</span><span class="token punctuation">,</span> isToggle<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> content<span class="token operator">:</span><span class="token string">'Play'</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#toggelbtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> togglebtn<span class="token operator">:</span> Button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span>css-class<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-flat</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> iconCss<span class="token operator">:</span> <span class="token string">'e-btn-sb-icon e-play-icon'</span><span class="token punctuation">,</span> isToggle<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> content<span class="token operator">:</span><span class="token string">'Play'</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#toggelbtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token comment">//Click Event.</span>
     document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'toggelbtn'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>onclick <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token parameter"><span class="token keyword">void</span></span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
@@ -963,7 +978,7 @@
             </svg></a>Button size</h2>
         <p>The two types of Button sizes are default and small. To change the size of the default
           Button to small Button,
-          set the <a href="/documentation/api/button/#cssclass"><code class="language-text">cssClass</code></a> property
+          set the <a href="/documentation/api/button/#css-class"><code class="language-text">css-class</code></a> property
           to <code class="language-text">e-small</code>.</p>
         <div class="doc-tab e-control e-tab e-lib e-safari e-template e-keyboard e-nested" role="tablist" aria-activedescendant="e-item-a7keh_0" aria-disabled="false" aria-orientation="horizontal" style="width: 100%; height: auto;">
           <div class="e-tab-header e-control e-toolbar e-lib e-keyboard" role="toolbar" aria-disabled="false" aria-haspopup="false" aria-label="tab-header" aria-orientation="horizontal" tabindex="0" style="height: auto; width: 100%;">
@@ -1017,7 +1032,7 @@
     <span class="token function">enableRipple</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token comment">//Small Button.</span>
-    <span class="token keyword">let</span> button<span class="token operator">:</span> Button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> cssClass<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-small</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#smallbtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> button<span class="token operator">:</span> Button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> css-class<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">e-small</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'#smallbtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token comment">//Normal Button.</span>
     button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>

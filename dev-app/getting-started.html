@@ -1,27 +1,33 @@
 <template>
   <require from="./json-stringify-value-converter"></require>
-  
-  <h2 class="sidebar-heading"> Responsive Sidebar With Treeview</h2>
-    <p class="paragraph-content">This is a graphical aid for visualising and categorising the site, in the
-        style of an expandable and collapsable treeview component. It auto-expands to display the node(s),
-        if any, corresponding to the currently viewed title, highlighting that node(s) and its ancestors.
-        Load-on-demand when expanding nodes is available where supported (most graphical browsers), falling
-        back to a full-page reload. MediaWiki-supported caching, aside from squid, has been considered so
-        that unnecessary re-downloads of content are avoided where possible. The complete
-        expanded/collapsed state of the treeview persists across page views in most situations.</p>
-    <div class="line"></div>          
+
+  <h1 class="sidebar-heading"> Getting Started with au-ej2-plugin</h1>
+    <p>Aurelia-Syncfusion-Bridge includes wrappers for Syncfusion-JavaScript widget’s, which act as the interface for both Aurelia frameworks and Syncfusion JavaScript widgets. This bridge is a structured, configurable collection of JavaScript classes which wrap Syncfusion JavaScript controls, presenting them in the form of Aurelia components.</p>
+
+    <p>
+      The Syncfusion Aurelia components are named with prefix ej to avoid conflicting with other library component and offers the following features.
+
+      <ul>
+        <li>Properties</li>
+        <li>Two-way binding</li>
+        <li>Event binding</li>
+        <li>Templates</li>
+      </ul>
+
+    </p>
+    <div class="line"></div>
 
 
     <h1>Hello, this is the dev app for plugin au-ej2-plugin</h1>
     <p>This dev app is bundled to scripts/ folder (ignored in .gitignore). If you commit the bundle files to github, this app can serve as a <a href="https://pages.github.com" target="_blank">github page</a>!</p>
-  
+
     <p>Please read the <a href="README.md">README</a> file in your project for more information.</p>
-  
+
     <hr>
-  
-    <div> 
-  
-      <div> 
+
+    <div>
+
+      <div>
         <ej-drop-down-list index="1">
           <option value="0">Huy</option>
           <option value="1">Fuck</option>
@@ -29,13 +35,13 @@
         </ej-drop-down-list>
       </div>
     </div>
-    
+
     <div style="width: 300px;">
       <hr>
         <h2>Custom element "ej-autocomplete"</h2>
         <div>
-          <ej-autocomplete  data-source.bind="acData" 
-                            text.bind="textFromAutoComplete" 
+          <ej-autocomplete  data-source.bind="acData"
+                            text.bind="textFromAutoComplete"
                             value.bind="valueFromAutoComplete"
                             placeholder="e.g., Anne Dodsworth"
                             fields='{ "value": "Name" }'>
@@ -54,26 +60,26 @@
         </div>
     </div>
     <hr>
-    
-    
+
+
     <h2>Custom element "ej-button"</h2>
-    <ej-button primary="true" value.bind="message"></ej-button>
-    <ej-button primary.two-way="isPrimary" value="message"></ej-button>
-    
+    <ej-button primary="true" content.bind="message"></ej-button>
+    <ej-button primary.bind="isPrimary" content="message"></ej-button>
+
     <h2>Custom element "ej-checkbox"</h2>
-    <ej-checkbox checked.two-way="isPrimary" label="Value is ${isPrimary}" disabled.two-way="isDisabled"></ej-checkbox>
+    <ej-checkbox checked.two-way="isPrimary" label="${isPrimary}" disabled.two-way="isDisabled"></ej-checkbox>
     <ej-checkbox checked.two-way="isDisabled" label="Disable checkbox"></ej-checkbox>
     <h2>Custom element "ej-radio-button"</h2>
     <div><ej-radio-button name="group1" position="After" label="Vasya" checked="true"></ej-radio-button></div>
     <div><ej-radio-button name="group1" position="Before" css-class="e-info" label="Petya" disabled.bind="isDisabled"></ej-radio-button></div>
-    
+
     <div>
       <form>
         <h4>Products</h4>
         <div repeat.for="product of products">
           <ej-radio-button type="radio" enable-rtl.to-view="isRTL" name="group4" label="${product}" disabled.bind="isDisabled"
                   value.bind="product" checked.bind="selectedProduct"></ej-radio-button>
-          
+
         </div>
         <br>
         Selected product: ${selectedProduct}

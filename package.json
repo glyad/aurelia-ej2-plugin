@@ -124,6 +124,7 @@
     "@syncfusion/ej2-navigations": "^17.4.46",
     "@syncfusion/ej2-popups": "^17.4.46",
     "@syncfusion/ej2-splitbuttons": "^17.4.46",
-    "@syncfusion/ej2-treemap": "^17.4.46"
+    "@syncfusion/ej2-treemap": "^17.4.46",
+    "aurelia-highlightjs": "^0.1.10"
   }
 }

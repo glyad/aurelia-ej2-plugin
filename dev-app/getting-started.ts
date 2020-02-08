@@ -1,4 +1,4 @@
-import { bindable } from 'aurelia-framework';
+import { bindable, bindingMode } from 'aurelia-framework';
 import * as data from './dataSource.json';
 
 
@@ -8,7 +8,7 @@ export class GettingStarted {
   products: string[] = ['Motherboard', 'CPU', 'Memory'];
   selectedProduct = null;
 
-  @bindable public isPrimary = false;
+  @bindable ({ defaultBindingMode: bindingMode.twoWay }) public isPrimary: boolean = false;
   @bindable public isDisabled = false;
   @bindable public isRTL = false;
   @bindable public radioValue;
@@ -16,4 +16,7 @@ export class GettingStarted {
   @bindable public textFromAutoComplete;
   @bindable public valueFromAutoComplete = { Name: "Laura Callahan", Eimg: 2, Designation: "Product Manager", Country: "USA" };
 
+  // isPrimaryChanged(newValue: any) {
+  //   alert(newValue);
+  // }
 }
