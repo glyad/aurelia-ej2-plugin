@@ -1,3 +1,4 @@
+import { EjCheckBoxModel } from './ej-check-box-model';
 import {
   bindable,
   autoinject,
@@ -10,60 +11,36 @@ import { CheckBox, CheckBoxModel } from '@syncfusion/ej2-buttons';
 
 @autoinject
 @customElement('ej-checkbox')
-@inlineView('<template><input type="checkbox" change.delegate="onChange($this)"/></template>')
-export class EjCheckbox implements CheckBoxModel {
-  private _checkbox: CheckBox;
-  private _guard: boolean = false;
+@inlineView('<template><input type="checkbox"  name.bind="name" checked.bind="checked" value.bind="value" disabled.bind="disabled"/></template>')
+export class EjCheckbox extends EjCheckBoxModel implements CheckBoxModel {
 
-  @bindable public label: string = '';
-  @bindable public checked: boolean = true;
 
-  constructor(private element: Element, private taskQueue: TaskQueue) {}
-
-  @bindable({ defaultBindingMode: bindingMode.twoWay })
-  public get disabled() {
-    return this._checkbox.disabled;
-  }
-
-  public set disabled(value: any) {
-    this._checkbox.disabled = value === true || value === 'true';
-  }
-
-  private disabledChanged(newValue: boolean, oldValue: any) {
-    if (this._checkbox) {
-      this._checkbox.disabled = newValue;
-    }
+  constructor(private element: Element) {
+    super();
   }
 
   attached() {
-    this._checkbox = new CheckBox();
-    let e = this.element.querySelector('input');
-    this._checkbox.appendTo(e);
-    this._checkbox.label = this.label;
-    this._checkbox.checked = this.checked;
-    //this._checkbox.disabled = (this.disabled === true || this.disabled === "true");
+    this._wrapped = new CheckBox({
+      change: this.change,
+      checked: this.checked,
+      cssClass: this.cssClass,
+      disabled: this.disabled,
+      enableHtmlSanitizer: this.enableHtmlSanitizer,
+      enablePersistence: this.enablePersistence,
+      enableRtl: this.enableRtl,
+      htmlAttributes: this.htmlAttributes,
+      indeterminate: this.indeterminate,
+      label: this.label,
+      labelPosition: this.labelPosition,
+      locale: this.locale,
+      name: this.name,
+      value: this.value
+    }, this.element.querySelector('input'));
+
   }
 
   detached() {
-    this._checkbox.destroy();
+    this._wrapped.destroy();
   }
 
-  checkedChanged(newValue: boolean, oldValue: any) {
-    if (!this._checkbox || this._guard || newValue === oldValue) {
-      return;
-    }
-
-    if (this._checkbox) {
-      this._checkbox.checked = newValue;
-    }
-  }
-
-  //function to handle the CheckBox change event
-  private onChange(instance): void {
-    this._guard = true;
-    this.checked = this._checkbox.checked;
-    this.taskQueue.queueMicroTask(() => {
-      instance._guard = false;
-    });
-  }
 }

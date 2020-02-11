@@ -1,30 +1,11 @@
 import { bindingMode, bindable } from 'aurelia-framework';
 import { EjComponentModel } from '../../base/ej-component-model';
-import { ButtonModel, IconPosition } from '@syncfusion/ej2-buttons';
+import { ButtonModel, IconPosition, Button } from '@syncfusion/ej2-buttons';
 
 /**
  * Interface for a class Button
  */
-export class EjButtonModel extends EjComponentModel implements ButtonModel {
-
-
-    /**
-     * Enable or disable persisting component's state between page reloads.
-     * @default false
-     */
-    enablePersistence?: boolean;
-
-    /**
-     * Enable or disable rendering component in right to left direction.
-     * @default false
-     */
-    enableRtl?: boolean;
-
-    /**
-     * Overrides the global culture and localization value for this component. Default global culture is 'en-US'.
-     * @default ''
-     */
-    locale?: string;
+export class EjButtonModel extends EjComponentModel<Button> implements ButtonModel {
 
     /**
      * Positions the icon before/after the text content in the Button.
@@ -34,7 +15,7 @@ export class EjButtonModel extends EjComponentModel implements ButtonModel {
      * @default "left"
      */
     @bindable({ defaultBindingMode: bindingMode.twoWay })
-    iconPosition?: IconPosition;
+    iconPosition?: IconPosition = 'Left';
 
     /**
      * Defines class/multiple classes separated by a space for the Button that is used to include an icon.
@@ -43,6 +24,11 @@ export class EjButtonModel extends EjComponentModel implements ButtonModel {
      */
     @bindable({ defaultBindingMode: bindingMode.twoWay })
     iconCss?: string;
+    iconCssChanged(value: any) {
+      if (this._wrapped) {
+        this._wrapped.iconCss = value;
+      }
+    }
 
     /**
      * Specifies a value that indicates whether the Button is `disabled` or not.
@@ -67,6 +53,11 @@ export class EjButtonModel extends EjComponentModel implements ButtonModel {
      */
     @bindable({ defaultBindingMode: bindingMode.twoWay })
     cssClass?: string;
+    cssClassChanged(value: any) {
+      if (this._wrapped) {
+        this._wrapped.cssClass = value;
+      }
+    }
 
     /**
      * Defines the text `content` of the Button element.
@@ -75,6 +66,11 @@ export class EjButtonModel extends EjComponentModel implements ButtonModel {
      */
     @bindable({ defaultBindingMode: bindingMode.twoWay })
     content?: string;
+    contentChanged(value) {
+      if (this._wrapped) {
+        this._wrapped.content = value;
+      }
+    }
 
     /**
      * Makes the Button toggle, when set to `true`. When you click it, the state changes from normal to active.
@@ -90,12 +86,9 @@ export class EjButtonModel extends EjComponentModel implements ButtonModel {
      */
     @bindable({ defaultBindingMode: bindingMode.twoWay })
     enableHtmlSanitizer?: boolean;
-
-    /**
-     * Triggers once the component rendering is completed.
-     * @event
-     * @blazorProperty 'Created'
-     */
-    //created?: EmitType<Event>;
-
+    enableHtmlSanitizerChanged (value: any) {
+      if (this._wrapped) {
+        this._wrapped.enableHtmlSanitizer = value;
+      }
+    }
 }

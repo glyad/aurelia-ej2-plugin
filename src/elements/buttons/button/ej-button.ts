@@ -1,43 +1,58 @@
-import { bindable, TaskQueue, autoinject, inlineView } from 'aurelia-framework';
-import { Button } from '@syncfusion/ej2-buttons';
+import { EjButtonModel } from './ej-button-model';
+import { bindable, autoinject, inlineView } from 'aurelia-framework';
+import { Button, ButtonModel } from '@syncfusion/ej2-buttons';
 import { enableRipple } from '@syncfusion/ej2-base';
 
 @autoinject
 @inlineView('<template><button></button></template>')
-export class EjButton {
-  private _button: Button;
-  private guard: boolean = false;
+export class EjButton extends EjButtonModel implements ButtonModel {
 
-  @bindable value;
-  @bindable primary: boolean | string = false;
-
-  // tslint:disable-next-line: no-parameter-properties
-  constructor(private element: Element, private taskQueue: TaskQueue) {}
-
-  valueChanged(newValue, oldValue) {
-    //
+  @bindable public primary: boolean | string = false;
+  primaryChanged(value: any) {
+    if (this._wrapped) {
+      (<Button>this._wrapped).isPrimary = this.primary === true || this.primary === 'true';
+    }
   }
 
-  primaryChanged(newValue, oldValue) {
-    if (!this._button || this.guard || newValue === oldValue) {
-      return;
+  @bindable public toggle: boolean | string = false;
+  toggleChanged(value: any) {
+    if (this._wrapped) {
+      (<Button>this._wrapped).isToggle = this.toggle === true || this.toggle  === 'true';
     }
+  }
+  @bindable public enabled: boolean | string = true;
+  enabledChanged(value: any) {
+    if (this._wrapped) {
+      this._wrapped.disabled = !(this.enabled === true || this.enabled === 'true');
+    }
+  }
 
-    if (this._button) {
-      this._button.isPrimary = newValue;
-    }
+  // tslint:disable-next-line: no-parameter-properties
+  constructor(private element: Element) {
+    super();
   }
 
   attached() {
     enableRipple(true);
-    this._button = new Button();
-    let e = this.element.querySelector('button');
-    this._button.appendTo(e);
-    this._button.isPrimary = this.primary === true || this.primary === 'true';
-    this._button.content = this.value;
+    this._wrapped = new Button({
+        content: this.content,
+        cssClass: this.cssClass,
+        disabled: !(this.enabled === true || this.enabled === 'true'),
+        enableHtmlSanitizer: this.enableHtmlSanitizer,
+        enablePersistence: this.enablePersistence,
+        enableRtl: this.enableRtl,
+        iconCss: this.iconCss,
+        iconPosition: this.iconPosition,
+        isPrimary: this.primary === true || this.primary === 'true',
+        isToggle: this.isToggle === true || this.toggle === 'true',
+        locale: this.locale
+      },
+      this.element.querySelector('button'));
+
+
   }
 
   detached() {
-    this._button.destroy();
+    this._wrapped.destroy();
   }
 }

@@ -6,9 +6,9 @@ import {
   TaskQueue,
   bindingMode,
 } from 'aurelia-framework';
-import { EjComponentModel } from '../../base/ej-component-model';
 import { RadioButton, RadioButtonModel, RadioLabelPosition } from '@syncfusion/ej2-buttons';
 import { enableRipple } from '@syncfusion/ej2-base';
+import { EjRadioButtonModel } from './ej-radio-button-model';
 
 enableRipple(true);
 
@@ -17,8 +17,8 @@ enableRipple(true);
 @inlineView(
   '<template><input type="radio" name.bind="name" checked.bind="checked" value.bind="value" disabled.bind="disabled"></template>'
 )
-export class EjRadioButton extends EjComponentModel implements RadioButtonModel {
-  // private _wrapped: RadioButton;
+export class EjRadioButton extends EjRadioButtonModel implements RadioButtonModel {
+
 
   constructor(private element: Element, private taskQueue: TaskQueue) {
     super();
@@ -43,6 +43,9 @@ export class EjRadioButton extends EjComponentModel implements RadioButtonModel 
     );
   }
 
+  detached() {
+    this._wrapped.destroy();
+  }
   /**
    * Specifies a value that indicates whether the RadioButton is `checked` or not.
    * When set to `true`, the RadioButton will be in `checked` state.
@@ -50,19 +53,6 @@ export class EjRadioButton extends EjComponentModel implements RadioButtonModel 
    */
   @bindable({ defaultBindingMode: bindingMode.twoWay })
   checked?: boolean;
-  // public get checked() {
-  //   return this._wrapped.checked;
-  // }
-
-  // public set checked(value: boolean) {
-  //   this._wrapped.checked = value;
-  // }
-
-  // private checkedChanged(newValue, oldValue) {
-  //   if (this._wrapped) {
-  //     this._wrapped.checked = newValue;
-  //   }
-  // }
 
   /**
    * Defines class/multiple classes separated by a space in the RadioButton element.

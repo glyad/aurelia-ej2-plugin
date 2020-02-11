@@ -1,8 +1,8 @@
 import { bindable, bindingMode } from 'aurelia-framework';
-import { ChipModel } from '@syncfusion/ej2-buttons';
+import { ChipModel, Chip } from '@syncfusion/ej2-buttons';
 import { EjComponentModel } from '../../base/ej-component-model';
 
-export class EjChipModel extends EjComponentModel implements ChipModel {
+export class EjChipModel extends EjComponentModel<Chip> implements ChipModel {
 
   /**
    * This text property helps to render ChipList component.

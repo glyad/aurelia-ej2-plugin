@@ -1,12 +1,12 @@
 import { bindable, bindingMode } from 'aurelia-framework';
 import { EmitType } from '@syncfusion/ej2-base';
-import {LabelPosition, ChangeEventArgs, CheckBoxModel} from '@syncfusion/ej2-buttons';
+import {LabelPosition, ChangeEventArgs, CheckBoxModel, CheckBox} from '@syncfusion/ej2-buttons';
 import { EjComponentModel } from '../../base/ej-component-model';
 
 /**
  * Interface for a class CheckBox
  */
-export class EjCheckBoxModel extends EjComponentModel implements CheckBoxModel {
+export abstract class EjCheckBoxModel extends EjComponentModel<CheckBox> implements CheckBoxModel {
 
     /**
      * Triggers when the CheckBox state has been changed by user interaction.
@@ -22,7 +22,12 @@ export class EjCheckBoxModel extends EjComponentModel implements CheckBoxModel {
      * @default false
      */
     @bindable({ defaultBindingMode: bindingMode.twoWay })
-    checked?: boolean;
+    public checked?: boolean = false;
+    checkedChanged(value: any) {
+      if (this._wrapped) {
+        this._wrapped.checked = value === true || value === 'true';
+      }
+    }
 
     /**
      * Defines class/multiple classes separated by a space in the CheckBox element.
@@ -38,7 +43,19 @@ export class EjCheckBoxModel extends EjComponentModel implements CheckBoxModel {
      * @default false
      */
     @bindable({ defaultBindingMode: bindingMode.twoWay })
-    disabled?: boolean;
+    public get disabled() {
+      return (<CheckBox>this._wrapped).disabled;
+    }
+
+    public set disabled(value: any) {
+      (<CheckBox>this._wrapped).disabled = value === true || value === 'true';
+    }
+
+    private disabledChanged(newValue: boolean, oldValue: any) {
+      if (this._wrapped) {
+        (<CheckBox>this._wrapped).disabled = newValue;
+      }
+    }
 
     /**
      * Specifies a value that indicates whether the CheckBox is in `indeterminate` state or not.
@@ -53,7 +70,12 @@ export class EjCheckBoxModel extends EjComponentModel implements CheckBoxModel {
      * @default ''
      */
     @bindable({ defaultBindingMode: bindingMode.twoWay })
-    label?: string;
+    public label?: string;
+    labelChanged(newValue) {
+      if (this._wrapped) {
+        (<CheckBox>this._wrapped).label = newValue;
+      }
+    }
 
     /**
      * Positions label `before`/`after` the CheckBox.
@@ -80,7 +102,11 @@ export class EjCheckBoxModel extends EjComponentModel implements CheckBoxModel {
      */
     @bindable({ defaultBindingMode: bindingMode.twoWay })
     value?: string;
-
+    private valueChanged(newValue: any) {
+        if (this._wrapped) {
+          (<CheckBox>this._wrapped).value = newValue;
+        }
+    }
     /**
      * Defines whether to allow the cross-scripting site or not.
      * @default false

@@ -1,13 +1,13 @@
 import { bindable, bindingMode } from 'aurelia-framework';
 import { EmitType } from '@syncfusion/ej2-base';
-import { RadioButtonModel, ChangeArgs, RadioLabelPosition } from '@syncfusion/ej2-buttons';
+import { RadioButtonModel, ChangeArgs, RadioLabelPosition, RadioButton } from '@syncfusion/ej2-buttons';
 import { EjComponentModel } from '../../base/ej-component-model';
 
 
 /**
  * Interface for a class RadioButton
  */
-export class EjRadioButtonModel extends EjComponentModel implements RadioButtonModel{
+export abstract class EjRadioButtonModel extends EjComponentModel<RadioButton> implements RadioButtonModel{
 
     /**
      * Event trigger when the RadioButton state has been changed by user interaction.
