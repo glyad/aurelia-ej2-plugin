@@ -9,8 +9,8 @@ export function configure(aurelia: Aurelia) {
     // The "resources" is mapped to "../src" in aurelia.json "paths"
     .feature('resources')
     //.plugin(PLATFORM.moduleName('elements'))
-    //.plugin('aurelia-highlightjs');
-    //;
+
+    ;
 
   aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
 

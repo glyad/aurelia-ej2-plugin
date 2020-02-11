@@ -1,0 +1,91 @@
+<template>
+  <style>
+
+    .e-left-icon::before {
+      content: '\e7d4';
+    }
+
+    .e-right-icon::before {
+      content: '\e916';
+    }
+
+    .e-custom, .e-custom:hover, .e-custom:focus, .e-custom:active {
+      background-color: #ff6e40;
+      color: #fff;
+    }
+    @font-face {
+      font-family: 'btn-icon';
+      src:
+      url(data:application/x-font-ttf;charset=utf-8;base64,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) format('truetype');
+      font-weight: normal;
+      font-style: normal;
+  }
+
+  .e-btn-sb-icon {
+    font-family: 'btn-icon' !important;
+    font-size: 55px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /*For Right Icon Button*/
+  .e-stop-icon::before {
+    content: '\e703';
+  }
+
+  /*For Left Icon Button*/
+  .e-prev-icon::before {
+    content: '\e702';
+  }
+
+  button {
+    margin: 25px 5px 20px 20px;
+  }
+  </style>
+  <div class="e-row" style="margin-top: 96px;">
+    <ej-button  content.bind="content"
+                css-class.bind="cssClass"
+                enabled.bind="enabled"
+                enable-html-sanitizer.bind="enableHtmlSanitizer"
+                enable-persistence.bind="enablePersistence"
+                enable-rtl.bind="enableRtl"
+                icon-css.bind="iconCss"
+                icon-position.bind="iconPosition"
+                primary.bind="isPrimary",
+                toggle.bind="isToggle"></ej-button>
+  </div>
+
+  <div>
+    <label><code>enabled</code></label>
+    <ej-switch style="margin-right: 50px;" css-class.bind="cssClass" checked.bind="enabled" on-label="on" off-label="off"></ej-switch>
+    <label><code>enableRtl</code></label>
+    <ej-switch css-class.bind="cssClass" checked.bind="enableRtl" on-label="on" off-label="off"></ej-switch>
+    <label><code>primary</code></label>
+    <ej-switch css-class.bind="cssClass" checked.bind="isPrimary" on-label="on" off-label="off"></ej-switch>
+    <label><code>toggle</code></label>
+    <ej-switch css-class.bind="cssClass" checked.bind="isToggle" on-label="on" off-label="off"></ej-switch>
+  </div>
+
+  <hr>
+  <ej-checkbox checked.two-way="enabled" label="Enable RTL"></ej-checkbox>
+
+  <hr>
+  <ej-textbox placeholder="content" value.two-way="content" enabled.bind="enabled" width="300" show-clear-button="true"></ej-textbox>
+
+  <hr>
+  <ej-textbox placeholder="cssClass" value.two-way="cssClass & debounce:1000" width="300" floatLabel-type="Always"  show-clear-button="true"></ej-textbox>
+
+  <hr>
+  <ej-textbox placeholder="iconCss" value.two-way="iconCss & debounce:1000" width.bind="width" floatLabel-type="Always"  show-clear-button="true"></ej-textbox>
+
+  <hr>
+  <ej-numeric-textbox value.bind="width" width="120" min="80" max="300" step="10"></ej-numeric-textbox>
+  <ej-numeric-textbox value="200" format="0" decimal="0" validate-decimal-on-type="true" width.bind="width" min="80" max="300" step="10"></ej-numeric-textbox>
+
+  <ej-masked-textbox mask="+\972-00-000-0000"></ej-masked-textbox>
+</template>

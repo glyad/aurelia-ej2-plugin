@@ -1,13 +1,11 @@
-import { Introduction } from './introduction';
 import { PLATFORM } from 'aurelia-pal';
-import { bindable, autoinject } from 'aurelia-framework';
+import { autoinject } from 'aurelia-framework';
 import { Router, RouterConfiguration, RouteConfig } from 'aurelia-router';
 import { Sidebar } from '@syncfusion/ej2-navigations';
 import { enableRipple } from '@syncfusion/ej2-base';
-import { TreeView, TreeViewModel, NodeSelectEventArgs } from '@syncfusion/ej2-navigations';
+import { TreeView, NodeSelectEventArgs } from '@syncfusion/ej2-navigations';
 enableRipple(true);
 
-import * as data from './dataSource.json';
 
 
 type RouteDescriptor = { [key: string]: Object };
@@ -33,6 +31,9 @@ function flatten (routes: RouteDescriptor[], output: RouteDescriptor[]) {
 export class App {
 
   private routes: RouteDescriptor[] = [
+    // {
+    //   route: 'test', name: 'test', title: 'Test', moduleId: PLATFORM.moduleName('./test'), iconCss: 'icon-microchip icon', nav: true
+    // },
     {
       route: 'introduction', name: 'introduction', title: 'Introduction', moduleId: PLATFORM.moduleName('./introduction'), iconCss: 'icon-microchip icon', nav: true
     },
@@ -67,9 +68,8 @@ export class App {
 
     this.router = router;
     config.title = 'Aurelia Syncfusion Bridge';
-    let tmp: RouteDescriptor[] = [];
 
-    config.map([ { route: '', redirect: 'introduction' },
+    config.map([ { route: '', redirect: this.routes[0].route.toString() },
                   ...<RouteConfig[]>flatten(this.routes, [])] );
 
     //config.mapUnknownRoutes('getting-started');
