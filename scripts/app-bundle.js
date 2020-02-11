@@ -94,6 +94,16 @@ define('__dot_dot__/src/elements/buttons/button/ej-button',["require", "exports"
                 this._wrapped.isPrimary = this.primary === true || this.primary === 'true';
             }
         };
+        EjButton.prototype.toggleChanged = function (value) {
+            if (this._wrapped) {
+                this._wrapped.isToggle = this.toggle === true || this.toggle === 'true';
+            }
+        };
+        EjButton.prototype.enabledChanged = function (value) {
+            if (this._wrapped) {
+                this._wrapped.disabled = !(this.enabled === true || this.enabled === 'true');
+            }
+        };
         EjButton.prototype.attached = function () {
             ej2_base_1.enableRipple(true);
             this._wrapped = new ej2_buttons_1.Button({
@@ -163,16 +173,30 @@ define('__dot_dot__/src/elements/buttons/button/ej-button-model',["require", "ex
     var EjButtonModel = (function (_super) {
         __extends(EjButtonModel, _super);
         function EjButtonModel() {
-            return _super !== null && _super.apply(this, arguments) || this;
+            var _this = _super !== null && _super.apply(this, arguments) || this;
+            _this.iconPosition = 'Left';
+            return _this;
         }
-        __decorate([
-            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
-            __metadata("design:type", Boolean)
-        ], EjButtonModel.prototype, "enablePersistence", void 0);
-        __decorate([
-            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
-            __metadata("design:type", Boolean)
-        ], EjButtonModel.prototype, "enableRtl", void 0);
+        EjButtonModel.prototype.iconCssChanged = function (value) {
+            if (this._wrapped) {
+                this._wrapped.iconCss = value;
+            }
+        };
+        EjButtonModel.prototype.cssClassChanged = function (value) {
+            if (this._wrapped) {
+                this._wrapped.cssClass = value;
+            }
+        };
+        EjButtonModel.prototype.contentChanged = function (value) {
+            if (this._wrapped) {
+                this._wrapped.content = value;
+            }
+        };
+        EjButtonModel.prototype.enableHtmlSanitizerChanged = function (value) {
+            if (this._wrapped) {
+                this._wrapped.enableHtmlSanitizer = value;
+            }
+        };
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", String)
@@ -431,70 +455,70 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 define('__dot_dot__/src/elements/buttons/chips/ej-chip-list-model',["require", "exports", "aurelia-framework", "../../base/ej-component-model"], function (require, exports, aurelia_framework_1, ej_component_model_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var ChipListModel = (function (_super) {
-        __extends(ChipListModel, _super);
-        function ChipListModel() {
+    var EjChipListModel = (function (_super) {
+        __extends(EjChipListModel, _super);
+        function EjChipListModel() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", Array)
-        ], ChipListModel.prototype, "chips", void 0);
+        ], EjChipListModel.prototype, "chips", void 0);
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", String)
-        ], ChipListModel.prototype, "text", void 0);
+        ], EjChipListModel.prototype, "text", void 0);
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", String)
-        ], ChipListModel.prototype, "avatarText", void 0);
+        ], EjChipListModel.prototype, "avatarText", void 0);
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", String)
-        ], ChipListModel.prototype, "avatarIconCss", void 0);
+        ], EjChipListModel.prototype, "avatarIconCss", void 0);
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", String)
-        ], ChipListModel.prototype, "leadingIconCss", void 0);
+        ], EjChipListModel.prototype, "leadingIconCss", void 0);
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", String)
-        ], ChipListModel.prototype, "trailingIconCss", void 0);
+        ], EjChipListModel.prototype, "trailingIconCss", void 0);
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", String)
-        ], ChipListModel.prototype, "cssClass", void 0);
+        ], EjChipListModel.prototype, "cssClass", void 0);
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", Boolean)
-        ], ChipListModel.prototype, "enabled", void 0);
+        ], EjChipListModel.prototype, "enabled", void 0);
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", Object)
-        ], ChipListModel.prototype, "selectedChips", void 0);
+        ], EjChipListModel.prototype, "selectedChips", void 0);
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", String)
-        ], ChipListModel.prototype, "selection", void 0);
+        ], EjChipListModel.prototype, "selection", void 0);
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", Boolean)
-        ], ChipListModel.prototype, "enableDelete", void 0);
+        ], EjChipListModel.prototype, "enableDelete", void 0);
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", Object)
-        ], ChipListModel.prototype, "created", void 0);
+        ], EjChipListModel.prototype, "created", void 0);
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", Object)
-        ], ChipListModel.prototype, "click", void 0);
+        ], EjChipListModel.prototype, "click", void 0);
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", Object)
-        ], ChipListModel.prototype, "delete", void 0);
-        return ChipListModel;
+        ], EjChipListModel.prototype, "delete", void 0);
+        return EjChipListModel;
     }(ej_component_model_1.EjComponentModel));
-    exports.ChipListModel = ChipListModel;
+    exports.EjChipListModel = EjChipListModel;
 });
 ;
 var __extends = (this && this.__extends) || (function () {
@@ -570,7 +594,7 @@ define('__dot_dot__/src/elements/buttons/chips/index',["require", "exports", "./
     __export(ej_chip_list_model_1);
 });
 ;
-define('__dot_dot__/src/elements/buttons/index',["require", "exports", "./button/index", "./check-box/index", "./chips/index", "./radio-button/index"], function (require, exports, index_1, index_2, index_3, index_4) {
+define('__dot_dot__/src/elements/buttons/index',["require", "exports", "./button/index", "./check-box/index", "./chips/index", "./radio-button/index", "./switch/index"], function (require, exports, index_1, index_2, index_3, index_4, index_5) {
     "use strict";
     function __export(m) {
         for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -580,6 +604,7 @@ define('__dot_dot__/src/elements/buttons/index',["require", "exports", "./button
     __export(index_2);
     __export(index_3);
     __export(index_4);
+    __export(index_5);
 });
 ;
 var __extends = (this && this.__extends) || (function () {
@@ -604,7 +629,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define('__dot_dot__/src/elements/buttons/radio-button/ej-radio-button',["require", "exports", "aurelia-framework", "../../base/ej-component-model", "@syncfusion/ej2-buttons", "@syncfusion/ej2-base"], function (require, exports, aurelia_framework_1, ej_component_model_1, ej2_buttons_1, ej2_base_1) {
+define('__dot_dot__/src/elements/buttons/radio-button/ej-radio-button',["require", "exports", "aurelia-framework", "@syncfusion/ej2-buttons", "@syncfusion/ej2-base", "./ej-radio-button-model"], function (require, exports, aurelia_framework_1, ej2_buttons_1, ej2_base_1, ej_radio_button_model_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     ej2_base_1.enableRipple(true);
@@ -630,6 +655,9 @@ define('__dot_dot__/src/elements/buttons/radio-button/ej-radio-button',["require
                 enablePersistence: this.enablePersistence,
                 locale: this.locale,
             }, this.element.querySelector('input'));
+        };
+        EjRadioButton.prototype.detached = function () {
+            this._wrapped.destroy();
         };
         EjRadioButton.prototype.cssClassChanged = function (newValue) {
             if (this._wrapped) {
@@ -690,7 +718,7 @@ define('__dot_dot__/src/elements/buttons/radio-button/ej-radio-button',["require
             __metadata("design:paramtypes", [Element, aurelia_framework_1.TaskQueue])
         ], EjRadioButton);
         return EjRadioButton;
-    }(ej_component_model_1.EjComponentModel));
+    }(ej_radio_button_model_1.EjRadioButtonModel));
     exports.EjRadioButton = EjRadioButton;
 });
 ;
@@ -797,6 +825,73 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+define('__dot_dot__/src/elements/buttons/switch/ej-switch',["require", "exports", "./ej-switch-model", "@syncfusion/ej2-buttons", "aurelia-framework"], function (require, exports, ej_switch_model_1, ej2_buttons_1, aurelia_framework_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var EjSwitch = (function (_super) {
+        __extends(EjSwitch, _super);
+        function EjSwitch(element) {
+            var _this = _super.call(this) || this;
+            _this.element = element;
+            _this.enabled = true;
+            return _this;
+        }
+        EjSwitch.prototype.attached = function () {
+            var _this = this;
+            this.change = function (e) {
+                _this.checked = e.checked;
+            };
+            this._wrapped = new ej2_buttons_1.Switch({
+                change: this.change,
+                checked: this.checked,
+                cssClass: this.cssClass,
+                disabled: !(this.enabled === true || this.enabled === 'true'),
+                enablePersistence: this.enablePersistence,
+                enableRtl: this.enableRtl,
+                locale: this.locale,
+                offLabel: this.offLabel,
+                name: this.name,
+                onLabel: this.onLabel,
+                value: this.value
+            }, this.element.querySelector('input'));
+        };
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", Object)
+        ], EjSwitch.prototype, "enabled", void 0);
+        EjSwitch = __decorate([
+            aurelia_framework_1.autoinject,
+            aurelia_framework_1.customElement('ej-switch'),
+            aurelia_framework_1.inlineView('<template><input type="checkbox" name.bind="name" checked.bind="checked" value.bind="value" disabled.bind="disabled"/></template>'),
+            __metadata("design:paramtypes", [Element])
+        ], EjSwitch);
+        return EjSwitch;
+    }(ej_switch_model_1.EjSwitchModel));
+    exports.EjSwitch = EjSwitch;
+});
+;
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 define('__dot_dot__/src/elements/buttons/switch/ej-switch-model',["require", "exports", "aurelia-framework", "../../base/ej-component-model"], function (require, exports, aurelia_framework_1, ej_component_model_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -805,6 +900,11 @@ define('__dot_dot__/src/elements/buttons/switch/ej-switch-model',["require", "ex
         function EjSwitchModel() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
+        EjSwitchModel.prototype.checkedChanged = function (value) {
+            if (this._wrapped) {
+                this._wrapped.checked = value === true || value === 'true';
+            }
+        };
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", Object)
@@ -842,13 +942,14 @@ define('__dot_dot__/src/elements/buttons/switch/ej-switch-model',["require", "ex
     exports.EjSwitchModel = EjSwitchModel;
 });
 ;
-define('__dot_dot__/src/elements/buttons/switch/index',["require", "exports", "./ej-switch-model"], function (require, exports, ej_switch_model_1) {
+define('__dot_dot__/src/elements/buttons/switch/index',["require", "exports", "./ej-switch-model", "./ej-switch"], function (require, exports, ej_switch_model_1, ej_switch_1) {
     "use strict";
     function __export(m) {
         for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
     }
     Object.defineProperty(exports, "__esModule", { value: true });
     __export(ej_switch_model_1);
+    __export(ej_switch_1);
 });
 ;
 var __extends = (this && this.__extends) || (function () {
@@ -1761,13 +1862,15 @@ define('__dot_dot__/src/elements/index',["require", "exports", "./base/index", "
     __export(index_4);
 });
 ;
-define('__dot_dot__/src/elements/inputs/index',["require", "exports", "./input/index"], function (require, exports, index_1) {
+define('__dot_dot__/src/elements/inputs/index',["require", "exports", "./input/index", "./textbox/index", "./maskedtextbox/index"], function (require, exports, index_1, index_2, index_3) {
     "use strict";
     function __export(m) {
         for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
     }
     Object.defineProperty(exports, "__esModule", { value: true });
     __export(index_1);
+    __export(index_2);
+    __export(index_3);
 });
 ;
 define('__dot_dot__/src/elements/inputs/input/index',["require", "exports", "./input-base"], function (require, exports, input_base_1) {
@@ -1825,6 +1928,648 @@ define('__dot_dot__/src/elements/inputs/input/input-base',["require", "exports",
         return EjInputBase;
     }());
     exports.EjInputBase = EjInputBase;
+});
+;
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+define('__dot_dot__/src/elements/inputs/maskedtextbox/ej-masked-textbox',["require", "exports", "aurelia-framework", "./ej-masked-textbox-model", "@syncfusion/ej2-inputs"], function (require, exports, aurelia_framework_1, ej_masked_textbox_model_1, ej2_inputs_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var EjMaskedTextBox = (function (_super) {
+        __extends(EjMaskedTextBox, _super);
+        function EjMaskedTextBox(element) {
+            var _this = _super.call(this) || this;
+            _this.element = element;
+            return _this;
+        }
+        EjMaskedTextBox.prototype.attached = function () {
+            var _this = this;
+            this._wrapped = new ej2_inputs_1.MaskedTextBox({
+                blur: this.blur,
+                change: this.change,
+                cssClass: this.cssClass,
+                customCharacters: this.customCharacters,
+                destroyed: this.destroyed,
+                enablePersistence: this.enablePersistence,
+                enableRtl: this.enableRtl,
+                enabled: this.enabled,
+                floatLabelType: this.floatLabelType,
+                focus: this.focus,
+                htmlAttributes: this.htmlAttributes,
+                locale: this.locale,
+                mask: this.mask,
+                promptChar: this.promptChar,
+                placeholder: this.placeholder,
+                readonly: this.readonly,
+                showClearButton: this.showClearButton,
+                value: this.value,
+                width: this.width
+            }, this.element.querySelector('input'));
+            this._wrapped.change = function (e) {
+                _this.value = _this._wrapped.value;
+            };
+        };
+        EjMaskedTextBox.prototype.detached = function () {
+            this._wrapped.destroy();
+        };
+        EjMaskedTextBox = __decorate([
+            aurelia_framework_1.autoinject,
+            aurelia_framework_1.customElement('ej-masked-textbox'),
+            aurelia_framework_1.inlineView('<template><input/></template>'),
+            __metadata("design:paramtypes", [Element])
+        ], EjMaskedTextBox);
+        return EjMaskedTextBox;
+    }(ej_masked_textbox_model_1.EjMaskedTextBoxModel));
+    exports.EjMaskedTextBox = EjMaskedTextBox;
+});
+;
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+define('__dot_dot__/src/elements/inputs/maskedtextbox/ej-masked-textbox-model',["require", "exports", "aurelia-framework", "../../base/ej-component-model"], function (require, exports, aurelia_framework_1, ej_component_model_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var EjMaskedTextBoxModel = (function (_super) {
+        __extends(EjMaskedTextBoxModel, _super);
+        function EjMaskedTextBoxModel() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjMaskedTextBoxModel.prototype, "cssClass", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjMaskedTextBoxModel.prototype, "width", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjMaskedTextBoxModel.prototype, "placeholder", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjMaskedTextBoxModel.prototype, "floatLabelType", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjMaskedTextBoxModel.prototype, "htmlAttributes", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjMaskedTextBoxModel.prototype, "enabled", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjMaskedTextBoxModel.prototype, "readonly", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjMaskedTextBoxModel.prototype, "showClearButton", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjMaskedTextBoxModel.prototype, "enablePersistence", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjMaskedTextBoxModel.prototype, "mask", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjMaskedTextBoxModel.prototype, "promptChar", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjMaskedTextBoxModel.prototype, "value", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjMaskedTextBoxModel.prototype, "customCharacters", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjMaskedTextBoxModel.prototype, "created", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjMaskedTextBoxModel.prototype, "destroyed", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjMaskedTextBoxModel.prototype, "change", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjMaskedTextBoxModel.prototype, "focus", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjMaskedTextBoxModel.prototype, "blur", void 0);
+        return EjMaskedTextBoxModel;
+    }(ej_component_model_1.EjComponentModel));
+    exports.EjMaskedTextBoxModel = EjMaskedTextBoxModel;
+});
+;
+define('__dot_dot__/src/elements/inputs/maskedtextbox/index',["require", "exports", "./ej-masked-textbox-model", "./ej-masked-textbox"], function (require, exports, ej_masked_textbox_model_1, ej_masked_textbox_1) {
+    "use strict";
+    function __export(m) {
+        for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+    }
+    Object.defineProperty(exports, "__esModule", { value: true });
+    __export(ej_masked_textbox_model_1);
+    __export(ej_masked_textbox_1);
+});
+;
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+define('__dot_dot__/src/elements/inputs/numerictextbox/ej-numerictextbox',["require", "exports", "aurelia-framework", "./ej-numerictextbox-model", "@syncfusion/ej2-inputs"], function (require, exports, aurelia_framework_1, ej_numerictextbox_model_1, ej2_inputs_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var EjNumericTextBox = (function (_super) {
+        __extends(EjNumericTextBox, _super);
+        function EjNumericTextBox(element) {
+            var _this = _super.call(this) || this;
+            _this.element = element;
+            return _this;
+        }
+        EjNumericTextBox.prototype.attached = function () {
+            var _this = this;
+            this._wrapped = new ej2_inputs_1.NumericTextBox({
+                blur: this.blur,
+                change: this.change,
+                cssClass: this.cssClass,
+                currency: this.currency,
+                currencyCode: this.currencyCode,
+                decimals: this.decimals,
+                destroyed: this.destroyed,
+                enablePersistence: this.enablePersistence,
+                enableRtl: this.enableRtl,
+                enabled: this.enabled,
+                floatLabelType: this.floatLabelType,
+                focus: this.focus,
+                format: this.format,
+                htmlAttributes: this.htmlAttributes,
+                locale: this.locale,
+                max: +this.max,
+                min: +this.min,
+                placeholder: this.placeholder,
+                readonly: this.readonly,
+                showClearButton: this.showClearButton,
+                showSpinButton: this.showSpinButton,
+                step: +this.step,
+                strictMode: this.strictMode,
+                validateDecimalOnType: this.validateDecimalOnType,
+                value: this.value,
+                width: this.width
+            }, this.element.querySelector('input'));
+            this._wrapped.change = function (e) {
+                _this.value = _this._wrapped.value;
+            };
+        };
+        EjNumericTextBox.prototype.detached = function () {
+            this._wrapped.destroy();
+        };
+        EjNumericTextBox = __decorate([
+            aurelia_framework_1.autoinject,
+            aurelia_framework_1.customElement('ej-numeric-textbox'),
+            aurelia_framework_1.inlineView('<template><input/></template>'),
+            __metadata("design:paramtypes", [Element])
+        ], EjNumericTextBox);
+        return EjNumericTextBox;
+    }(ej_numerictextbox_model_1.EjNumericTextBoxModel));
+    exports.EjNumericTextBox = EjNumericTextBox;
+});
+;
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+define('__dot_dot__/src/elements/inputs/numerictextbox/ej-numerictextbox-model',["require", "exports", "aurelia-framework", "../../base/ej-component-model"], function (require, exports, aurelia_framework_1, ej_component_model_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var EjNumericTextBoxModel = (function (_super) {
+        __extends(EjNumericTextBoxModel, _super);
+        function EjNumericTextBoxModel() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        EjNumericTextBoxModel.prototype.widthChanged = function (value) {
+            if (this._wrapped) {
+                this._wrapped.width = value;
+            }
+        };
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjNumericTextBoxModel.prototype, "cssClass", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Number)
+        ], EjNumericTextBoxModel.prototype, "value", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Number)
+        ], EjNumericTextBoxModel.prototype, "min", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Number)
+        ], EjNumericTextBoxModel.prototype, "max", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Number)
+        ], EjNumericTextBoxModel.prototype, "step", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjNumericTextBoxModel.prototype, "width", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjNumericTextBoxModel.prototype, "placeholder", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjNumericTextBoxModel.prototype, "htmlAttributes", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjNumericTextBoxModel.prototype, "showSpinButton", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjNumericTextBoxModel.prototype, "readonly", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjNumericTextBoxModel.prototype, "enabled", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjNumericTextBoxModel.prototype, "showClearButton", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjNumericTextBoxModel.prototype, "enablePersistence", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjNumericTextBoxModel.prototype, "format", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Number)
+        ], EjNumericTextBoxModel.prototype, "decimals", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjNumericTextBoxModel.prototype, "currency", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjNumericTextBoxModel.prototype, "currencyCode", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjNumericTextBoxModel.prototype, "strictMode", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjNumericTextBoxModel.prototype, "validateDecimalOnType", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjNumericTextBoxModel.prototype, "floatLabelType", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjNumericTextBoxModel.prototype, "created", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjNumericTextBoxModel.prototype, "destroyed", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjNumericTextBoxModel.prototype, "change", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjNumericTextBoxModel.prototype, "focus", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjNumericTextBoxModel.prototype, "blur", void 0);
+        return EjNumericTextBoxModel;
+    }(ej_component_model_1.EjComponentModel));
+    exports.EjNumericTextBoxModel = EjNumericTextBoxModel;
+});
+;
+define('__dot_dot__/src/elements/inputs/numerictextbox/index',["require", "exports", "./ej-numerictextbox-model", "./ej-numerictextbox"], function (require, exports, ej_numerictextbox_model_1, ej_numerictextbox_1) {
+    "use strict";
+    function __export(m) {
+        for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+    }
+    Object.defineProperty(exports, "__esModule", { value: true });
+    __export(ej_numerictextbox_model_1);
+    __export(ej_numerictextbox_1);
+});
+;
+define('__dot_dot__/src/elements/inputs/slider/ej-slider-model',["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+});
+;
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+define('__dot_dot__/src/elements/inputs/textbox/ej-textbox',["require", "exports", "aurelia-framework", "./ej-textbox-model", "@syncfusion/ej2-inputs"], function (require, exports, aurelia_framework_1, ej_textbox_model_1, ej2_inputs_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var EjTextbox = (function (_super) {
+        __extends(EjTextbox, _super);
+        function EjTextbox(element) {
+            var _this = _super.call(this) || this;
+            _this.element = element;
+            return _this;
+        }
+        EjTextbox.prototype.attached = function () {
+            var _this = this;
+            this._wrapped = new ej2_inputs_1.TextBox({
+                autocomplete: this.autocomplete,
+                cssClass: this.cssClass,
+                destroyed: this.destroyed,
+                enablePersistence: this.enablePersistence,
+                enableRtl: this.enableRtl,
+                enabled: this.enabled,
+                floatLabelType: this.floatLabelType,
+                focus: this.focus,
+                htmlAttributes: this.htmlAttributes,
+                input: this.input,
+                locale: this.locale,
+                multiline: this.multiline,
+                placeholder: this.placeholder,
+                readonly: this.readonly,
+                showClearButton: this.showClearButton,
+                type: this.type,
+                value: this.value,
+                width: this.width
+            }, this.element.querySelector('input'));
+            this._wrapped.input = function (e) {
+                if (_this.showClearButton
+                    && e.event.target.tagName.toLowerCase() === 'span'
+                    && e.event.type === 'mousedown') {
+                    _this.value = '';
+                }
+            };
+        };
+        EjTextbox.prototype.detached = function () {
+            this._wrapped.destroy();
+        };
+        EjTextbox = __decorate([
+            aurelia_framework_1.autoinject,
+            aurelia_framework_1.customElement('ej-textbox'),
+            aurelia_framework_1.inlineView('<template><input value.two-way="value"></input></template>'),
+            __metadata("design:paramtypes", [Element])
+        ], EjTextbox);
+        return EjTextbox;
+    }(ej_textbox_model_1.EjTextBoxModel));
+    exports.EjTextbox = EjTextbox;
+});
+;
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+define('__dot_dot__/src/elements/inputs/textbox/ej-textbox-model',["require", "exports", "aurelia-framework", "../../base/ej-component-model"], function (require, exports, aurelia_framework_1, ej_component_model_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var EjTextBoxModel = (function (_super) {
+        __extends(EjTextBoxModel, _super);
+        function EjTextBoxModel() {
+            var _this = _super !== null && _super.apply(this, arguments) || this;
+            _this.type = 'text';
+            _this.floatLabelType = 'Never';
+            _this.cssClass = '';
+            _this.autocomplete = 'on';
+            return _this;
+        }
+        EjTextBoxModel.prototype.enabledChanged = function (value) {
+            if (this._wrapped) {
+                this._wrapped.enabled = (value === true || value === 'true');
+            }
+        };
+        EjTextBoxModel.prototype.showClearButtonChanged = function (value) {
+            if (this._wrapped) {
+                this._wrapped.showClearButton = (value === true || value === 'true');
+            }
+        };
+        EjTextBoxModel.prototype.widthChanged = function (value) {
+            if (this._wrapped) {
+                this._wrapped.width = value;
+            }
+        };
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjTextBoxModel.prototype, "type", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjTextBoxModel.prototype, "readonly", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjTextBoxModel.prototype, "value", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjTextBoxModel.prototype, "floatLabelType", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjTextBoxModel.prototype, "cssClass", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjTextBoxModel.prototype, "placeholder", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", String)
+        ], EjTextBoxModel.prototype, "autocomplete", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjTextBoxModel.prototype, "htmlAttributes", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjTextBoxModel.prototype, "multiline", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjTextBoxModel.prototype, "enabled", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjTextBoxModel.prototype, "showClearButton", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Boolean)
+        ], EjTextBoxModel.prototype, "enablePersistence", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjTextBoxModel.prototype, "width", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjTextBoxModel.prototype, "created", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjTextBoxModel.prototype, "destroyed", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjTextBoxModel.prototype, "change", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjTextBoxModel.prototype, "blur", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjTextBoxModel.prototype, "focus", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], EjTextBoxModel.prototype, "input", void 0);
+        return EjTextBoxModel;
+    }(ej_component_model_1.EjComponentModel));
+    exports.EjTextBoxModel = EjTextBoxModel;
+});
+;
+define('__dot_dot__/src/elements/inputs/textbox/index',["require", "exports", "./ej-textbox-model", "./ej-textbox"], function (require, exports, ej_textbox_model_1, ej_textbox_1) {
+    "use strict";
+    function __export(m) {
+        for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+    }
+    Object.defineProperty(exports, "__esModule", { value: true });
+    __export(ej_textbox_model_1);
+    __export(ej_textbox_1);
 });
 ;
 define('__dot_dot__/src/elements/navigations/index',["require", "exports", "./tab/index"], function (require, exports, index_1) {
@@ -1888,6 +2633,10 @@ define('__dot_dot__/src/index',["require", "exports", "aurelia-pal", "./elements
             aurelia_pal_1.PLATFORM.moduleName('./elements/buttons/button/ej-button'),
             aurelia_pal_1.PLATFORM.moduleName('./elements/buttons/check-box/ej-checkbox'),
             aurelia_pal_1.PLATFORM.moduleName('./elements/buttons/radio-button/ej-radio-button'),
+            aurelia_pal_1.PLATFORM.moduleName('./elements/buttons/switch/ej-switch'),
+            aurelia_pal_1.PLATFORM.moduleName('./elements/inputs/textbox/ej-textbox'),
+            aurelia_pal_1.PLATFORM.moduleName('./elements/inputs/maskedtextbox/ej-masked-textbox'),
+            aurelia_pal_1.PLATFORM.moduleName('./elements/inputs/numerictextbox/ej-numerictextbox'),
             aurelia_pal_1.PLATFORM.moduleName('./elements/dropdowns/auto-complete/ej-auto-complete'),
             aurelia_pal_1.PLATFORM.moduleName('./elements/dropdowns/drop-down-list/ej-drop-down-list')
         ]);
@@ -1951,8 +2700,7 @@ define('app',["require", "exports", "aurelia-pal", "aurelia-framework", "aurelia
         App.prototype.configureRouter = function (config, router) {
             this.router = router;
             config.title = 'Aurelia Syncfusion Bridge';
-            var tmp = [];
-            config.map(__spreadArrays([{ route: '', redirect: 'introduction' }], flatten(this.routes, [])));
+            config.map(__spreadArrays([{ route: '', redirect: this.routes[0].route.toString() }], flatten(this.routes, [])));
         };
         App.prototype.attached = function () {
             var _this = this;
@@ -1997,7 +2745,7 @@ define('components/button/button-getting-started',["require", "exports"], functi
     exports.ButtonGettingStarted = ButtonGettingStarted;
 });
 ;
-define('text!components/button/button-getting-started.html',[],function(){return "<template>\n\n  <div class=\"doc-body-content\">\n    <div id=\"md-content\" class=\"e-view\">\n      <div id=\"md-cnt\">\n        <h1 id=\"getting-started\"><a href=\"#gs\" aria-hidden=\"\" class=\"anchor\"><svg\n              aria-hidden=\"true\" height=\"16\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\">\n              <path fill-rule=\"evenodd\"\n                d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\">\n              </path>\n            </svg></a>Getting started with JavaScript Button control</h1>\n        <p>This section explains how to create a simple Button and to configure the Button\n          component.</p>\n        <h2 id=\"dependencies\"><a href=\"#dependencies\" aria-hidden=\"\" class=\"anchor\" router-ignore data-router-ignore><svg\n              aria-hidden=\"true\" height=\"16\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\">\n              <path fill-rule=\"evenodd\"\n                d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\">\n              </path>\n            </svg></a>Dependencies</h2>\n        <p>The list of dependencies required to use the Button component in your application is\n          given below:</p>\n        <div class=\"gatsby-highlight\" data-language=\"js\">\n          <pre\n            class=\"language-js\"><code class=\"language-js\"><span class=\"token operator\">|</span><span class=\"token operator\">--</span> @syncfusion<span class=\"token operator\">/</span>ej2<span class=\"token operator\">-</span>buttons\n        <span class=\"token operator\">|</span><span class=\"token operator\">--</span> @syncfusion<span class=\"token operator\">/</span>ej2<span class=\"token operator\">-</span>base</code></pre>\n        </div>\n        <h2 id=\"setup-your-development-environment\"><a href=\"#setup-your-development-environment\"\n            aria-hidden=\"\" class=\"anchor\" router-ignore data-router-ignore><svg aria-hidden=\"true\" height=\"16\" version=\"1.1\"\n              viewBox=\"0 0 16 16\" width=\"16\">\n              <path fill-rule=\"evenodd\"\n                d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\">\n              </path>\n            </svg></a>Setup your development environment</h2>\n        <p>To get started with the Button component, you can clone the\n          <a href=\"https://github.com/syncfusion/ej2-quickstart\">Essential JS 2 quickstart</a>\n          project using the following commands:</p>\n        <div class=\"gatsby-highlight\" data-language=\"bash\">\n          <pre class=\"language-bash\"><code class=\"language-bash\">git clone https://github.com/syncfusion/ej2-quickstart.git quickstart\n    cd quickstart\n    npm install</code></pre>\n        </div>\n        <blockquote>\n          <p>The project is preconfigured with common settings (<code\n              class=\"language-text\">src/styles/styles.css</code>, <code\n              class=\"language-text\">system.config.js</code>)\n            to start all the Essential JS 2 components.</p>\n        </blockquote>\n        <ul>\n          <li>Refer to the <a href=\"/documentation/button/getting-started/#dependencies\">Button\n              component dependencies</a> in <code class=\"language-text\">system.config.js</code>\n            configuration file.</li>\n        </ul>\n        <p><code class=\"language-text\">[src/system.config.js]</code></p>\n        <div class=\"gatsby-highlight\" data-language=\"js\">\n          <pre\n            class=\"language-js\"><code class=\"language-js\">System<span class=\"token punctuation\">.</span><span class=\"token function\">config</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">{</span>\n        paths<span class=\"token operator\">:</span> <span class=\"token punctuation\">{</span>\n            <span class=\"token string\">'npm:'</span><span class=\"token operator\">:</span> <span class=\"token string\">'./node_modules/'</span><span class=\"token punctuation\">,</span>\n            <span class=\"token string\">'syncfusion:'</span><span class=\"token operator\">:</span> <span class=\"token string\">'npm:@syncfusion/'</span>\n        <span class=\"token punctuation\">}</span><span class=\"token punctuation\">,</span>\n        map<span class=\"token operator\">:</span> <span class=\"token punctuation\">{</span>\n            app<span class=\"token operator\">:</span> <span class=\"token string\">'app'</span><span class=\"token punctuation\">,</span>\n\n            <span class=\"token comment\">//Syncfusion packages mapping</span>\n            <span class=\"token string\">\"@syncfusion/ej2-base\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"syncfusion:ej2-base/dist/ej2-base.umd.min.js\"</span><span class=\"token punctuation\">,</span>\n            <span class=\"token string\">\"@syncfusion/ej2-data\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"syncfusion:ej2-data/dist/ej2-data.umd.min.js\"</span><span class=\"token punctuation\">,</span>\n            <span class=\"token string\">\"@syncfusion/ej2-inputs\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"syncfusion:ej2-inputs/dist/ej2-inputs.umd.min.js\"</span><span class=\"token punctuation\">,</span>\n            <span class=\"token string\">\"@syncfusion/ej2-buttons\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"syncfusion:ej2-buttons/dist/ej2-buttons.umd.min.js\"</span><span class=\"token punctuation\">,</span>\n            <span class=\"token string\">\"@syncfusion/ej2-splitbuttons\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"syncfusion:ej2-splitbuttons/dist/ej2-splitbuttons.umd.min.js\"</span><span class=\"token punctuation\">,</span>\n            <span class=\"token string\">\"@syncfusion/ej2-lists\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"syncfusion:ej2-lists/dist/ej2-lists.umd.min.js\"</span><span class=\"token punctuation\">,</span>\n            <span class=\"token string\">\"@syncfusion/ej2-popups\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"syncfusion:ej2-popups/dist/ej2-popups.umd.min.js\"</span><span class=\"token punctuation\">,</span>\n            <span class=\"token string\">\"@syncfusion/ej2-dropdowns\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"syncfusion:ej2-dropdowns/dist/ej2-dropdowns.umd.min.js\"</span><span class=\"token punctuation\">,</span>\n        <span class=\"token punctuation\">}</span><span class=\"token punctuation\">,</span>\n        packages<span class=\"token operator\">:</span> <span class=\"token punctuation\">{</span>\n            <span class=\"token string\">'app'</span><span class=\"token operator\">:</span> <span class=\"token punctuation\">{</span> main<span class=\"token operator\">:</span> <span class=\"token string\">'app'</span><span class=\"token punctuation\">,</span> defaultExtension<span class=\"token operator\">:</span> <span class=\"token string\">'js'</span> <span class=\"token punctuation\">}</span>\n        <span class=\"token punctuation\">}</span>\n    <span class=\"token punctuation\">}</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n\n    System<span class=\"token punctuation\">.</span><span class=\"token function\">import</span><span class=\"token punctuation\">(</span><span class=\"token string\">'app.ts'</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">.</span><span class=\"token function\">catch</span><span class=\"token punctuation\">(</span>console<span class=\"token punctuation\">.</span><span class=\"token function\">error</span><span class=\"token punctuation\">.</span><span class=\"token function\">bind</span><span class=\"token punctuation\">(</span>console<span class=\"token punctuation\">)</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">.</span><span class=\"token function\">then</span><span class=\"token punctuation\">(</span><span class=\"token keyword\">function</span> <span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span> <span class=\"token punctuation\">{</span>\n        document<span class=\"token punctuation\">.</span><span class=\"token function\">getElementById</span><span class=\"token punctuation\">(</span><span class=\"token string\">'loader'</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">.</span>style<span class=\"token punctuation\">.</span>display <span class=\"token operator\">=</span> <span class=\"token string\">\"none\"</span><span class=\"token punctuation\">;</span>\n        document<span class=\"token punctuation\">.</span><span class=\"token function\">getElementById</span><span class=\"token punctuation\">(</span><span class=\"token string\">'container'</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">.</span>style<span class=\"token punctuation\">.</span>visibility <span class=\"token operator\">=</span> <span class=\"token string\">\"visible\"</span><span class=\"token punctuation\">;</span>\n    <span class=\"token punctuation\">}</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span></code></pre>\n        </div>\n        <h2 id=\"add-button-to-the-project\"><a router-ignore data-router-ignore href=\"#add-button-to-the-project\" aria-hidden=\"\"\n            class=\"anchor\"><svg aria-hidden=\"true\" height=\"16\" version=\"1.1\" viewBox=\"0 0 16 16\"\n              width=\"16\">\n              <path fill-rule=\"evenodd\"\n                d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\">\n              </path>\n            </svg></a>Add Button to the project</h2>\n        <p>Add the HTML Button tag with id attribute as the <code\n            class=\"language-text\">element</code> to your <code\n            class=\"language-text\">index.html</code> file.</p>\n        <p><code class=\"language-text\">[src/index.html]</code></p>\n        <div class=\"gatsby-highlight\" data-language=\"html\">\n          <pre\n            class=\"language-html\"><code class=\"language-html\"><span class=\"token doctype\">&lt;!DOCTYPE html&gt;</span>\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>html</span> <span class=\"token attr-name\">lang</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>en<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">&gt;</span></span>\n\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>head</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>title</span><span class=\"token punctuation\">&gt;</span></span>Essential JS 2<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>title</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">charset</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>utf-8<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">name</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>viewport<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">content</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>width=device-width, initial-scale=1.0, user-scalable=no<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">name</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>description<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">content</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>Essential JS 2<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">name</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>author<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">content</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>Syncfusion<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>link</span> <span class=\"token attr-name\">rel</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>shortcut icon<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">href</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>resources/favicon.ico<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>link</span> <span class=\"token attr-name\">href</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">rel</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>stylesheet<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n\n        <span class=\"token comment\">&lt;!--Style reference from app--&gt;</span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>link</span> <span class=\"token attr-name\">href</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>/styles/styles.css<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">rel</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>stylesheet<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n\n        <span class=\"token comment\">&lt;!--System js reference and configuration--&gt;</span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>script</span> <span class=\"token attr-name\">src</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>node_modules/systemjs/dist/system.src.js<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">type</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>text/javascript<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">&gt;</span></span><span class=\"token script\"></span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>script</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>script</span> <span class=\"token attr-name\">src</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>system.config.js<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">type</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>text/javascript<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">&gt;</span></span><span class=\"token script\"></span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>script</span><span class=\"token punctuation\">&gt;</span></span>\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>head</span><span class=\"token punctuation\">&gt;</span></span>\n\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>body</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span><span class=\"token punctuation\">&gt;</span></span>\n            <span class=\"token comment\">&lt;!--Element which is going to render--&gt;</span>\n            <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>button</span> <span class=\"token attr-name\">id</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>element<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">&gt;</span></span>Button<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>button</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">&gt;</span></span>\n\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>body</span><span class=\"token punctuation\">&gt;</span></span>\n\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>html</span><span class=\"token punctuation\">&gt;</span></span></code></pre>\n        </div>\n        <p>Then, import the Button component in your <code class=\"language-text\">app.ts</code> file,\n          and initialize it with the <code class=\"language-text\">#element</code>.</p>\n        <p><code class=\"language-text\">[src/app/app.ts]</code></p>\n        <div class=\"gatsby-highlight\" data-language=\"typescript\">\n          <pre\n            class=\"language-typescript\"><code class=\"language-typescript\"><span class=\"token keyword\">import</span> <span class=\"token punctuation\">{</span> Button <span class=\"token punctuation\">}</span> <span class=\"token keyword\">from</span> <span class=\"token string\">'@syncfusion/ej2-buttons'</span><span class=\"token punctuation\">;</span>\n\n    <span class=\"token comment\">// Initialize Button component.</span>\n    <span class=\"token keyword\">let</span> button<span class=\"token operator\">:</span> Button <span class=\"token operator\">=</span> <span class=\"token keyword\">new</span> <span class=\"token class-name\">Button</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">{</span> content<span class=\"token operator\">:</span> <span class=\"token string\">'Button'</span> <span class=\"token punctuation\">}</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n\n    <span class=\"token comment\">// Render initialized Button.</span>\n    button<span class=\"token punctuation\">.</span><span class=\"token function\">appendTo</span><span class=\"token punctuation\">(</span><span class=\"token string\">'#element'</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span></code></pre>\n        </div>\n        <h2 id=\"adding-style-sheet-to-the-application\"><a\n            router-ignore data-router-ignore href=\"#adding-style-sheet-to-the-application\" aria-hidden=\"\" class=\"anchor\"><svg\n              aria-hidden=\"true\" height=\"16\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\">\n              <path fill-rule=\"evenodd\"\n                d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\">\n              </path>\n            </svg></a>Adding Style sheet to the Application</h2>\n        <p>To render Button component, need to import Button and its dependent components styles as\n          given below in <code class=\"language-text\">style.css</code>.</p>\n        <div class=\"gatsby-highlight\" data-language=\"css\">\n          <pre\n            class=\"language-css\"><code class=\"language-css\"><span class=\"token atrule\"><span class=\"token rule\">@import</span> <span class=\"token string\">\"../node_modules/@syncfusion/ej2-base/styles/material.css\"</span><span class=\"token punctuation\">;</span></span>\n    <span class=\"token atrule\"><span class=\"token rule\">@import</span> <span class=\"token string\">\"../node_modules/@syncfusion/ej2-buttons/styles/material.css\"</span><span class=\"token punctuation\">;</span></span></code></pre>\n        </div>\n        <h2 id=\"run-the-application\"><a router-ignore data-router-ignore href=\"#run-the-application\" aria-hidden=\"\"\n            class=\"anchor\"><svg aria-hidden=\"true\" height=\"16\" version=\"1.1\" viewBox=\"0 0 16 16\"\n              width=\"16\">\n              <path fill-rule=\"evenodd\"\n                d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\">\n              </path>\n            </svg></a>Run the application</h2>\n        <p>Run the application in the browser using the following command:</p>\n        <div class=\"gatsby-highlight\" data-language=\"bash\">\n          <pre class=\"language-bash\"><code class=\"language-bash\">npm start</code></pre>\n        </div>\n        <p>The following example shows a basic Button component.</p>\n        <div class=\"doc-tab e-control e-tab e-lib e-safari e-template e-keyboard e-nested\"\n          role=\"tablist\" aria-disabled=\"false\" aria-activedescendant=\"e-item-ue96o_1\"\n          aria-orientation=\"horizontal\" style=\"width: 100%; height: auto;\">\n          <div class=\"e-tab-header e-control e-toolbar e-lib e-keyboard\" role=\"toolbar\"\n            aria-disabled=\"false\" aria-haspopup=\"false\" aria-orientation=\"horizontal\" tabindex=\"0\"\n            aria-label=\"tab-header\" style=\"height: auto; width: 100%;\">\n\n\n            <div class=\"e-items e-toolbar-items\">\n              <div class=\"e-indicator e-ignore\" style=\"left: 70px; right: 2px;\"></div>\n              <div class=\"e-item e-toolbar-item\" id=\"e-item-ue96o_0\" role=\"tab\"\n                aria-controls=\"e-content-ue96o_0\" aria-selected=\"true\" aria-disabled=\"false\">\n                <div class=\"e-tab-wrap\" tabindex=\"-1\">\n                  <div class=\"e-text-wrap\"><span class=\"e-tab-text\"\n                      role=\"presentation\">Source</span><span class=\"e-icons e-close-icon\"\n                      title=\"Close\"></span></div>\n                </div>\n              </div>\n              <div class=\"e-item e-toolbar-item e-active\" id=\"e-item-ue96o_1\" role=\"tab\"\n                aria-controls=\"e-content-ue96o_1\" aria-selected=\"true\" aria-disabled=\"false\">\n                <div class=\"e-tab-wrap\" tabindex=\"-1\">\n                  <div class=\"e-text-wrap\"><span class=\"e-tab-text\" role=\"presentation\">\n                    <!-- <span\n                        data-sample=\"/documentation/samples/button/getting-started-cs1/index.html\"\n                        data-active=\"true\">Preview</span> -->\n                      </span><span class=\"e-icons e-close-icon\"\n                      title=\"Close\"></span></div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"e-content e-lib e-touch\" style=\"height: auto;\">\n            <div class=\"e-item\" role=\"tabpanel\" aria-labelledby=\"e-item-ue96o_0\"\n              id=\"e-content-ue96o_0\" style=\"\">\n              <div class=\"doc-inner-tab e-control e-tab e-lib e-safari e-template e-keyboard\"\n                role=\"tablist\" aria-disabled=\"false\" aria-activedescendant=\"e-item-gpz1u_0\"\n                aria-orientation=\"horizontal\" style=\"width: 100%; height: auto;\">\n                <div class=\"e-tab-header e-control e-toolbar e-lib e-keyboard\" role=\"toolbar\"\n                  aria-disabled=\"false\" aria-haspopup=\"false\" aria-orientation=\"horizontal\"\n                  tabindex=\"0\" aria-label=\"tab-header\" style=\"height: auto; width: 100%;\">\n                  <div class=\"e-items e-toolbar-items\">\n                    <div class=\"e-indicator e-ignore\" style=\"left: auto; right: auto;\"></div>\n                    <div class=\"e-item e-toolbar-item e-active\" id=\"e-item-gpz1u_0\" role=\"tab\"\n                      aria-controls=\"e-content-gpz1u_0\" aria-selected=\"true\" aria-disabled=\"false\">\n                      <div class=\"e-tab-wrap\" tabindex=\"-1\">\n                        <div class=\"e-text-wrap\"><span class=\"e-tab-text\"\n                            role=\"presentation\">app.ts</span><span class=\"e-icons e-close-icon\"\n                            title=\"Close\"></span></div>\n                      </div>\n                    </div>\n                    <div class=\"e-item e-toolbar-item\" id=\"e-item-gpz1u_1\" role=\"tab\"\n                      aria-controls=\"e-content-gpz1u_1\" aria-selected=\"false\" aria-disabled=\"false\">\n                      <div class=\"e-tab-wrap\" tabindex=\"-1\">\n                        <div class=\"e-text-wrap\"><span class=\"e-tab-text\"\n                            role=\"presentation\">index.html</span><span class=\"e-icons e-close-icon\"\n                            title=\"Close\"></span></div>\n                      </div>\n                    </div>\n                    <div class=\"e-item e-toolbar-item\" id=\"e-item-gpz1u_2\" role=\"tab\"\n                      aria-controls=\"e-content-gpz1u_2\" aria-selected=\"false\" aria-disabled=\"false\">\n                      <div class=\"e-tab-wrap\" tabindex=\"-1\">\n                        <div class=\"e-text-wrap\"><span class=\"e-tab-text\"\n                            role=\"presentation\">styles.css</span><span class=\"e-icons e-close-icon\"\n                            title=\"Close\"></span></div>\n                      </div>\n                    </div>\n                  </div>\n                </div>\n                <div class=\"e-content e-lib e-touch\" style=\"height: auto;\">\n                  <div class=\"e-item e-active\" role=\"tabpanel\" aria-labelledby=\"e-item-gpz1u_0\"\n                    id=\"e-content-gpz1u_0\">\n                    <div class=\"gatsby-highlight\" data-language=\"typescript\">\n                      <pre\n                        class=\"language-typescript\"><code class=\"language-typescript\"><span class=\"token keyword\">import</span> <span class=\"token punctuation\">{</span> Button <span class=\"token punctuation\">}</span> <span class=\"token keyword\">from</span> <span class=\"token string\">'@syncfusion/ej2-buttons'</span><span class=\"token punctuation\">;</span>\n    <span class=\"token keyword\">import</span> <span class=\"token punctuation\">{</span> enableRipple <span class=\"token punctuation\">}</span> <span class=\"token keyword\">from</span> <span class=\"token string\">'@syncfusion/ej2-base'</span><span class=\"token punctuation\">;</span>\n\n    <span class=\"token function\">enableRipple</span><span class=\"token punctuation\">(</span><span class=\"token boolean\">true</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n\n    <span class=\"token comment\">// Initialize the Button component.</span>\n    <span class=\"token keyword\">let</span> button<span class=\"token operator\">:</span> Button <span class=\"token operator\">=</span> <span class=\"token keyword\">new</span> <span class=\"token class-name\">Button</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">{</span> content<span class=\"token operator\">:</span> <span class=\"token string\">'Button'</span> <span class=\"token punctuation\">}</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n\n    <span class=\"token comment\">// Render initialized button.</span>\n    button<span class=\"token punctuation\">.</span><span class=\"token function\">appendTo</span><span class=\"token punctuation\">(</span><span class=\"token string\">'#element'</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span></code></pre>\n                    </div>\n                  </div>\n                  <div class=\"e-item\" role=\"tabpanel\" aria-labelledby=\"e-item-gpz1u_1\"\n                    id=\"e-content-gpz1u_1\">\n                    <div class=\"gatsby-highlight\" data-language=\"html\">\n                      <pre\n                        class=\"language-html\"><code class=\"language-html\"><span class=\"token doctype\">&lt;!DOCTYPE html&gt;</span>\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>html</span> <span class=\"token attr-name\">lang</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>en<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">&gt;</span></span>\n\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>head</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>title</span><span class=\"token punctuation\">&gt;</span></span>EJ2 Button<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>title</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">charset</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>utf-8<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">name</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>viewport<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">content</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>width=device-width, initial-scale=1.0<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">name</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>description<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">content</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>Typescript UI Controls<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">name</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>author<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">content</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>Syncfusion<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>link</span> <span class=\"token attr-name\">href</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>//cdn.syncfusion.com/ej2/ej2-base/styles/material.css<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">rel</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>stylesheet<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>link</span> <span class=\"token attr-name\">href</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>//cdn.syncfusion.com/ej2/ej2-buttons/styles/material.css<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">rel</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>stylesheet<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>link</span> <span class=\"token attr-name\">href</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>styles.css<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">rel</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>stylesheet<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>script</span> <span class=\"token attr-name\">src</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.38/system.js<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">&gt;</span></span><span class=\"token script\"></span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>script</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>script</span> <span class=\"token attr-name\">src</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>systemjs.config.js<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">&gt;</span></span><span class=\"token script\"></span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>script</span><span class=\"token punctuation\">&gt;</span></span>\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>head</span><span class=\"token punctuation\">&gt;</span></span>\n\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>body</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">id</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">'</span>loader<span class=\"token punctuation\">'</span></span><span class=\"token punctuation\">&gt;</span></span>LOADING....<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">id</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">'</span>container<span class=\"token punctuation\">'</span></span><span class=\"token punctuation\">&gt;</span></span>\n            <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>button</span> <span class=\"token attr-name\">id</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">'</span>element<span class=\"token punctuation\">'</span></span><span class=\"token punctuation\">&gt;</span></span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>button</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">&gt;</span></span>\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>body</span><span class=\"token punctuation\">&gt;</span></span>\n\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>html</span><span class=\"token punctuation\">&gt;</span></span></code></pre>\n                    </div>\n                  </div>\n                  <div class=\"e-item\" role=\"tabpanel\" aria-labelledby=\"e-item-gpz1u_2\"\n                    id=\"e-content-gpz1u_2\">\n                    <div class=\"gatsby-highlight\" data-language=\"css\">\n                      <pre class=\"language-css\"><code class=\"language-css\"><span class=\"token selector\">#container</span> <span class=\"token punctuation\">{</span>\n        <span class=\"token property\">visibility</span><span class=\"token punctuation\">:</span> hidden<span class=\"token punctuation\">;</span>\n    <span class=\"token punctuation\">}</span>\n\n    <span class=\"token selector\">#loader</span> <span class=\"token punctuation\">{</span>\n      <span class=\"token property\">color</span><span class=\"token punctuation\">:</span> #008cff<span class=\"token punctuation\">;</span>\n      <span class=\"token property\">height</span><span class=\"token punctuation\">:</span> 40px<span class=\"token punctuation\">;</span>\n      <span class=\"token property\">left</span><span class=\"token punctuation\">:</span> 45%<span class=\"token punctuation\">;</span>\n      <span class=\"token property\">position</span><span class=\"token punctuation\">:</span> absolute<span class=\"token punctuation\">;</span>\n      <span class=\"token property\">top</span><span class=\"token punctuation\">:</span> 45%<span class=\"token punctuation\">;</span>\n      <span class=\"token property\">width</span><span class=\"token punctuation\">:</span> 30%<span class=\"token punctuation\">;</span>\n    <span class=\"token punctuation\">}</span></code></pre>\n                    </div>\n                  </div>\n                </div>\n                <div class=\"copy-tooltip e-control e-tooltip e-lib\">\n                  <div class=\"e-icons copycode\"></div>\n                </div>\n              </div>\n            </div>\n            <div class=\"e-item e-active\" role=\"tabpanel\" aria-labelledby=\"e-item-ue96o_1\"\n              id=\"e-content-ue96o_1\" style=\"\">\n              <!-- <iframe class=\"doc-sample-frame\"\n                src=\"/documentation/samples/button/getting-started-cs1/index.html\">\n              </iframe> -->\n            </div>\n          </div>\n        </div>\n        <h2 id=\"change-button-type\"><a router-ignore data-router-ignore href=\"#change-button-type\" aria-hidden=\"\" class=\"anchor\"><svg\n              aria-hidden=\"true\" height=\"16\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\">\n              <path fill-rule=\"evenodd\"\n                d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\">\n              </path>\n            </svg></a>Change Button type</h2>\n        <p>To change the default Button to flat Button, set the <a\n            href=\"/documentation/api/button/#cssclass\"><code\n              class=\"language-text\">cssClass</code></a> property to <code\n            class=\"language-text\">e-flat</code> and text content of the Button is set using <a\n            href=\"/documentation/api/button/#content\"><code class=\"language-text\">content</code></a>\n          property.</p>\n        <div class=\"doc-tab e-control e-tab e-lib e-safari e-template e-keyboard e-nested\"\n          role=\"tablist\" aria-disabled=\"false\" aria-activedescendant=\"e-item-o0nyz_0\"\n          aria-orientation=\"horizontal\" style=\"width: 100%; height: auto;\">\n          <div class=\"e-tab-header e-control e-toolbar e-lib e-keyboard\" role=\"toolbar\"\n            aria-disabled=\"false\" aria-haspopup=\"false\" aria-orientation=\"horizontal\" tabindex=\"0\"\n            aria-label=\"tab-header\" style=\"height: auto; width: 100%;\">\n\n\n            <div class=\"e-items e-toolbar-items\">\n              <div class=\"e-indicator e-ignore\" style=\"left: 0px; right: 70px;\"></div>\n              <div class=\"e-item e-toolbar-item e-active\" id=\"e-item-o0nyz_0\" role=\"tab\"\n                aria-controls=\"e-content-o0nyz_0\" aria-selected=\"true\" aria-disabled=\"false\">\n                <div class=\"e-tab-wrap\" tabindex=\"-1\">\n                  <div class=\"e-text-wrap\"><span class=\"e-tab-text\"\n                      role=\"presentation\">Source</span><span class=\"e-icons e-close-icon\"\n                      title=\"Close\"></span></div>\n                </div>\n              </div>\n              <div class=\"e-item e-toolbar-item\" id=\"e-item-o0nyz_1\" role=\"tab\"\n                aria-controls=\"e-content-o0nyz_1\" aria-selected=\"false\" aria-disabled=\"false\">\n                <div class=\"e-tab-wrap\" tabindex=\"-1\">\n                  <div class=\"e-text-wrap\"><span class=\"e-tab-text\" role=\"presentation\"><span\n                        data-sample=\"/documentation/samples/button/getting-started-cs2/index.html\"\n                        data-active=\"false\">Preview</span></span><span class=\"e-icons e-close-icon\"\n                      title=\"Close\"></span></div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"e-content e-lib e-touch\" style=\"height: auto;\">\n            <div class=\"e-item e-active\" role=\"tabpanel\" aria-labelledby=\"e-item-o0nyz_0\"\n              id=\"e-content-o0nyz_0\">\n              <div class=\"doc-inner-tab e-control e-tab e-lib e-safari e-template e-keyboard\"\n                role=\"tablist\" aria-disabled=\"false\" aria-activedescendant=\"e-item-3n5dw_0\"\n                aria-orientation=\"horizontal\" style=\"width: 100%; height: auto;\">\n                <div class=\"e-tab-header e-control e-toolbar e-lib e-keyboard\" role=\"toolbar\"\n                  aria-disabled=\"false\" aria-haspopup=\"false\" aria-orientation=\"horizontal\"\n                  tabindex=\"0\" aria-label=\"tab-header\" style=\"height: auto; width: 100%;\">\n                  <div class=\"e-items e-toolbar-items\">\n                    <div class=\"e-indicator e-ignore\" style=\"left: 0px; right: 177px;\"></div>\n                    <div class=\"e-item e-toolbar-item e-active\" id=\"e-item-3n5dw_0\" role=\"tab\"\n                      aria-controls=\"e-content-3n5dw_0\" aria-selected=\"true\" aria-disabled=\"false\">\n                      <div class=\"e-tab-wrap\" tabindex=\"-1\">\n                        <div class=\"e-text-wrap\"><span class=\"e-tab-text\"\n                            role=\"presentation\">app.ts</span><span class=\"e-icons e-close-icon\"\n                            title=\"Close\"></span></div>\n                      </div>\n                    </div>\n                    <div class=\"e-item e-toolbar-item\" id=\"e-item-3n5dw_1\" role=\"tab\"\n                      aria-controls=\"e-content-3n5dw_1\" aria-selected=\"false\" aria-disabled=\"false\">\n                      <div class=\"e-tab-wrap\" tabindex=\"-1\">\n                        <div class=\"e-text-wrap\"><span class=\"e-tab-text\"\n                            role=\"presentation\">index.html</span><span class=\"e-icons e-close-icon\"\n                            title=\"Close\"></span></div>\n                      </div>\n                    </div>\n                    <div class=\"e-item e-toolbar-item\" id=\"e-item-3n5dw_2\" role=\"tab\"\n                      aria-controls=\"e-content-3n5dw_2\" aria-selected=\"false\" aria-disabled=\"false\">\n                      <div class=\"e-tab-wrap\" tabindex=\"-1\">\n                        <div class=\"e-text-wrap\"><span class=\"e-tab-text\"\n                            role=\"presentation\">styles.css</span><span class=\"e-icons e-close-icon\"\n                            title=\"Close\"></span></div>\n                      </div>\n                    </div>\n                  </div>\n                </div>\n                <div class=\"e-content e-lib e-touch\" style=\"height: auto;\">\n                  <div class=\"e-item e-active\" role=\"tabpanel\" aria-labelledby=\"e-item-3n5dw_0\"\n                    id=\"e-content-3n5dw_0\">\n                    <div class=\"gatsby-highlight\" data-language=\"typescript\">\n                      <pre\n                        class=\"language-typescript\"><code class=\"language-typescript\"><span class=\"token keyword\">import</span> <span class=\"token punctuation\">{</span> Button <span class=\"token punctuation\">}</span> <span class=\"token keyword\">from</span> <span class=\"token string\">'@syncfusion/ej2-buttons'</span><span class=\"token punctuation\">;</span>\n    <span class=\"token keyword\">import</span> <span class=\"token punctuation\">{</span> enableRipple <span class=\"token punctuation\">}</span> <span class=\"token keyword\">from</span> <span class=\"token string\">'@syncfusion/ej2-base'</span><span class=\"token punctuation\">;</span>\n\n    <span class=\"token function\">enableRipple</span><span class=\"token punctuation\">(</span><span class=\"token boolean\">true</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n\n    <span class=\"token comment\">//To change the Button type.</span>\n    <span class=\"token keyword\">let</span> button<span class=\"token operator\">:</span> Button <span class=\"token operator\">=</span> <span class=\"token keyword\">new</span> <span class=\"token class-name\">Button</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">{</span> cssClass<span class=\"token operator\">:</span> <span class=\"token string\">'e-flat'</span><span class=\"token punctuation\">,</span> content<span class=\"token operator\">:</span> <span class=\"token string\">'Button'</span> <span class=\"token punctuation\">}</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n\n    button<span class=\"token punctuation\">.</span><span class=\"token function\">appendTo</span><span class=\"token punctuation\">(</span><span class=\"token string\">'#element'</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span></code></pre>\n                    </div>\n                  </div>\n                  <div class=\"e-item\" role=\"tabpanel\" aria-labelledby=\"e-item-3n5dw_1\"\n                    id=\"e-content-3n5dw_1\">\n                    <div class=\"gatsby-highlight\" data-language=\"html\">\n                      <pre\n                        class=\"language-html\"><code class=\"language-html\"><span class=\"token doctype\">&lt;!DOCTYPE html&gt;</span>\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>html</span> <span class=\"token attr-name\">lang</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>en<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">&gt;</span></span>\n\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>head</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>title</span><span class=\"token punctuation\">&gt;</span></span>EJ2 Button<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>title</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">charset</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>utf-8<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">name</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>viewport<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">content</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>width=device-width, initial-scale=1.0<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">name</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>description<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">content</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>Typescript UI Controls<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">name</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>author<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">content</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>Syncfusion<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>link</span> <span class=\"token attr-name\">href</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>//cdn.syncfusion.com/ej2/ej2-base/styles/material.css<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">rel</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>stylesheet<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>link</span> <span class=\"token attr-name\">href</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>//cdn.syncfusion.com/ej2/ej2-buttons/styles/material.css<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">rel</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>stylesheet<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>link</span> <span class=\"token attr-name\">href</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>styles.css<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">rel</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>stylesheet<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>script</span> <span class=\"token attr-name\">src</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.38/system.js<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">&gt;</span></span><span class=\"token script\"></span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>script</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>script</span> <span class=\"token attr-name\">src</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>systemjs.config.js<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">&gt;</span></span><span class=\"token script\"></span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>script</span><span class=\"token punctuation\">&gt;</span></span>\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>head</span><span class=\"token punctuation\">&gt;</span></span>\n\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>body</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">id</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">'</span>loader<span class=\"token punctuation\">'</span></span><span class=\"token punctuation\">&gt;</span></span>LOADING....<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">id</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">'</span>container<span class=\"token punctuation\">'</span></span><span class=\"token punctuation\">&gt;</span></span>\n            <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>button</span> <span class=\"token attr-name\">id</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">'</span>element<span class=\"token punctuation\">'</span></span><span class=\"token punctuation\">&gt;</span></span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>button</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">&gt;</span></span>\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>body</span><span class=\"token punctuation\">&gt;</span></span>\n\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>html</span><span class=\"token punctuation\">&gt;</span></span></code></pre>\n                    </div>\n                  </div>\n                  <div class=\"e-item\" role=\"tabpanel\" aria-labelledby=\"e-item-3n5dw_2\"\n                    id=\"e-content-3n5dw_2\">\n                    <div class=\"gatsby-highlight\" data-language=\"css\">\n                      <pre class=\"language-css\"><code class=\"language-css\"><span class=\"token selector\">#container</span> <span class=\"token punctuation\">{</span>\n        <span class=\"token property\">visibility</span><span class=\"token punctuation\">:</span> hidden<span class=\"token punctuation\">;</span>\n    <span class=\"token punctuation\">}</span>\n\n    <span class=\"token selector\">#loader</span> <span class=\"token punctuation\">{</span>\n      <span class=\"token property\">color</span><span class=\"token punctuation\">:</span> #008cff<span class=\"token punctuation\">;</span>\n      <span class=\"token property\">height</span><span class=\"token punctuation\">:</span> 40px<span class=\"token punctuation\">;</span>\n      <span class=\"token property\">left</span><span class=\"token punctuation\">:</span> 45%<span class=\"token punctuation\">;</span>\n      <span class=\"token property\">position</span><span class=\"token punctuation\">:</span> absolute<span class=\"token punctuation\">;</span>\n      <span class=\"token property\">top</span><span class=\"token punctuation\">:</span> 45%<span class=\"token punctuation\">;</span>\n      <span class=\"token property\">width</span><span class=\"token punctuation\">:</span> 30%<span class=\"token punctuation\">;</span>\n    <span class=\"token punctuation\">}</span></code></pre>\n                    </div>\n                  </div>\n                </div>\n                <div class=\"copy-tooltip e-control e-tooltip e-lib\">\n                  <div class=\"e-icons copycode\"></div>\n                </div>\n              </div>\n            </div>\n            <div class=\"e-item\" role=\"tabpanel\" aria-labelledby=\"e-item-o0nyz_1\"\n              id=\"e-content-o0nyz_1\"></div>\n          </div>\n        </div>\n        <h2 id=\"see-also\"><a router-ignore data-router-ignore href=\"#see-also\" aria-hidden=\"\" class=\"anchor\"><svg aria-hidden=\"true\"\n              height=\"16\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\">\n              <path fill-rule=\"evenodd\"\n                d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\">\n              </path>\n            </svg></a>See Also</h2>\n        <ul>\n          <li><a href=\"/documentation/button/types-and-styles/#button-types\">Types of Button</a>\n          </li>\n        </ul>\n      </div>\n      <div class=\"layout__NavButtons-sc-1t3oqgw-1 diJUVI\" id=\"nav-buttons\">\n        <div class=\"layout__NavButton-sc-1t3oqgw-2 fQlslk\" id=\"prev-button\"><a id=\"prev-link\"\n            href=\"/documentation/bullet-chart/tool-tip/\">\n            <div class=\"doc-icons icon-prev_icon nav-prev-icon\"></div>\n            <div class=\"nav-prev-text\">Bullet Chart / Tooltip</div>\n          </a></div>\n        <div class=\"layout__NavButton-sc-1t3oqgw-2 fQlslk\" id=\"next-button\"><a id=\"next-link\"\n            href=\"/documentation/button/types-and-styles/\">\n            <div class=\"doc-icons icon-next_icon nav-next-icon\"></div>\n            <div class=\"nav-next-text\">Button / Types and Styles</div>\n          </a></div>\n      </div>\n      <div id=\"doc-footer\">\n        <div id=\"footer-feedback\">\n          <div class=\"feedback-ques\">\n            <div class=\"feedback-ques-text\">Is this page helpful?</div>\n            <div id=\"feedback-down\" class=\"feedback\">\n              <div class=\"feedback-down-icon\"></div>\n              <div class=\"feedback-down-text\">No</div>\n            </div>\n            <div id=\"feedback-up\" class=\"feedback\">\n              <div class=\"feedback-up-icon\"></div>\n              <div class=\"feedback-up-text\">Yes</div>\n            </div>\n          </div>\n        </div>\n        <div id=\"footer-copyright\"><a id=\"copyright\" target=\"_blank\"\n            href=\"http://www.syncfusion.com/copyright\">Copyright © 2001 - <span id=\"copyright-year\"> <!--DevSkim: ignore DS137138 until 2020-03-07 -->\n              2020</span> Syncfusion Inc. All Rights Reserved</a></div>\n      </div>\n    </div>\n    <div class=\"layout__RightToc-sc-1t3oqgw-0 ixCaAR\">\n      <div id=\"doc-right-toc\"><span>Contents</span>\n        <ul>\n          <li class=\"doc-anchor-h2 select\"><a router-ignore data-router-ignore href=\"#dependencies\">Dependencies</a></li>\n          <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#setup-your-development-environment\">Setup your\n              development environment</a></li>\n          <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#add-button-to-the-project\">Add Button to the\n              project</a></li>\n          <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#adding-style-sheet-to-the-application\">Adding Style\n              sheet to the Application</a></li>\n          <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#run-the-application\">Run the application</a></li>\n          <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#change-button-type\">Change Button type</a></li>\n          <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#see-also\">See Also</a></li>\n        </ul>\n      </div>\n    </div><button class=\"back-to-top\" id=\"scroll-top\" style=\"display: none;\"><span\n        id=\"icon-move-top\"></span></button>\n  </div>\n  <!-- <require from=\"./button.css\"></require> -->\n\n  <!-- <div class=\"doc-body-content\">\n    <div id=\"md-content\" class=\"e-view\">\n      <div id=\"md-cnt\">\n        <h1 id=\"getting-started\"><a router-ignore data-router-ignore href=\"#getting-started\" aria-hidden=\"\" class=\"anchor\"><svg aria-hidden=\"true\"\n              height=\"16\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\">\n              <path fill-rule=\"evenodd\"\n                d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\">\n              </path>\n            </svg></a>Getting started with JavaScript Button control</h1>\n        <p>This section explains how to create a simple Button and to configure the Button\n          component.</p>\n        <h2 id=\"dependencies\"><a router-ignore data-router-ignore href=\"#dependencies\" aria-hidden=\"\" class=\"anchor\"><svg aria-hidden=\"true\" height=\"16\"\n              version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\">\n              <path fill-rule=\"evenodd\"\n                d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\">\n              </path>\n            </svg></a>Dependencies</h2>\n        <p>The list of dependencies required to use the Button component in your application is\n          given below:</p>\n        <div class=\"gatsby-highlight\" data-language=\"js\">\n          <pre\n            class=\"language-js\"><code class=\"language-js\"><span class=\"token operator\">|</span><span class=\"token operator\">--</span> @syncfusion<span class=\"token operator\">/</span>ej2<span class=\"token operator\">-</span>buttons\n                    <span class=\"token operator\">|</span><span class=\"token operator\">--</span> @syncfusion<span class=\"token operator\">/</span>ej2<span class=\"token operator\">-</span>base</code></pre>\n        </div>\n\n      </div>\n    <div class=\"layout__RightToc-sc-1t3oqgw-0 ixCaAR\"><div id=\"doc-right-toc\"><span>Contents</span>\n          <ul>\n            <li class=\"doc-anchor-h2 select\"><a router-ignore data-router-ignore href=\"#dependencies\">Dependencies</a></li>\n            <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#setup-your-development-environment\">Setup your development environment</a></li>\n            <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#add-button-to-the-project\">Add Button to the project</a></li>\n            <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#adding-style-sheet-to-the-application\">Adding Style sheet to the Application</a></li>\n            <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#run-the-application\">Run the application</a></li>\n            <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#change-button-type\">Change Button type</a></li>\n            <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#see-also\">See Also</a></li>\n          </ul>\n        </div>\n\n      </div>\n\n    </div>\n\n\n  </div> -->\n</template>\n";});;
+define('text!components/button/button-getting-started.html',[],function(){return "<template>\n\n  <div class=\"doc-body-content\">\n    <div id=\"md-content\" class=\"e-view\">\n      <div id=\"md-cnt\">\n        <h1 class=\"sidebar-heading\" id=\"getting-started\"><a href=\"#gs\" aria-hidden=\"\" class=\"anchor\"><svg\n              aria-hidden=\"true\" height=\"16\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\">\n              <path fill-rule=\"evenodd\"\n                d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\">\n              </path>\n            </svg></a>Getting started with JavaScript Button control</h1>\n        <p>This section explains how to create a simple Button and to configure the Button\n          component.</p>\n        <h2 class=\"sidebar-heading\" id=\"dependencies\"><a href=\"#dependencies\" aria-hidden=\"\" class=\"anchor\" router-ignore data-router-ignore><svg\n              aria-hidden=\"true\" height=\"16\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\">\n              <path fill-rule=\"evenodd\"\n                d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\">\n              </path>\n            </svg></a>Dependencies</h2 class=\"sidebar-heading\">\n        <p>The list of dependencies required to use the Button component in your application is\n          given below:</p>\n        <div class=\"gatsby-highlight\" data-language=\"js\">\n          <pre\n            class=\"language-js\"><code class=\"language-js\"><span class=\"token operator\">|</span><span class=\"token operator\">--</span> @syncfusion<span class=\"token operator\">/</span>ej2<span class=\"token operator\">-</span>buttons\n        <span class=\"token operator\">|</span><span class=\"token operator\">--</span> @syncfusion<span class=\"token operator\">/</span>ej2<span class=\"token operator\">-</span>base</code></pre>\n        </div>\n        <h2 class=\"sidebar-heading\" id=\"setup-your-development-environment\"><a href=\"#setup-your-development-environment\"\n            aria-hidden=\"\" class=\"anchor\" router-ignore data-router-ignore><svg aria-hidden=\"true\" height=\"16\" version=\"1.1\"\n              viewBox=\"0 0 16 16\" width=\"16\">\n              <path fill-rule=\"evenodd\"\n                d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\">\n              </path>\n            </svg></a>Setup your development environment</h2>\n        <p>To get started with the Button component, you can clone the\n          <a href=\"https://github.com/syncfusion/ej2-quickstart\">Essential JS 2 quickstart</a>\n          project using the following commands:</p>\n        <div class=\"gatsby-highlight\" data-language=\"bash\">\n          <pre class=\"language-bash\"><code class=\"language-bash\">git clone https://github.com/syncfusion/ej2-quickstart.git quickstart\n    cd quickstart\n    npm install</code></pre>\n        </div>\n        <blockquote>\n          <p>The project is preconfigured with common settings (<code\n              class=\"language-text\">src/styles/styles.css</code>, <code\n              class=\"language-text\">system.config.js</code>)\n            to start all the Essential JS 2 components.</p>\n        </blockquote>\n        <ul>\n          <li>Refer to the <a href=\"/documentation/button/getting-started/#dependencies\">Button\n              component dependencies</a> in <code class=\"language-text\">system.config.js</code>\n            configuration file.</li>\n        </ul>\n        <p><code class=\"language-text\">[src/system.config.js]</code></p>\n        <div class=\"gatsby-highlight\" data-language=\"js\">\n          <pre\n            class=\"language-js\"><code class=\"language-js\">System<span class=\"token punctuation\">.</span><span class=\"token function\">config</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">{</span>\n        paths<span class=\"token operator\">:</span> <span class=\"token punctuation\">{</span>\n            <span class=\"token string\">'npm:'</span><span class=\"token operator\">:</span> <span class=\"token string\">'./node_modules/'</span><span class=\"token punctuation\">,</span>\n            <span class=\"token string\">'syncfusion:'</span><span class=\"token operator\">:</span> <span class=\"token string\">'npm:@syncfusion/'</span>\n        <span class=\"token punctuation\">}</span><span class=\"token punctuation\">,</span>\n        map<span class=\"token operator\">:</span> <span class=\"token punctuation\">{</span>\n            app<span class=\"token operator\">:</span> <span class=\"token string\">'app'</span><span class=\"token punctuation\">,</span>\n\n            <span class=\"token comment\">//Syncfusion packages mapping</span>\n            <span class=\"token string\">\"@syncfusion/ej2-base\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"syncfusion:ej2-base/dist/ej2-base.umd.min.js\"</span><span class=\"token punctuation\">,</span>\n            <span class=\"token string\">\"@syncfusion/ej2-data\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"syncfusion:ej2-data/dist/ej2-data.umd.min.js\"</span><span class=\"token punctuation\">,</span>\n            <span class=\"token string\">\"@syncfusion/ej2-inputs\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"syncfusion:ej2-inputs/dist/ej2-inputs.umd.min.js\"</span><span class=\"token punctuation\">,</span>\n            <span class=\"token string\">\"@syncfusion/ej2-buttons\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"syncfusion:ej2-buttons/dist/ej2-buttons.umd.min.js\"</span><span class=\"token punctuation\">,</span>\n            <span class=\"token string\">\"@syncfusion/ej2-splitbuttons\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"syncfusion:ej2-splitbuttons/dist/ej2-splitbuttons.umd.min.js\"</span><span class=\"token punctuation\">,</span>\n            <span class=\"token string\">\"@syncfusion/ej2-lists\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"syncfusion:ej2-lists/dist/ej2-lists.umd.min.js\"</span><span class=\"token punctuation\">,</span>\n            <span class=\"token string\">\"@syncfusion/ej2-popups\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"syncfusion:ej2-popups/dist/ej2-popups.umd.min.js\"</span><span class=\"token punctuation\">,</span>\n            <span class=\"token string\">\"@syncfusion/ej2-dropdowns\"</span><span class=\"token operator\">:</span> <span class=\"token string\">\"syncfusion:ej2-dropdowns/dist/ej2-dropdowns.umd.min.js\"</span><span class=\"token punctuation\">,</span>\n        <span class=\"token punctuation\">}</span><span class=\"token punctuation\">,</span>\n        packages<span class=\"token operator\">:</span> <span class=\"token punctuation\">{</span>\n            <span class=\"token string\">'app'</span><span class=\"token operator\">:</span> <span class=\"token punctuation\">{</span> main<span class=\"token operator\">:</span> <span class=\"token string\">'app'</span><span class=\"token punctuation\">,</span> defaultExtension<span class=\"token operator\">:</span> <span class=\"token string\">'js'</span> <span class=\"token punctuation\">}</span>\n        <span class=\"token punctuation\">}</span>\n    <span class=\"token punctuation\">}</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n\n    System<span class=\"token punctuation\">.</span><span class=\"token function\">import</span><span class=\"token punctuation\">(</span><span class=\"token string\">'app.ts'</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">.</span><span class=\"token function\">catch</span><span class=\"token punctuation\">(</span>console<span class=\"token punctuation\">.</span><span class=\"token function\">error</span><span class=\"token punctuation\">.</span><span class=\"token function\">bind</span><span class=\"token punctuation\">(</span>console<span class=\"token punctuation\">)</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">.</span><span class=\"token function\">then</span><span class=\"token punctuation\">(</span><span class=\"token keyword\">function</span> <span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span> <span class=\"token punctuation\">{</span>\n        document<span class=\"token punctuation\">.</span><span class=\"token function\">getElementById</span><span class=\"token punctuation\">(</span><span class=\"token string\">'loader'</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">.</span>style<span class=\"token punctuation\">.</span>display <span class=\"token operator\">=</span> <span class=\"token string\">\"none\"</span><span class=\"token punctuation\">;</span>\n        document<span class=\"token punctuation\">.</span><span class=\"token function\">getElementById</span><span class=\"token punctuation\">(</span><span class=\"token string\">'container'</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">.</span>style<span class=\"token punctuation\">.</span>visibility <span class=\"token operator\">=</span> <span class=\"token string\">\"visible\"</span><span class=\"token punctuation\">;</span>\n    <span class=\"token punctuation\">}</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span></code></pre>\n        </div>\n        <h2 class=\"sidebar-heading\" id=\"add-button-to-the-project\"><a router-ignore data-router-ignore href=\"#add-button-to-the-project\" aria-hidden=\"\"\n            class=\"anchor\"><svg aria-hidden=\"true\" height=\"16\" version=\"1.1\" viewBox=\"0 0 16 16\"\n              width=\"16\">\n              <path fill-rule=\"evenodd\"\n                d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\">\n              </path>\n            </svg></a>Add Button to the project</h2>\n        <p>Add the HTML Button tag with id attribute as the <code\n            class=\"language-text\">element</code> to your <code\n            class=\"language-text\">index.html</code> file.</p>\n        <p><code class=\"language-text\">[src/index.html]</code></p>\n        <div class=\"gatsby-highlight\" data-language=\"html\">\n          <pre\n            class=\"language-html\"><code class=\"language-html\"><span class=\"token doctype\">&lt;!DOCTYPE html&gt;</span>\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>html</span> <span class=\"token attr-name\">lang</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>en<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">&gt;</span></span>\n\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>head</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>title</span><span class=\"token punctuation\">&gt;</span></span>Essential JS 2<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>title</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">charset</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>utf-8<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">name</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>viewport<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">content</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>width=device-width, initial-scale=1.0, user-scalable=no<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">name</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>description<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">content</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>Essential JS 2<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">name</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>author<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">content</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>Syncfusion<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>link</span> <span class=\"token attr-name\">rel</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>shortcut icon<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">href</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>resources/favicon.ico<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>link</span> <span class=\"token attr-name\">href</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">rel</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>stylesheet<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n\n        <span class=\"token comment\">&lt;!--Style reference from app--&gt;</span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>link</span> <span class=\"token attr-name\">href</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>/styles/styles.css<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">rel</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>stylesheet<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n\n        <span class=\"token comment\">&lt;!--System js reference and configuration--&gt;</span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>script</span> <span class=\"token attr-name\">src</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>node_modules/systemjs/dist/system.src.js<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">type</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>text/javascript<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">&gt;</span></span><span class=\"token script\"></span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>script</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>script</span> <span class=\"token attr-name\">src</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>system.config.js<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">type</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>text/javascript<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">&gt;</span></span><span class=\"token script\"></span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>script</span><span class=\"token punctuation\">&gt;</span></span>\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>head</span><span class=\"token punctuation\">&gt;</span></span>\n\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>body</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span><span class=\"token punctuation\">&gt;</span></span>\n            <span class=\"token comment\">&lt;!--Element which is going to render--&gt;</span>\n            <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>button</span> <span class=\"token attr-name\">id</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>element<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">&gt;</span></span>Button<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>button</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">&gt;</span></span>\n\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>body</span><span class=\"token punctuation\">&gt;</span></span>\n\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>html</span><span class=\"token punctuation\">&gt;</span></span></code></pre>\n        </div>\n        <p>Then, import the Button component in your <code class=\"language-text\">app.ts</code> file,\n          and initialize it with the <code class=\"language-text\">#element</code>.</p>\n        <p><code class=\"language-text\">[src/app/app.ts]</code></p>\n        <div class=\"gatsby-highlight\" data-language=\"typescript\">\n          <pre\n            class=\"language-typescript\"><code class=\"language-typescript\"><span class=\"token keyword\">import</span> <span class=\"token punctuation\">{</span> Button <span class=\"token punctuation\">}</span> <span class=\"token keyword\">from</span> <span class=\"token string\">'@syncfusion/ej2-buttons'</span><span class=\"token punctuation\">;</span>\n\n    <span class=\"token comment\">// Initialize Button component.</span>\n    <span class=\"token keyword\">let</span> button<span class=\"token operator\">:</span> Button <span class=\"token operator\">=</span> <span class=\"token keyword\">new</span> <span class=\"token class-name\">Button</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">{</span> content<span class=\"token operator\">:</span> <span class=\"token string\">'Button'</span> <span class=\"token punctuation\">}</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n\n    <span class=\"token comment\">// Render initialized Button.</span>\n    button<span class=\"token punctuation\">.</span><span class=\"token function\">appendTo</span><span class=\"token punctuation\">(</span><span class=\"token string\">'#element'</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span></code></pre>\n        </div>\n        <h2 id=\"adding-style-sheet-to-the-application\"><a\n            router-ignore data-router-ignore href=\"#adding-style-sheet-to-the-application\" aria-hidden=\"\" class=\"anchor\"><svg\n              aria-hidden=\"true\" height=\"16\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\">\n              <path fill-rule=\"evenodd\"\n                d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\">\n              </path>\n            </svg></a>Adding Style sheet to the Application</h2>\n        <p>To render Button component, need to import Button and its dependent components styles as\n          given below in <code class=\"language-text\">style.css</code>.</p>\n        <div class=\"gatsby-highlight\" data-language=\"css\">\n          <pre\n            class=\"language-css\"><code class=\"language-css\"><span class=\"token atrule\"><span class=\"token rule\">@import</span> <span class=\"token string\">\"../node_modules/@syncfusion/ej2-base/styles/material.css\"</span><span class=\"token punctuation\">;</span></span>\n    <span class=\"token atrule\"><span class=\"token rule\">@import</span> <span class=\"token string\">\"../node_modules/@syncfusion/ej2-buttons/styles/material.css\"</span><span class=\"token punctuation\">;</span></span></code></pre>\n        </div>\n        <h2 id=\"run-the-application\"><a router-ignore data-router-ignore href=\"#run-the-application\" aria-hidden=\"\"\n            class=\"anchor\"><svg aria-hidden=\"true\" height=\"16\" version=\"1.1\" viewBox=\"0 0 16 16\"\n              width=\"16\">\n              <path fill-rule=\"evenodd\"\n                d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\">\n              </path>\n            </svg></a>Run the application</h2>\n        <p>Run the application in the browser using the following command:</p>\n        <div class=\"gatsby-highlight\" data-language=\"bash\">\n          <pre class=\"language-bash\"><code class=\"language-bash\">npm start</code></pre>\n        </div>\n        <p>The following example shows a basic Button component.</p>\n        <div class=\"doc-tab e-control e-tab e-lib e-safari e-template e-keyboard e-nested\"\n          role=\"tablist\" aria-disabled=\"false\" aria-activedescendant=\"e-item-ue96o_1\"\n          aria-orientation=\"horizontal\" style=\"width: 100%; height: auto;\">\n          <div class=\"e-tab-header e-control e-toolbar e-lib e-keyboard\" role=\"toolbar\"\n            aria-disabled=\"false\" aria-haspopup=\"false\" aria-orientation=\"horizontal\" tabindex=\"0\"\n            aria-label=\"tab-header\" style=\"height: auto; width: 100%;\">\n\n\n            <div class=\"e-items e-toolbar-items\">\n              <div class=\"e-indicator e-ignore\" style=\"left: 70px; right: 2px;\"></div>\n              <div class=\"e-item e-toolbar-item\" id=\"e-item-ue96o_0\" role=\"tab\"\n                aria-controls=\"e-content-ue96o_0\" aria-selected=\"true\" aria-disabled=\"false\">\n                <div class=\"e-tab-wrap\" tabindex=\"-1\">\n                  <div class=\"e-text-wrap\"><span class=\"e-tab-text\"\n                      role=\"presentation\">Source</span><span class=\"e-icons e-close-icon\"\n                      title=\"Close\"></span></div>\n                </div>\n              </div>\n              <div class=\"e-item e-toolbar-item e-active\" id=\"e-item-ue96o_1\" role=\"tab\"\n                aria-controls=\"e-content-ue96o_1\" aria-selected=\"true\" aria-disabled=\"false\">\n                <div class=\"e-tab-wrap\" tabindex=\"-1\">\n                  <div class=\"e-text-wrap\"><span class=\"e-tab-text\" role=\"presentation\">\n                    <!-- <span\n                        data-sample=\"/documentation/samples/button/getting-started-cs1/index.html\"\n                        data-active=\"true\">Preview</span> -->\n                      </span><span class=\"e-icons e-close-icon\"\n                      title=\"Close\"></span></div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"e-content e-lib e-touch\" style=\"height: auto;\">\n            <div class=\"e-item\" role=\"tabpanel\" aria-labelledby=\"e-item-ue96o_0\"\n              id=\"e-content-ue96o_0\" style=\"\">\n              <div class=\"doc-inner-tab e-control e-tab e-lib e-safari e-template e-keyboard\"\n                role=\"tablist\" aria-disabled=\"false\" aria-activedescendant=\"e-item-gpz1u_0\"\n                aria-orientation=\"horizontal\" style=\"width: 100%; height: auto;\">\n                <div class=\"e-tab-header e-control e-toolbar e-lib e-keyboard\" role=\"toolbar\"\n                  aria-disabled=\"false\" aria-haspopup=\"false\" aria-orientation=\"horizontal\"\n                  tabindex=\"0\" aria-label=\"tab-header\" style=\"height: auto; width: 100%;\">\n                  <div class=\"e-items e-toolbar-items\">\n                    <div class=\"e-indicator e-ignore\" style=\"left: auto; right: auto;\"></div>\n                    <div class=\"e-item e-toolbar-item e-active\" id=\"e-item-gpz1u_0\" role=\"tab\"\n                      aria-controls=\"e-content-gpz1u_0\" aria-selected=\"true\" aria-disabled=\"false\">\n                      <div class=\"e-tab-wrap\" tabindex=\"-1\">\n                        <div class=\"e-text-wrap\"><span class=\"e-tab-text\"\n                            role=\"presentation\">app.ts</span><span class=\"e-icons e-close-icon\"\n                            title=\"Close\"></span></div>\n                      </div>\n                    </div>\n                    <div class=\"e-item e-toolbar-item\" id=\"e-item-gpz1u_1\" role=\"tab\"\n                      aria-controls=\"e-content-gpz1u_1\" aria-selected=\"false\" aria-disabled=\"false\">\n                      <div class=\"e-tab-wrap\" tabindex=\"-1\">\n                        <div class=\"e-text-wrap\"><span class=\"e-tab-text\"\n                            role=\"presentation\">index.html</span><span class=\"e-icons e-close-icon\"\n                            title=\"Close\"></span></div>\n                      </div>\n                    </div>\n                    <div class=\"e-item e-toolbar-item\" id=\"e-item-gpz1u_2\" role=\"tab\"\n                      aria-controls=\"e-content-gpz1u_2\" aria-selected=\"false\" aria-disabled=\"false\">\n                      <div class=\"e-tab-wrap\" tabindex=\"-1\">\n                        <div class=\"e-text-wrap\"><span class=\"e-tab-text\"\n                            role=\"presentation\">styles.css</span><span class=\"e-icons e-close-icon\"\n                            title=\"Close\"></span></div>\n                      </div>\n                    </div>\n                  </div>\n                </div>\n                <div class=\"e-content e-lib e-touch\" style=\"height: auto;\">\n                  <div class=\"e-item e-active\" role=\"tabpanel\" aria-labelledby=\"e-item-gpz1u_0\"\n                    id=\"e-content-gpz1u_0\">\n                    <div class=\"gatsby-highlight\" data-language=\"typescript\">\n                      <pre\n                        class=\"language-typescript\"><code class=\"language-typescript\"><span class=\"token keyword\">import</span> <span class=\"token punctuation\">{</span> Button <span class=\"token punctuation\">}</span> <span class=\"token keyword\">from</span> <span class=\"token string\">'@syncfusion/ej2-buttons'</span><span class=\"token punctuation\">;</span>\n    <span class=\"token keyword\">import</span> <span class=\"token punctuation\">{</span> enableRipple <span class=\"token punctuation\">}</span> <span class=\"token keyword\">from</span> <span class=\"token string\">'@syncfusion/ej2-base'</span><span class=\"token punctuation\">;</span>\n\n    <span class=\"token function\">enableRipple</span><span class=\"token punctuation\">(</span><span class=\"token boolean\">true</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n\n    <span class=\"token comment\">// Initialize the Button component.</span>\n    <span class=\"token keyword\">let</span> button<span class=\"token operator\">:</span> Button <span class=\"token operator\">=</span> <span class=\"token keyword\">new</span> <span class=\"token class-name\">Button</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">{</span> content<span class=\"token operator\">:</span> <span class=\"token string\">'Button'</span> <span class=\"token punctuation\">}</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n\n    <span class=\"token comment\">// Render initialized button.</span>\n    button<span class=\"token punctuation\">.</span><span class=\"token function\">appendTo</span><span class=\"token punctuation\">(</span><span class=\"token string\">'#element'</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span></code></pre>\n                    </div>\n                  </div>\n                  <div class=\"e-item\" role=\"tabpanel\" aria-labelledby=\"e-item-gpz1u_1\"\n                    id=\"e-content-gpz1u_1\">\n                    <div class=\"gatsby-highlight\" data-language=\"html\">\n                      <pre\n                        class=\"language-html\"><code class=\"language-html\"><span class=\"token doctype\">&lt;!DOCTYPE html&gt;</span>\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>html</span> <span class=\"token attr-name\">lang</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>en<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">&gt;</span></span>\n\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>head</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>title</span><span class=\"token punctuation\">&gt;</span></span>EJ2 Button<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>title</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">charset</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>utf-8<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">name</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>viewport<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">content</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>width=device-width, initial-scale=1.0<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">name</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>description<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">content</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>Typescript UI Controls<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">name</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>author<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">content</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>Syncfusion<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>link</span> <span class=\"token attr-name\">href</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>//cdn.syncfusion.com/ej2/ej2-base/styles/material.css<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">rel</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>stylesheet<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>link</span> <span class=\"token attr-name\">href</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>//cdn.syncfusion.com/ej2/ej2-buttons/styles/material.css<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">rel</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>stylesheet<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>link</span> <span class=\"token attr-name\">href</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>styles.css<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">rel</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>stylesheet<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>script</span> <span class=\"token attr-name\">src</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.38/system.js<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">&gt;</span></span><span class=\"token script\"></span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>script</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>script</span> <span class=\"token attr-name\">src</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>systemjs.config.js<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">&gt;</span></span><span class=\"token script\"></span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>script</span><span class=\"token punctuation\">&gt;</span></span>\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>head</span><span class=\"token punctuation\">&gt;</span></span>\n\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>body</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">id</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">'</span>loader<span class=\"token punctuation\">'</span></span><span class=\"token punctuation\">&gt;</span></span>LOADING....<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">id</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">'</span>container<span class=\"token punctuation\">'</span></span><span class=\"token punctuation\">&gt;</span></span>\n            <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>button</span> <span class=\"token attr-name\">id</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">'</span>element<span class=\"token punctuation\">'</span></span><span class=\"token punctuation\">&gt;</span></span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>button</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">&gt;</span></span>\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>body</span><span class=\"token punctuation\">&gt;</span></span>\n\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>html</span><span class=\"token punctuation\">&gt;</span></span></code></pre>\n                    </div>\n                  </div>\n                  <div class=\"e-item\" role=\"tabpanel\" aria-labelledby=\"e-item-gpz1u_2\"\n                    id=\"e-content-gpz1u_2\">\n                    <div class=\"gatsby-highlight\" data-language=\"css\">\n                      <pre class=\"language-css\"><code class=\"language-css\"><span class=\"token selector\">#container</span> <span class=\"token punctuation\">{</span>\n        <span class=\"token property\">visibility</span><span class=\"token punctuation\">:</span> hidden<span class=\"token punctuation\">;</span>\n    <span class=\"token punctuation\">}</span>\n\n    <span class=\"token selector\">#loader</span> <span class=\"token punctuation\">{</span>\n      <span class=\"token property\">color</span><span class=\"token punctuation\">:</span> #008cff<span class=\"token punctuation\">;</span>\n      <span class=\"token property\">height</span><span class=\"token punctuation\">:</span> 40px<span class=\"token punctuation\">;</span>\n      <span class=\"token property\">left</span><span class=\"token punctuation\">:</span> 45%<span class=\"token punctuation\">;</span>\n      <span class=\"token property\">position</span><span class=\"token punctuation\">:</span> absolute<span class=\"token punctuation\">;</span>\n      <span class=\"token property\">top</span><span class=\"token punctuation\">:</span> 45%<span class=\"token punctuation\">;</span>\n      <span class=\"token property\">width</span><span class=\"token punctuation\">:</span> 30%<span class=\"token punctuation\">;</span>\n    <span class=\"token punctuation\">}</span></code></pre>\n                    </div>\n                  </div>\n                </div>\n                <div class=\"copy-tooltip e-control e-tooltip e-lib\">\n                  <div class=\"e-icons copycode\"></div>\n                </div>\n              </div>\n            </div>\n            <div class=\"e-item e-active\" role=\"tabpanel\" aria-labelledby=\"e-item-ue96o_1\"\n              id=\"e-content-ue96o_1\" style=\"\">\n              <!-- <iframe class=\"doc-sample-frame\"\n                src=\"/documentation/samples/button/getting-started-cs1/index.html\">\n              </iframe> -->\n            </div>\n          </div>\n        </div>\n        <h2 id=\"change-button-type\"><a router-ignore data-router-ignore href=\"#change-button-type\" aria-hidden=\"\" class=\"anchor\"><svg\n              aria-hidden=\"true\" height=\"16\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\">\n              <path fill-rule=\"evenodd\"\n                d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\">\n              </path>\n            </svg></a>Change Button type</h2>\n        <p>To change the default Button to flat Button, set the <a\n            href=\"/documentation/api/button/#cssclass\"><code\n              class=\"language-text\">cssClass</code></a> property to <code\n            class=\"language-text\">e-flat</code> and text content of the Button is set using <a\n            href=\"/documentation/api/button/#content\"><code class=\"language-text\">content</code></a>\n          property.</p>\n        <div class=\"doc-tab e-control e-tab e-lib e-safari e-template e-keyboard e-nested\"\n          role=\"tablist\" aria-disabled=\"false\" aria-activedescendant=\"e-item-o0nyz_0\"\n          aria-orientation=\"horizontal\" style=\"width: 100%; height: auto;\">\n          <div class=\"e-tab-header e-control e-toolbar e-lib e-keyboard\" role=\"toolbar\"\n            aria-disabled=\"false\" aria-haspopup=\"false\" aria-orientation=\"horizontal\" tabindex=\"0\"\n            aria-label=\"tab-header\" style=\"height: auto; width: 100%;\">\n\n\n            <div class=\"e-items e-toolbar-items\">\n              <div class=\"e-indicator e-ignore\" style=\"left: 0px; right: 70px;\"></div>\n              <div class=\"e-item e-toolbar-item e-active\" id=\"e-item-o0nyz_0\" role=\"tab\"\n                aria-controls=\"e-content-o0nyz_0\" aria-selected=\"true\" aria-disabled=\"false\">\n                <div class=\"e-tab-wrap\" tabindex=\"-1\">\n                  <div class=\"e-text-wrap\"><span class=\"e-tab-text\"\n                      role=\"presentation\">Source</span><span class=\"e-icons e-close-icon\"\n                      title=\"Close\"></span></div>\n                </div>\n              </div>\n              <div class=\"e-item e-toolbar-item\" id=\"e-item-o0nyz_1\" role=\"tab\"\n                aria-controls=\"e-content-o0nyz_1\" aria-selected=\"false\" aria-disabled=\"false\">\n                <div class=\"e-tab-wrap\" tabindex=\"-1\">\n                  <div class=\"e-text-wrap\"><span class=\"e-tab-text\" role=\"presentation\"><span\n                        data-sample=\"/documentation/samples/button/getting-started-cs2/index.html\"\n                        data-active=\"false\">Preview</span></span><span class=\"e-icons e-close-icon\"\n                      title=\"Close\"></span></div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"e-content e-lib e-touch\" style=\"height: auto;\">\n            <div class=\"e-item e-active\" role=\"tabpanel\" aria-labelledby=\"e-item-o0nyz_0\"\n              id=\"e-content-o0nyz_0\">\n              <div class=\"doc-inner-tab e-control e-tab e-lib e-safari e-template e-keyboard\"\n                role=\"tablist\" aria-disabled=\"false\" aria-activedescendant=\"e-item-3n5dw_0\"\n                aria-orientation=\"horizontal\" style=\"width: 100%; height: auto;\">\n                <div class=\"e-tab-header e-control e-toolbar e-lib e-keyboard\" role=\"toolbar\"\n                  aria-disabled=\"false\" aria-haspopup=\"false\" aria-orientation=\"horizontal\"\n                  tabindex=\"0\" aria-label=\"tab-header\" style=\"height: auto; width: 100%;\">\n                  <div class=\"e-items e-toolbar-items\">\n                    <div class=\"e-indicator e-ignore\" style=\"left: 0px; right: 177px;\"></div>\n                    <div class=\"e-item e-toolbar-item e-active\" id=\"e-item-3n5dw_0\" role=\"tab\"\n                      aria-controls=\"e-content-3n5dw_0\" aria-selected=\"true\" aria-disabled=\"false\">\n                      <div class=\"e-tab-wrap\" tabindex=\"-1\">\n                        <div class=\"e-text-wrap\"><span class=\"e-tab-text\"\n                            role=\"presentation\">app.ts</span><span class=\"e-icons e-close-icon\"\n                            title=\"Close\"></span></div>\n                      </div>\n                    </div>\n                    <div class=\"e-item e-toolbar-item\" id=\"e-item-3n5dw_1\" role=\"tab\"\n                      aria-controls=\"e-content-3n5dw_1\" aria-selected=\"false\" aria-disabled=\"false\">\n                      <div class=\"e-tab-wrap\" tabindex=\"-1\">\n                        <div class=\"e-text-wrap\"><span class=\"e-tab-text\"\n                            role=\"presentation\">index.html</span><span class=\"e-icons e-close-icon\"\n                            title=\"Close\"></span></div>\n                      </div>\n                    </div>\n                    <div class=\"e-item e-toolbar-item\" id=\"e-item-3n5dw_2\" role=\"tab\"\n                      aria-controls=\"e-content-3n5dw_2\" aria-selected=\"false\" aria-disabled=\"false\">\n                      <div class=\"e-tab-wrap\" tabindex=\"-1\">\n                        <div class=\"e-text-wrap\"><span class=\"e-tab-text\"\n                            role=\"presentation\">styles.css</span><span class=\"e-icons e-close-icon\"\n                            title=\"Close\"></span></div>\n                      </div>\n                    </div>\n                  </div>\n                </div>\n                <div class=\"e-content e-lib e-touch\" style=\"height: auto;\">\n                  <div class=\"e-item e-active\" role=\"tabpanel\" aria-labelledby=\"e-item-3n5dw_0\"\n                    id=\"e-content-3n5dw_0\">\n                    <div class=\"gatsby-highlight\" data-language=\"typescript\">\n                      <pre\n                        class=\"language-typescript\"><code class=\"language-typescript\"><span class=\"token keyword\">import</span> <span class=\"token punctuation\">{</span> Button <span class=\"token punctuation\">}</span> <span class=\"token keyword\">from</span> <span class=\"token string\">'@syncfusion/ej2-buttons'</span><span class=\"token punctuation\">;</span>\n    <span class=\"token keyword\">import</span> <span class=\"token punctuation\">{</span> enableRipple <span class=\"token punctuation\">}</span> <span class=\"token keyword\">from</span> <span class=\"token string\">'@syncfusion/ej2-base'</span><span class=\"token punctuation\">;</span>\n\n    <span class=\"token function\">enableRipple</span><span class=\"token punctuation\">(</span><span class=\"token boolean\">true</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n\n    <span class=\"token comment\">//To change the Button type.</span>\n    <span class=\"token keyword\">let</span> button<span class=\"token operator\">:</span> Button <span class=\"token operator\">=</span> <span class=\"token keyword\">new</span> <span class=\"token class-name\">Button</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">{</span> cssClass<span class=\"token operator\">:</span> <span class=\"token string\">'e-flat'</span><span class=\"token punctuation\">,</span> content<span class=\"token operator\">:</span> <span class=\"token string\">'Button'</span> <span class=\"token punctuation\">}</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n\n    button<span class=\"token punctuation\">.</span><span class=\"token function\">appendTo</span><span class=\"token punctuation\">(</span><span class=\"token string\">'#element'</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span></code></pre>\n                    </div>\n                  </div>\n                  <div class=\"e-item\" role=\"tabpanel\" aria-labelledby=\"e-item-3n5dw_1\"\n                    id=\"e-content-3n5dw_1\">\n                    <div class=\"gatsby-highlight\" data-language=\"html\">\n                      <pre\n                        class=\"language-html\"><code class=\"language-html\"><span class=\"token doctype\">&lt;!DOCTYPE html&gt;</span>\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>html</span> <span class=\"token attr-name\">lang</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>en<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">&gt;</span></span>\n\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>head</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>title</span><span class=\"token punctuation\">&gt;</span></span>EJ2 Button<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>title</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">charset</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>utf-8<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">name</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>viewport<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">content</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>width=device-width, initial-scale=1.0<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">name</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>description<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">content</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>Typescript UI Controls<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>meta</span> <span class=\"token attr-name\">name</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>author<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">content</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>Syncfusion<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>link</span> <span class=\"token attr-name\">href</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>//cdn.syncfusion.com/ej2/ej2-base/styles/material.css<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">rel</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>stylesheet<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>link</span> <span class=\"token attr-name\">href</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>//cdn.syncfusion.com/ej2/ej2-buttons/styles/material.css<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">rel</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>stylesheet<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>link</span> <span class=\"token attr-name\">href</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>styles.css<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">rel</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>stylesheet<span class=\"token punctuation\">\"</span></span> <span class=\"token punctuation\">/&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>script</span> <span class=\"token attr-name\">src</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.38/system.js<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">&gt;</span></span><span class=\"token script\"></span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>script</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>script</span> <span class=\"token attr-name\">src</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>systemjs.config.js<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">&gt;</span></span><span class=\"token script\"></span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>script</span><span class=\"token punctuation\">&gt;</span></span>\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>head</span><span class=\"token punctuation\">&gt;</span></span>\n\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>body</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">id</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">'</span>loader<span class=\"token punctuation\">'</span></span><span class=\"token punctuation\">&gt;</span></span>LOADING....<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">id</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">'</span>container<span class=\"token punctuation\">'</span></span><span class=\"token punctuation\">&gt;</span></span>\n            <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>button</span> <span class=\"token attr-name\">id</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">'</span>element<span class=\"token punctuation\">'</span></span><span class=\"token punctuation\">&gt;</span></span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>button</span><span class=\"token punctuation\">&gt;</span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">&gt;</span></span>\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>body</span><span class=\"token punctuation\">&gt;</span></span>\n\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>html</span><span class=\"token punctuation\">&gt;</span></span></code></pre>\n                    </div>\n                  </div>\n                  <div class=\"e-item\" role=\"tabpanel\" aria-labelledby=\"e-item-3n5dw_2\"\n                    id=\"e-content-3n5dw_2\">\n                    <div class=\"gatsby-highlight\" data-language=\"css\">\n                      <pre class=\"language-css\"><code class=\"language-css\"><span class=\"token selector\">#container</span> <span class=\"token punctuation\">{</span>\n        <span class=\"token property\">visibility</span><span class=\"token punctuation\">:</span> hidden<span class=\"token punctuation\">;</span>\n    <span class=\"token punctuation\">}</span>\n\n    <span class=\"token selector\">#loader</span> <span class=\"token punctuation\">{</span>\n      <span class=\"token property\">color</span><span class=\"token punctuation\">:</span> #008cff<span class=\"token punctuation\">;</span>\n      <span class=\"token property\">height</span><span class=\"token punctuation\">:</span> 40px<span class=\"token punctuation\">;</span>\n      <span class=\"token property\">left</span><span class=\"token punctuation\">:</span> 45%<span class=\"token punctuation\">;</span>\n      <span class=\"token property\">position</span><span class=\"token punctuation\">:</span> absolute<span class=\"token punctuation\">;</span>\n      <span class=\"token property\">top</span><span class=\"token punctuation\">:</span> 45%<span class=\"token punctuation\">;</span>\n      <span class=\"token property\">width</span><span class=\"token punctuation\">:</span> 30%<span class=\"token punctuation\">;</span>\n    <span class=\"token punctuation\">}</span></code></pre>\n                    </div>\n                  </div>\n                </div>\n                <div class=\"copy-tooltip e-control e-tooltip e-lib\">\n                  <div class=\"e-icons copycode\"></div>\n                </div>\n              </div>\n            </div>\n            <div class=\"e-item\" role=\"tabpanel\" aria-labelledby=\"e-item-o0nyz_1\"\n              id=\"e-content-o0nyz_1\"></div>\n          </div>\n        </div>\n        <h2 id=\"see-also\"><a router-ignore data-router-ignore href=\"#see-also\" aria-hidden=\"\" class=\"anchor\"><svg aria-hidden=\"true\"\n              height=\"16\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\">\n              <path fill-rule=\"evenodd\"\n                d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\">\n              </path>\n            </svg></a>See Also</h2>\n        <ul>\n          <li><a href=\"/documentation/button/types-and-styles/#button-types\">Types of Button</a>\n          </li>\n        </ul>\n      </div>\n      <div class=\"layout__NavButtons-sc-1t3oqgw-1 diJUVI\" id=\"nav-buttons\">\n        <div class=\"layout__NavButton-sc-1t3oqgw-2 fQlslk\" id=\"prev-button\"><a id=\"prev-link\"\n            href=\"/documentation/bullet-chart/tool-tip/\">\n            <div class=\"doc-icons icon-prev_icon nav-prev-icon\"></div>\n            <div class=\"nav-prev-text\">Bullet Chart / Tooltip</div>\n          </a></div>\n        <div class=\"layout__NavButton-sc-1t3oqgw-2 fQlslk\" id=\"next-button\"><a id=\"next-link\"\n            href=\"/documentation/button/types-and-styles/\">\n            <div class=\"doc-icons icon-next_icon nav-next-icon\"></div>\n            <div class=\"nav-next-text\">Button / Types and Styles</div>\n          </a></div>\n      </div>\n      <div id=\"doc-footer\">\n        <div id=\"footer-feedback\">\n          <div class=\"feedback-ques\">\n            <div class=\"feedback-ques-text\">Is this page helpful?</div>\n            <div id=\"feedback-down\" class=\"feedback\">\n              <div class=\"feedback-down-icon\"></div>\n              <div class=\"feedback-down-text\">No</div>\n            </div>\n            <div id=\"feedback-up\" class=\"feedback\">\n              <div class=\"feedback-up-icon\"></div>\n              <div class=\"feedback-up-text\">Yes</div>\n            </div>\n          </div>\n        </div>\n        <div id=\"footer-copyright\"><a id=\"copyright\" target=\"_blank\"\n            href=\"http://www.syncfusion.com/copyright\">Copyright © 2001 - <span id=\"copyright-year\"> <!--DevSkim: ignore DS137138 until 2020-03-07 -->\n              2020</span> Syncfusion Inc. All Rights Reserved</a></div>\n      </div>\n    </div>\n    <div class=\"layout__RightToc-sc-1t3oqgw-0 ixCaAR\">\n      <div id=\"doc-right-toc\"><span>Contents</span>\n        <ul>\n          <li class=\"doc-anchor-h2 select\"><a router-ignore data-router-ignore href=\"#dependencies\">Dependencies</a></li>\n          <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#setup-your-development-environment\">Setup your\n              development environment</a></li>\n          <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#add-button-to-the-project\">Add Button to the\n              project</a></li>\n          <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#adding-style-sheet-to-the-application\">Adding Style\n              sheet to the Application</a></li>\n          <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#run-the-application\">Run the application</a></li>\n          <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#change-button-type\">Change Button type</a></li>\n          <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#see-also\">See Also</a></li>\n        </ul>\n      </div>\n    </div><button class=\"back-to-top\" id=\"scroll-top\" style=\"display: none;\"><span\n        id=\"icon-move-top\"></span></button>\n  </div>\n  <!-- <require from=\"./button.css\"></require> -->\n\n  <!-- <div class=\"doc-body-content\">\n    <div id=\"md-content\" class=\"e-view\">\n      <div id=\"md-cnt\">\n        <h1 id=\"getting-started\"><a router-ignore data-router-ignore href=\"#getting-started\" aria-hidden=\"\" class=\"anchor\"><svg aria-hidden=\"true\"\n              height=\"16\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\">\n              <path fill-rule=\"evenodd\"\n                d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\">\n              </path>\n            </svg></a>Getting started with JavaScript Button control</h1>\n        <p>This section explains how to create a simple Button and to configure the Button\n          component.</p>\n        <h2 id=\"dependencies\"><a router-ignore data-router-ignore href=\"#dependencies\" aria-hidden=\"\" class=\"anchor\"><svg aria-hidden=\"true\" height=\"16\"\n              version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\">\n              <path fill-rule=\"evenodd\"\n                d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\">\n              </path>\n            </svg></a>Dependencies</h2>\n        <p>The list of dependencies required to use the Button component in your application is\n          given below:</p>\n        <div class=\"gatsby-highlight\" data-language=\"js\">\n          <pre\n            class=\"language-js\"><code class=\"language-js\"><span class=\"token operator\">|</span><span class=\"token operator\">--</span> @syncfusion<span class=\"token operator\">/</span>ej2<span class=\"token operator\">-</span>buttons\n                    <span class=\"token operator\">|</span><span class=\"token operator\">--</span> @syncfusion<span class=\"token operator\">/</span>ej2<span class=\"token operator\">-</span>base</code></pre>\n        </div>\n\n      </div>\n    <div class=\"layout__RightToc-sc-1t3oqgw-0 ixCaAR\"><div id=\"doc-right-toc\"><span>Contents</span>\n          <ul>\n            <li class=\"doc-anchor-h2 select\"><a router-ignore data-router-ignore href=\"#dependencies\">Dependencies</a></li>\n            <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#setup-your-development-environment\">Setup your development environment</a></li>\n            <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#add-button-to-the-project\">Add Button to the project</a></li>\n            <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#adding-style-sheet-to-the-application\">Adding Style sheet to the Application</a></li>\n            <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#run-the-application\">Run the application</a></li>\n            <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#change-button-type\">Change Button type</a></li>\n            <li class=\"doc-anchor-h2\"><a router-ignore data-router-ignore href=\"#see-also\">See Also</a></li>\n          </ul>\n        </div>\n\n      </div>\n\n    </div>\n\n\n  </div> -->\n</template>\n";});;
 define('components/button/button-types-and-styles',["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -2162,5 +2910,46 @@ define('main',["require", "exports", "./environment"], function (require, export
     }
     exports.configure = configure;
 });
-
+;
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+define('test',["require", "exports", "aurelia-framework"], function (require, exports, aurelia_framework_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var Test = (function () {
+        function Test() {
+            this.content = 'Button #1';
+            this.cssClass = '';
+            this.disabled = false;
+            this.enabled = true;
+            this.enableHtmlSanitizer = true;
+            this.enablePersistence = false;
+            this.enableRtl = false;
+            this.iconCss = 'e-btn-sb-icon e-prev-icon';
+            this.iconPosition = 'Right';
+            this.isPrimary = true;
+            this.isToggle = true;
+            this.width = 250;
+        }
+        __decorate([
+            aurelia_framework_1.bindable({ bindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], Test.prototype, "content", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ bindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Object)
+        ], Test.prototype, "enableRtl", void 0);
+        return Test;
+    }());
+    exports.Test = Test;
+});
+;
+define('text!test.html',[],function(){return "<template>\n  <style>\n\n    .e-left-icon::before {\n      content: '\\e7d4';\n    }\n\n    .e-right-icon::before {\n      content: '\\e916';\n    }\n\n    .e-custom, .e-custom:hover, .e-custom:focus, .e-custom:active {\n      background-color: #ff6e40;\n      color: #fff;\n    }\n    @font-face {\n      font-family: 'btn-icon';\n      src:\n      url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAAKAIAAAwAgT1MvMj1tSfgAAAEoAAAAVmNtYXDnH+dzAAABoAAAAEJnbHlm1v48pAAAAfgAAAQYaGVhZBOPfZcAAADQAAAANmhoZWEIUQQJAAAArAAAACRobXR4IAAAAAAAAYAAAAAgbG9jYQN6ApQAAAHkAAAAEm1heHABFQCqAAABCAAAACBuYW1l07lFxAAABhAAAAIxcG9zdK9uovoAAAhEAAAAgAABAAAEAAAAAFwEAAAAAAAD9AABAAAAAAAAAAAAAAAAAAAACAABAAAAAQAAJ1LUzF8PPPUACwQAAAAAANg+nFMAAAAA2D6cUwAAAAAD9AP0AAAACAACAAAAAAAAAAEAAAAIAJ4AAwAAAAAAAgAAAAoACgAAAP8AAAAAAAAAAQQAAZAABQAAAokCzAAAAI8CiQLMAAAB6wAyAQgAAAIABQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUGZFZABA5wDnBgQAAAAAXAQAAAAAAAABAAAAAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAAAAACAAAAAwAAABQAAwABAAAAFAAEAC4AAAAEAAQAAQAA5wb//wAA5wD//wAAAAEABAAAAAEAAgADAAQABQAGAAcAAAAAAAAADgAkADIAhAEuAewCDAAAAAEAAAAAA2ED9AACAAA3CQGeAsT9PAwB9AH0AAACAAAAAAPHA/QAAwAHAAAlIREhASERIQJpAV7+ov3QAV7+ogwD6PwYA+gAAAEAAAAAA4sD9AACAAATARF0AxgCAP4MA+gAAAABAAAAAAP0A/QAQwAAExEfDyE/DxEvDyEPDgwBAgMFBQcICQkLCwwMDQ4NAtoNDg0MDAsLCQkIBwUFAwIBAQIDBQUHCAkJCwsMDA0ODf0mDQ4NDAwLCwkJCAcFBQMCA239Jg4NDQ0LCwsJCQgHBQUDAgEBAgMFBQcICQkLCwsNDQ0OAtoODQ0NCwsLCQkIBwUFAwIBAQIDBQUHCAkJCwsLDQ0NAAIAAAAAA/MDxQADAIwAADczESMBDwMVFw8METM3HwQ3Fz8KPQEvBT8LLwg3NT8INS8FNT8NNS8JByU/BDUvCyMPAQytrQH5AgoEAQEBARghERESEyIJCSgQBiEHNQceOZPbDgUICw0LCQUDBAICBAkGAgEBAQMOBAkIBgcDAwEBAQEDAwMJAgEBAxYLBQQEAwMCAgIEBAoBAQEECgcHBgUFBAMDAQEBAQQFBwkFBQUGEf6tDwkEAwIBAQMDCgwVAwcGDAsNBwdaAYcB3gEFAwN2HwoELDodGxwaLwkIGwz+igEBHwMBAQECAQEDBgoKDAYICAgFCAkICwUEBAQFAwYDBwgIDAgHCAcGBgYFBQkEAgYCBAwJBgUGBwkJCgkICAcLBAIFAwIEBAQFBQcGBwgHBgYGBgoJCAYCAgEBAQFGMRkaGw0NDA0LIh4xBAQCBAEBAgADAAAAAAOKA/MAHABCAJ0AAAEzHwIRDwMhLwIDNzM/CjUTHwcVIwcVIy8HETcXMz8KNScxBxEfDjsBHQEfDTMhMz8OES8PIz0BLw4hA0EDBQQDAQIEBf5eBQQCAW4RDg0LCQgGBQUDBAFeBAMDAwIBAQGL7Y0EAwQCAgIBAYYKChEQDQsJCAcEBAUCYt8BAQIDBAUFBQcHBwgICQgKjQECAgMEBAUFBgYHBgcIBwGcCAcHBwYGBgUFBAQDAgIBAQEBAgIDBAQFBQYGBgcHBwgmAQMDAwUFBgYHBwgICQkJ/tQCiwMEBf3XAwYEAgIEBgFoAQEDBQYGBwgIBw0KhQEiAQEBAgMDAwTV+94BAQECAwMDBAGyAQECBAYHCAgJCgkQCaQC6/47CQkICQcIBwYGBQQEAwICUAgHBwcGBgYFBQQEAwMBAgIBAwMEBAUFBQcGBwcHCAImCAcHBwYGBgUFBAQDAgIBAdUJCQgICAgGBwYFBAQDAgEBAAAAAAIAAAAAA6cD9AADAAwAADchNSElAQcJAScBESNZA078sgGB/uMuAXkBgDb+1EwMTZcBCD3+ngFiPf7pAxMAAAAAABIA3gABAAAAAAAAAAEAAAABAAAAAAABAAgAAQABAAAAAAACAAcACQABAAAAAAADAAgAEAABAAAAAAAEAAgAGAABAAAAAAAFAAsAIAABAAAAAAAGAAgAKwABAAAAAAAKACwAMwABAAAAAAALABIAXwADAAEECQAAAAIAcQADAAEECQABABAAcwADAAEECQACAA4AgwADAAEECQADABAAkQADAAEECQAEABAAoQADAAEECQAFABYAsQADAAEECQAGABAAxwADAAEECQAKAFgA1wADAAEECQALACQBLyBidG4taWNvblJlZ3VsYXJidG4taWNvbmJ0bi1pY29uVmVyc2lvbiAxLjBidG4taWNvbkZvbnQgZ2VuZXJhdGVkIHVzaW5nIFN5bmNmdXNpb24gTWV0cm8gU3R1ZGlvd3d3LnN5bmNmdXNpb24uY29tACAAYgB0AG4ALQBpAGMAbwBuAFIAZQBnAHUAbABhAHIAYgB0AG4ALQBpAGMAbwBuAGIAdABuAC0AaQBjAG8AbgBWAGUAcgBzAGkAbwBuACAAMQAuADAAYgB0AG4ALQBpAGMAbwBuAEYAbwBuAHQAIABnAGUAbgBlAHIAYQB0AGUAZAAgAHUAcwBpAG4AZwAgAFMAeQBuAGMAZgB1AHMAaQBvAG4AIABNAGUAdAByAG8AIABTAHQAdQBkAGkAbwB3AHcAdwAuAHMAeQBuAGMAZgB1AHMAaQBvAG4ALgBjAG8AbQAAAAACAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgBAgEDAQQBBQEGAQcBCAEJAAptZWRpYS1wbGF5C21lZGlhLXBhdXNlDmFycm93aGVhZC1sZWZ0BHN0b3AJbGlrZS0tLTAxBGNvcHkQLWRvd25sb2FkLTAyLXdmLQAA) format('truetype');\n      font-weight: normal;\n      font-style: normal;\n  }\n\n  .e-btn-sb-icon {\n    font-family: 'btn-icon' !important;\n    font-size: 55px;\n    font-style: normal;\n    font-weight: normal;\n    font-variant: normal;\n    text-transform: none;\n    line-height: 1;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n\n  /*For Right Icon Button*/\n  .e-stop-icon::before {\n    content: '\\e703';\n  }\n\n  /*For Left Icon Button*/\n  .e-prev-icon::before {\n    content: '\\e702';\n  }\n\n  button {\n    margin: 25px 5px 20px 20px;\n  }\n  </style>\n  <div class=\"e-row\" style=\"margin-top: 96px;\">\n    <ej-button  content.bind=\"content\"\n                css-class.bind=\"cssClass\"\n                enabled.bind=\"enabled\"\n                enable-html-sanitizer.bind=\"enableHtmlSanitizer\"\n                enable-persistence.bind=\"enablePersistence\"\n                enable-rtl.bind=\"enableRtl\"\n                icon-css.bind=\"iconCss\"\n                icon-position.bind=\"iconPosition\"\n                primary.bind=\"isPrimary\",\n                toggle.bind=\"isToggle\"></ej-button>\n  </div>\n\n  <div>\n    <label><code>enabled</code></label>\n    <ej-switch style=\"margin-right: 50px;\" css-class.bind=\"cssClass\" checked.bind=\"enabled\" on-label=\"on\" off-label=\"off\"></ej-switch>\n    <label><code>enableRtl</code></label>\n    <ej-switch css-class.bind=\"cssClass\" checked.bind=\"enableRtl\" on-label=\"on\" off-label=\"off\"></ej-switch>\n    <label><code>primary</code></label>\n    <ej-switch css-class.bind=\"cssClass\" checked.bind=\"isPrimary\" on-label=\"on\" off-label=\"off\"></ej-switch>\n    <label><code>toggle</code></label>\n    <ej-switch css-class.bind=\"cssClass\" checked.bind=\"isToggle\" on-label=\"on\" off-label=\"off\"></ej-switch>\n  </div>\n\n  <hr>\n  <ej-checkbox checked.two-way=\"enabled\" label=\"Enable RTL\"></ej-checkbox>\n\n  <hr>\n  <ej-textbox placeholder=\"content\" value.two-way=\"content\" enabled.bind=\"enabled\" width=\"300\" show-clear-button=\"true\"></ej-textbox>\n\n  <hr>\n  <ej-textbox placeholder=\"cssClass\" value.two-way=\"cssClass & debounce:1000\" width=\"300\" floatLabel-type=\"Always\"  show-clear-button=\"true\"></ej-textbox>\n\n  <hr>\n  <ej-textbox placeholder=\"iconCss\" value.two-way=\"iconCss & debounce:1000\" width.bind=\"width\" floatLabel-type=\"Always\"  show-clear-button=\"true\"></ej-textbox>\n\n  <hr>\n  <ej-numeric-textbox value.bind=\"width\" width=\"120\" min=\"80\" max=\"300\" step=\"10\"></ej-numeric-textbox>\n  <ej-numeric-textbox value=\"200\" format=\"0\" decimal=\"0\" validate-decimal-on-type=\"true\" width.bind=\"width\" min=\"80\" max=\"300\" step=\"10\"></ej-numeric-textbox>\n\n  <ej-masked-textbox mask=\"+\\972-00-000-0000\"></ej-masked-textbox>\n</template>\n";});
 //# sourceMappingURL=app-bundle.js.map
