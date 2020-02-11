@@ -1,9 +1,9 @@
 import { bindable, bindingMode } from 'aurelia-framework';
 import { ComponentModel, Component } from '@syncfusion/ej2-base';
 
-export abstract class EjComponentModel implements ComponentModel {
+export abstract class EjComponentModel<T extends Component<HTMLElement>> implements ComponentModel {
 
-  protected _wrapped: Component<HTMLElement>;
+  protected _wrapped: T;
   /**
      * Enable or disable persisting component's state between page reloads.
      * @default false
@@ -39,4 +39,7 @@ export abstract class EjComponentModel implements ComponentModel {
         this._wrapped.locale = newValue;
       }
     }
+
 }
+
+

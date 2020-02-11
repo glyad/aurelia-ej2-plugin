@@ -1,12 +1,12 @@
 import { bindable, bindingMode } from 'aurelia-framework';
 import { EmitType } from '@syncfusion/ej2-base';
-import { SwitchModel, ChangeEventArgs } from '@syncfusion/ej2-buttons';
+import { Switch, SwitchModel, ChangeEventArgs } from '@syncfusion/ej2-buttons';
 import { EjComponentModel } from '../../base/ej-component-model';
 
 /**
  * Interface for a class Switch
  */
-export class EjSwitchModel extends EjComponentModel implements SwitchModel{
+export class EjSwitchModel extends EjComponentModel<Switch> implements SwitchModel{
 
     /**
      * Triggers when Switch state has been changed by user interaction.
@@ -23,6 +23,12 @@ export class EjSwitchModel extends EjComponentModel implements SwitchModel{
      */
     @bindable({ defaultBindingMode: bindingMode.twoWay })
     checked?: boolean;
+    checkedChanged(value: any) {
+      if (this._wrapped) {
+        this._wrapped.checked = value === true || value === 'true';
+      }
+    }
+
 
     /**
      * You can add custom styles to the Switch by using this property.
