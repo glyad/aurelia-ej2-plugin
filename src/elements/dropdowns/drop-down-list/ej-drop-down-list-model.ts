@@ -1,10 +1,10 @@
 import { bindable, bindingMode } from 'aurelia-framework';
 import { FloatLabelType } from '@syncfusion/ej2-inputs';
 import { EmitType } from '@syncfusion/ej2-base';
-import { DropDownListModel, ChangeEventArgs, FilteringEventArgs, PopupEventArgs } from '@syncfusion/ej2-dropdowns';
+import { DropDownList, DropDownListModel, ChangeEventArgs, FilteringEventArgs, PopupEventArgs } from '@syncfusion/ej2-dropdowns';
 import { EjDropDownBaseModel } from '../drop-down-base/ej-drop-down-base-model';
 
-export class EjDropDownListModel extends EjDropDownBaseModel implements DropDownListModel {
+export class EjDropDownListModel<T> extends EjDropDownBaseModel<DropDownList> implements DropDownListModel {
 
   /**
    * Sets CSS classes to the root element of the component that allows customization of appearance.

@@ -13,12 +13,12 @@ import { EjDropDownBaseModel } from '../drop-down-base/ej-drop-down-base-model';
 
   const optionsTemplate = document.createElement("template");
   optionsTemplate.setAttribute("replace-part", "options");
-  
+
   const options = Array.from(element.querySelectorAll("option"));
 
   for (let i = 0; i < options.length; i++) {
     const option = options[i];
-    
+
     // add option
     const optionElement = document.createElement("option");
     optionElement.setAttribute("value", option.value);
@@ -32,7 +32,7 @@ import { EjDropDownBaseModel } from '../drop-down-base/ej-drop-down-base-model';
 
   return true;
 })
-export class EjDropDownList extends EjDropDownListModel implements DropDownListModel {
+export class EjDropDownList extends EjDropDownListModel<DropDownList> implements DropDownListModel {
 
   // width?: string | number;
   // popupHeight?: string | number;
@@ -55,7 +55,7 @@ export class EjDropDownList extends EjDropDownListModel implements DropDownListM
   // close?: import("@syncfusion/ej2-base").EmitType<import("@syncfusion/ej2-dropdowns").PopupEventArgs>;
   // blur?: import("@syncfusion/ej2-base").EmitType<Object>;
   // focus?: import("@syncfusion/ej2-base").EmitType<Object>;
-  
+
   constructor(private element: Element) {
     super();
   }
@@ -71,10 +71,10 @@ export class EjDropDownList extends EjDropDownListModel implements DropDownListM
     }, this.element.querySelector("select"));
   }
 
-  
+
   /**
    * Triggers when an item in a popup is selected or when the model value is changed by user.
-   * Use change event to 
+   * Use change event to
    * [`Configure the Cascading DropDownList`](../../drop-down-list/how-to/cascading)
    * @event
    * @blazorProperty 'ValueChange'

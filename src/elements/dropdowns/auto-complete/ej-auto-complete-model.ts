@@ -1,8 +1,9 @@
 import { bindable, bindingMode } from 'aurelia-framework';
 import { EjComboBoxModel } from './../combo-box/ej-combo-box-model';
-import { AutoCompleteModel } from '@syncfusion/ej2-dropdowns';
+import { AutoCompleteModel, AutoComplete } from '@syncfusion/ej2-dropdowns';
+import { EjComponentModel } from '../../base/ej-component-model';
 
-export class EjAutoCompleteModel extends EjComboBoxModel implements AutoCompleteModel {
+export class EjAutoCompleteModel extends EjComboBoxModel<AutoComplete> implements AutoCompleteModel {
 
     /**
      * Allows you to either show or hide the popup button on the component.

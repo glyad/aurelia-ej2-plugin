@@ -1,11 +1,11 @@
 import { bindable, bindingMode } from 'aurelia-framework';
-import { EmitType } from '@syncfusion/ej2-base';
+import { EmitType, Component } from '@syncfusion/ej2-base';
 import { DataManager, Query } from '@syncfusion/ej2-data';
 import { SortOrder } from '@syncfusion/ej2-lists';
 import { DropDownBaseModel, FieldSettingsModel, FilterType, SelectEventArgs } from '@syncfusion/ej2-dropdowns';
 import { EjComponentModel } from '../../base/ej-component-model';
 
-export class EjDropDownBaseModel extends EjComponentModel implements DropDownBaseModel {
+export class EjDropDownBaseModel<T extends Component<HTMLElement>> extends EjComponentModel<T> implements DropDownBaseModel {
 
   /**
    * The `fields` property maps the columns of the data table and binds the data to the component.
