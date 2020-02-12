@@ -3,10 +3,10 @@ import { EmitType } from '@syncfusion/ej2-base';
 import { Query, DataManager } from '@syncfusion/ej2-data';
 import { SortOrder } from '@syncfusion/ej2-lists';
 import { EjDropDownBaseModel } from './../drop-down-base/ej-drop-down-base-model';
-import { SelectionSettingsModel, ToolbarSettingsModel, ListBoxModel, FieldSettingsModel, FilterType, FilteringEventArgs, SelectEventArgs, BeforeItemRenderEventArgs, ListBoxChangeEventArgs, DropEventArgs, DragEventArgs } from '@syncfusion/ej2-dropdowns';
+import { SelectionSettingsModel, ToolbarSettingsModel, ListBoxModel, FieldSettingsModel, FilterType, FilteringEventArgs, SelectEventArgs, BeforeItemRenderEventArgs, ListBoxChangeEventArgs, DropEventArgs, DragEventArgs, ListBox } from '@syncfusion/ej2-dropdowns';
 
-export class EjListBoxModel extends EjDropDownBaseModel implements ListBoxModel {
-  
+export class EjListBoxModel extends EjDropDownBaseModel<ListBox> implements ListBoxModel {
+
     /**
      * Sets the CSS classes to root element of this component, which helps to customize the
      * complete styles.
@@ -48,7 +48,7 @@ export class EjListBoxModel extends EjDropDownBaseModel implements ListBoxModel 
     maximumSelectionLength?: number;
 
     /**
-     * To enable the filtering option in this component. 
+     * To enable the filtering option in this component.
      * Filter action performs when type in search box and collect the matched item through `filtering` event.
      * If searching character does not match, `noRecordsTemplate` property value will be shown.
      * @default false
