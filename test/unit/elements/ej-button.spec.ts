@@ -44,60 +44,60 @@ describe('ej-button element', () => {
     }
   });
 
-  Object.keys(model).forEach(key => {
-    console.log(`${key} = ${model[key]}`);
+  // Object.keys(model).forEach(key => {
+  //   console.log(`${key} = ${model[key]}`);
 
-    it(`binds the ${key} property`, done => {
+  //   it(`binds the ${key} property`, done => {
 
 
-      component = StageComponent
-        .withResources('resources/elements/buttons/button/ej-button')
-        .inView(`<ej-button ${toKebabCase(key)}.bind="${key}"></ej-button>`)
-        .boundTo(model);
+  //     component = StageComponent
+  //       .withResources('resources/elements/buttons/button/ej-button')
+  //       .inView(`<ej-button ${toKebabCase(key)}.bind="${key}"></ej-button>`)
+  //       .boundTo(model);
 
-      component.create(bootstrap).then(() => {
-        const view = component.element;
-        expect((<HTMLElement>view).attributes.getNamedItem(`${toKebabCase(key)}.bind`).value).toBe(key);
-        done();
-      }).catch(e => {
-        fail(e);
-        done();
-      });
-    });
-  });
-
-  // it('binds the Content property', done => {
-
-  //   component = StageComponent
-  //     .withResources('resources/elements/buttons/button/ej-button')
-  //     .inView('<ej-button content.bind="content"></ej-button>')
-  //     .boundTo(model);
-
-  //   component.create(bootstrap).then(() => {
-  //     const view = component.element;
-  //     console.log((<HTMLElement>view));
-  //     expect(view.textContent.trim()).toBe(model.content);
-  //     done();
-  //   }).catch(e => {
-  //     fail(e);
-  //     done();
+  //     component.create(bootstrap).then(() => {
+  //       const view = component.element;
+  //       expect((<HTMLElement>view).attributes.getNamedItem(`${toKebabCase(key)}.bind`).value).toBe(key);
+  //       done();
+  //     }).catch(e => {
+  //       fail(e);
+  //       done();
+  //     });
   //   });
   // });
 
-//   it('displays the Content property statically', done => {
+  it('binds the Content property', done => {
 
-//     console.log(`displays the Content property "${model.content}" statically`)
-//     component = StageComponent
-//       .withResources('resources/elements/buttons/button/ej-button')
-//       .inView(`<ej-button content="${model.content}"></ej-button>`);
+    component = StageComponent
+      .withResources('resources/elements/buttons/button/ej-button')
+      .inView('<ej-button content.bind="content"></ej-button>')
+      .boundTo(model);
 
-//     component.create(bootstrap).then(() => {
-//       const view = component.element;
-//       expect(view.textContent.trim()).toBe(`${model.content}`);
-//       done();
-//     }).catch(e => {
-//       fail(e);
-//       done();
-//     });
-//   });
+    component.create(bootstrap).then(() => {
+      const view = component.element;
+      console.log((<HTMLElement>view));
+      expect(view.textContent.trim()).toBe(model.content);
+      done();
+    }).catch(e => {
+      fail(e);
+      done();
+    });
+  });
+
+  it('displays the Content property statically', done => {
+
+    console.log(`displays the Content property "${model.content}" statically`)
+    component = StageComponent
+      .withResources('resources/elements/buttons/button/ej-button')
+      .inView(`<ej-button content="${model.content}"></ej-button>`);
+
+    component.create(bootstrap).then(() => {
+      const view = component.element;
+      expect(view.textContent.trim()).toBe(`${model.content}`);
+      done();
+    }).catch(e => {
+      fail(e);
+      done();
+    });
+  });
 });
